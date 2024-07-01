@@ -5,13 +5,29 @@ import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-import { call, email, icon, lock } from "../assets";
+import { call, email, icon, lock, visible, visible_off } from "../assets";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [passwordVisibility, setPasswordVisibility] = useState("empty");
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisibility((prevState) =>
+      prevState === "visible" ? "hidden" : "visible"
+    );
+  };
+
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    handleChange(e);
+    if (value.length > 0 && passwordVisibility === "empty") {
+      setPasswordVisibility("hidden");
+    }
+  };
+
   const [form, setForm] = useState({
     phoneNumber: "",
-    Password: "",
+    password: "",
   });
   const [loading, setLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false); // State for alert visibility
@@ -100,8 +116,8 @@ const Login = () => {
             <span className="text-white font-medium mb-4"></span>
             <div className=" flex justify-end items-center relative">
               <input
-                type="password"
-                name="Password"
+                type={passwordVisibility === "visible" ? "text" : "password"}
+                name="password"
                 value={form.password}
                 onChange={handleChange}
                 placeholder="Password"
@@ -110,7 +126,18 @@ const Login = () => {
                 text-black rounded-lg outlined-none
                 border-[#A9A9A9] font-normal text-[18px] border-1"
               />
-              <img src={lock} className="absolute mr-4" />
+              <img
+                src={
+                  passwordVisibility === "empty"
+                    ? lock
+                    : passwordVisibility === "visible"
+                    ? visible
+                    : visible_off
+                }
+                className="absolute mr-4 cursor-pointer"
+                alt="lock"
+                onClick={togglePasswordVisibility}
+              />
             </div>
           </label>
 

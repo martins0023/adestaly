@@ -152,6 +152,11 @@ const Wallets = () => {
 
   const [selectedCable, setSelectedCable] = useState(null);
 
+  const handleNetworkClick = (networkId) => {
+    setSelectedNetwork(networkId);
+    navigate("/airtime"); // Navigate to the "airtime" page
+  };
+
   const containerVariants = {
     hidden: { opacity: 0, x: "-100vw" },
     visible: {
@@ -278,7 +283,11 @@ const Wallets = () => {
                     },
                     { img: data, text: "Buy Data", onClick: openModal },
                     { img: exampin, text: "Exam Pin", onClick: examopenModal },
-                    { img: referrals, text: "Referrals", onClick: handleNavigate },
+                    {
+                      img: referrals,
+                      text: "Referrals",
+                      onClick: handleNavigate,
+                    },
                     { img: cable, text: "Cable TV", onClick: cableopenModal },
                     { img: datapin, text: "Data Pin", onClick: null },
                     { img: logout, text: "Logout", onClick: null },
@@ -328,7 +337,7 @@ const Wallets = () => {
                 ✕
               </button>
               <p className="font-semibold text-[16px] text-[#000000]">
-                Social Network
+                Select Network
               </p>
             </div>
             <div className="grid grid-cols-2 gap-[46px] p-3 mt-9">
@@ -336,7 +345,7 @@ const Wallets = () => {
                 <div
                   key={network.id}
                   className="relative cursor-pointer"
-                  onClick={() => setSelectedNetwork(network.id)}
+                  onClick={() => handleNetworkClick(network.id)}
                 >
                   <img
                     src={network.img}
@@ -362,7 +371,11 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
-            <button className="mt-6 bg-[#D3A5A5] text-white py-3 px-12 rounded-full w-full">
+            <button
+              className="mt-6 bg-[#D3A5A5] text-black py-3 px-12 rounded-full w-full"
+              disabled={!selectedNetwork} // Disable if no network is selected
+              onClick={() => selectedNetwork && navigate("/airtime")} // Navigate on button click
+            >
               Continue
             </button>
           </div>

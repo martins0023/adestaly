@@ -67,7 +67,7 @@ const ServiceModal = ({ modalIsOpen, closeModal, serviceType }) => {
               ✕
             </button>
             <p className="font-semibold text-[16px] text-[#000000]">
-              Social Network
+              Select Network
             </p>
           </div>
           <div className="grid grid-cols-2 gap-[46px] p-3 mt-9">

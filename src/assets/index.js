@@ -94,8 +94,13 @@ import refpayments from "./payments.png";
 import report from "./report.png";
 import call from "./call.png";
 
+import visible from "./remove_red_eye.png"
+import visible_off from "./visibility_off.png"
+
 export {
   call,
+  visible,
+  visible_off,
   menu,
   report,
   refperson,
