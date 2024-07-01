@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { dropdown, naira } from "../../assets";
+import { Link } from "react-router-dom";
 
 const Network = () => {
   const [formData, setFormData] = useState({
@@ -253,15 +254,17 @@ const Network = () => {
               </div>
 
               <div className="flex flex-auto items-center justify-center mt-[56px]">
-                <button
-                  type="submit"
-                  disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
-                    isFormValid ? "" : "opacity-50 cursor-not-allowed"
-                  }`}
-                >
-                  {loading ? "transferring..." : "Buy Airtime"}
-                </button>
+                <Link to="/review">
+                  <button
+                    type="submit"
+                    disabled={!isFormValid}
+                    className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
+                      isFormValid ? "" : "opacity-50 cursor-not-allowed"
+                    }`}
+                  >
+                    {loading ? "transferring..." : "Buy Airtime"}
+                  </button>
+                </Link>
               </div>
 
               <div className="mb-5 mt-5" />
