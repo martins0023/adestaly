@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { dropdown, naira } from "../../assets";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Network = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     network: "",
     type: "",
@@ -66,6 +68,7 @@ const Network = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
+    navigate('/review');
   };
   const [loading, setLoading] = useState(false);
 
@@ -254,7 +257,7 @@ const Network = () => {
               </div>
 
               <div className="flex flex-auto items-center justify-center mt-[56px]">
-                <Link to="/review">
+                
                   <button
                     type="submit"
                     disabled={!isFormValid}
@@ -264,7 +267,6 @@ const Network = () => {
                   >
                     {loading ? "transferring..." : "Buy Airtime"}
                   </button>
-                </Link>
               </div>
 
               <div className="mb-5 mt-5" />
