@@ -112,7 +112,7 @@ const Funds = () => {
           <hr className="items-center p-3 w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
         </div>
       </motion.div>
-      <div className="flex flex-col items-center justify-center m-2 mb-8 gap-[16px]"></div>
+      <div className="flex flex-col items-center justify-center m-2 mb-8 mt-[40px] gap-[16px]"></div>
     </section>
   );
 };
