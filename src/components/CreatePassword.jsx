@@ -204,7 +204,7 @@ const CreatePassword = () => {
         </form>
         <div className="mt-4">
           <p className="text-[#353945] font-normal text-[12px] text-center">
-          Already have an account? <span className="text-[#8E1011] font-semibold text-[12px]"> <a href="/login"> Login</a></span>
+          Already have an account? <span className="text-[#8E1011] font-semibold text-[12px]"> <a href="./Login"> Login</a></span>
         </p>
         </div>
       </motion.div>
