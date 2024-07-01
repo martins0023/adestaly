@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { dropdown, naira } from "../../assets";
+import { useNavigate } from "react-router-dom";
 
 const Exampins = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     exam: "",
     quantity: "",
@@ -41,6 +44,7 @@ const Exampins = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
+    navigate("/review");
   };
   const [loading, setLoading] = useState(false);
 

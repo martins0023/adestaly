@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { dropdown, naira } from "../../assets";
+import { useNavigate } from "react-router-dom";
 
 const Bundles = () => {
+  const navigate = useNavigate();
+
   const containerVariants = {
     hidden: { opacity: 0, x: "-100vw" },
     visible: {
@@ -83,6 +86,7 @@ const Bundles = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
+    navigate("/review");
   };
   const [loading, setLoading] = useState(false);
 

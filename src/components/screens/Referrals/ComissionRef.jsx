@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { refpayments, refperson } from "../../../assets";
+import { useNavigate } from "react-router-dom";
 
 const commissions = [
   {
@@ -35,6 +36,7 @@ const CommissionCard = ({ commission }) => (
 );
 
 const ComissionRef = () => {
+  const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0, x: "-100vw" },
     visible: {
@@ -85,6 +87,7 @@ const ComissionRef = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
+    navigate("/withdrawfunds");
   };
 
   const [loading, setLoading] = useState(false);
@@ -114,7 +117,7 @@ const ComissionRef = () => {
                   Your Link
                 </span>
                 <input
-                  type="number"
+                  type="text"
                   name="link"
                   placeholder="https://adestaly.com/miracle"
                   value={formData.link}

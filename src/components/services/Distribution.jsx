@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { dropdown, info, naira } from "../../assets";
+import { useNavigate } from "react-router-dom";
 
 const Distribution = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     distribution: "",
     type: "",
@@ -63,6 +66,7 @@ const Distribution = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
+    navigate("/review");
   };
   const [loading, setLoading] = useState(false);
 

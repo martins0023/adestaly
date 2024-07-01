@@ -43,8 +43,16 @@ import {
 import { styles } from "../../styles";
 import ServiceModal from "./ServiceModal";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Wallets = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    navigate("/referrals");
+  };
   //make height
   const [isFullHeight, setIsFullHeight] = useState(false);
 
@@ -270,7 +278,7 @@ const Wallets = () => {
                     },
                     { img: data, text: "Buy Data", onClick: openModal },
                     { img: exampin, text: "Exam Pin", onClick: examopenModal },
-                    { img: referrals, text: "Referrals", onClick: null },
+                    { img: referrals, text: "Referrals", onClick: handleNavigate },
                     { img: cable, text: "Cable TV", onClick: cableopenModal },
                     { img: datapin, text: "Data Pin", onClick: null },
                     { img: logout, text: "Logout", onClick: null },

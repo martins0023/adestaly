@@ -100,7 +100,7 @@ const Card = () => {
         </p>
         <ul className="flex list-none">
           <Link
-            to="/"
+            to="/dashboard"
             className="flex"
             onClick={() => {
               setActive("");

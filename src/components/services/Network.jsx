@@ -68,7 +68,7 @@ const Network = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    navigate('/review');
+    navigate("/review");
   };
   const [loading, setLoading] = useState(false);
 
@@ -257,16 +257,15 @@ const Network = () => {
               </div>
 
               <div className="flex flex-auto items-center justify-center mt-[56px]">
-                
-                  <button
-                    type="submit"
-                    disabled={!isFormValid}
-                    className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
-                      isFormValid ? "" : "opacity-50 cursor-not-allowed"
-                    }`}
-                  >
-                    {loading ? "transferring..." : "Buy Airtime"}
-                  </button>
+                <button
+                  type="submit"
+                  disabled={!isFormValid}
+                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
+                    isFormValid ? "" : "opacity-50 cursor-not-allowed"
+                  }`}
+                >
+                  {loading ? "transferring..." : "Buy Airtime"}
+                </button>
               </div>
 
               <div className="mb-5 mt-5" />

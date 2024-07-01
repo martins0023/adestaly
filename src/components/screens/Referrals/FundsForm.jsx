@@ -58,7 +58,40 @@ const FundsForm = () => {
   const handleToggle = () => {
     setIsEnabled(!isEnabled);
   };
+
+  const containerVariants = {
+    hidden: { opacity: 0, x: "-100vw" },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { type: "spring", stiffness: 50, staggerChildren: 0.3 },
+    },
+    exit: {
+      x: "100vw",
+      opacity: 0,
+      transition: { ease: "easeInOut" },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const cardHoverVariants = {
+    hover: {
+      scale: 1.05,
+      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+      transition: { duration: 0.3 },
+    },
+  };
   return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
     <div className="mt-[20px] bg-white rounded-2xl p-6 m-3 gap-[24px] font-montserrat">
       <div className="flex flex-col justify justify-center items-center mt-[16px] gap-[2px] font-montserrat">
         <p className="font-normal text-[14px] text-[#8E1011] font-montserrat text-center">
@@ -213,6 +246,7 @@ const FundsForm = () => {
         </Modal>
       </div>
     </div>
+    </motion.div>
   );
 };
 

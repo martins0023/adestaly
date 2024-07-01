@@ -8,6 +8,11 @@ import { arrow_back_ios, cancel, home } from "../../assets";
 const Review = () => {
   const navigate = useNavigate();
 
+  const handleNavigation = () => {
+    // Handle form submission
+    navigate("/transactiondetails");
+  };
+
   const containerVariants = {
     hidden: { opacity: 0, x: "-100vw" },
     visible: {
@@ -116,7 +121,7 @@ const Review = () => {
         </p>
         <ul className="flex list-none ml-[109px] sm:flex flex-row">
           <Link
-            to="/"
+            to="/dashboard"
             className="flex  "
             onClick={() => {
               setActive("");
@@ -248,7 +253,7 @@ const Review = () => {
               <img src={cancel} className="w-[32px] h-[24px] object-contain" />
             </button>
           </div>
-          <button className="mt-6 bg-[#ffff] text-[#8E1011] border-[1.5px] border-[#8E1011] py-3 px-12 rounded-full">
+          <button onClick={handleNavigation} className="mt-6 bg-[#ffff] text-[#8E1011] border-[1.5px] border-[#8E1011] py-3 px-12 rounded-full">
             Pay
           </button>
         </div>

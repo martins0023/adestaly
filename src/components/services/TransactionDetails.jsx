@@ -1,10 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { styles } from "../../styles";
 import { arrow_back_ios, cancel, home, success } from "../../assets";
 
 const TransactionDetails = () => {
+  const containerVariants = {
+    hidden: { opacity: 0, x: "-100vw" },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { type: "spring", stiffness: 50, staggerChildren: 0.3 },
+    },
+    exit: {
+      x: "100vw",
+      opacity: 0,
+      transition: { ease: "easeInOut" },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const cardHoverVariants = {
+    hover: {
+      scale: 1.05,
+      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+      transition: { duration: 0.3 },
+    },
+  };
 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -48,7 +75,7 @@ const TransactionDetails = () => {
         </p>
         <ul className="flex list-none ml-[109px] sm:flex flex-row">
           <Link
-            to="/"
+            to="/dashboard"
             className="flex  "
             onClick={() => {
               setActive("");
@@ -63,103 +90,110 @@ const TransactionDetails = () => {
           </Link>
         </ul>
       </div>
+      <motion.div
+        className="dashboard-container"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        <div className="mt-[54px] bg-white rounded-3xl p-7 m-3 gap-[24px] font-montserrat">
+          <div className="flex flex-col justify justify-center items-center mt-[16px] gap-[12px] font-montserrat">
+            <img src={success} className="w-[60px] h-[60px]" />
+            <p className="font-semibold text-[24px] text-[#000] font-montserrat text-center">
+              Transaction Successful
+            </p>
+            <p className="font-medium text-[14px] text-[#000] text-center font-montserrat">
+              You have successfully shared 30GB Data to 234902784684.
+            </p>
+          </div>
+          <div className="flex flex-auto justify justify-between mt-[16px] ">
+            <p className="justify justify-start flex flex-start font-normal text-[16px] font-montserrat text-[#6A6A6A]">
+              Ref No.
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold text-[16px] font-montserrat text-[#000000]">
+              986608468409
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] " />
+          <div className="flex flex-auto justify justify-between mt-[16px] ">
+            <p className="justify justify-start flex font-montserrat flex-start font-normal text-[16px] text-[#6A6A6A]">
+              Biller
+            </p>
+            <p className="justify justify-end flex flex-end font-montserrat font-semibold text-[16px] text-[#000000]">
+              MTNNG
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px]" />
+          <div className="flex flex-auto justify justify-between ">
+            <p className="justify justify-start flex flex-start font-montserrat font-normal text-[16px] text-[#6A6A6A]">
+              Date
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold font-montserrat text-[16px] text-[#000000]">
+              {currentDate}
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
+          <div className="flex flex-auto justify justify-between ">
+            <p className="justify justify-start flex flex-start font-normal font-montserrat text-[16px] text-[#6A6A6A]">
+              Service
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold font-montserrat text-[16px] text-[#000000]">
+              Data
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
+          <div className="flex flex-auto justify justify-between mb-[16px]">
+            <p className="justify justify-start flex flex-start font-normal font-montserrat text-[16px] text-[#6A6A6A]">
+              Description
+            </p>
+            <p className=" font-semibold font-montserrat text-[16px] text-[#000000]">
+              Your SME data <br />
+              balance is 4384GB <br />
+              expires 02/10/2024. <br />
+              Thank you{" "}
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
+          <div className="flex flex-auto justify justify-between ">
+            <p className="justify justify-start flex font-montserrat flex-start font-normal text-[16px] text-[#6A6A6A]">
+              Amount
+            </p>
+            <p className="justify justify-end flex flex-end font-montserrat font-semibold text-[16px] text-[#000000]">
+              N796
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
+          <div className="flex flex-auto justify justify-between ">
+            <p className="justify justify-start flex flex-start font-normal font-montserrat text-[16px] text-[#6A6A6A]">
+              Old Balance
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold text-[16px] font-montserrat text-[#000000]">
+              N702.4
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
+          <div className="flex flex-auto justify justify-between mb-[16px] ">
+            <p className="justify justify-start flex flex-start font-normal font-montserrat text-[16px] text-[#6A6A6A]">
+              New Balance
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold font-montserrat text-[16px] text-[#000000]">
+              N843.4
+            </p>
+          </div>
+        </div>
 
-      <div className="mt-[54px] bg-white rounded-3xl p-7 m-3 gap-[24px] font-montserrat">
-        <div className="flex flex-col justify justify-center items-center mt-[16px] gap-[12px] font-montserrat">
-          <img src={success} className="w-[60px] h-[60px]" />
-          <p className="font-semibold text-[24px] text-[#000] font-montserrat text-center">
-            Transaction Successful
-          </p>
-          <p className="font-medium text-[14px] text-[#000] text-center font-montserrat">
-            You have successfully shared 30GB Data to 234902784684.
-          </p>
+        <div className="flex flex-auto items-center justify-center mt-[56px] m-2 mb-8">
+          <Link to="/userreceipt">
+            <button
+              type="submit"
+              className={`bg-original font-montserrat py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] `}
+            >
+              {loading ? "transferring..." : "View user receipt"}
+            </button>
+          </Link>
         </div>
-        <div className="flex flex-auto justify justify-between mt-[16px] ">
-          <p className="justify justify-start flex flex-start font-normal text-[16px] font-montserrat text-[#6A6A6A]">
-            Ref No.
-          </p>
-          <p className="justify justify-end flex flex-end font-semibold text-[16px] font-montserrat text-[#000000]">
-            986608468409
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] " />
-        <div className="flex flex-auto justify justify-between mt-[16px] ">
-          <p className="justify justify-start flex font-montserrat flex-start font-normal text-[16px] text-[#6A6A6A]">
-            Biller
-          </p>
-          <p className="justify justify-end flex flex-end font-montserrat font-semibold text-[16px] text-[#000000]">
-            MTNNG
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px]" />
-        <div className="flex flex-auto justify justify-between ">
-          <p className="justify justify-start flex flex-start font-montserrat font-normal text-[16px] text-[#6A6A6A]">
-            Date
-          </p>
-          <p className="justify justify-end flex flex-end font-semibold font-montserrat text-[16px] text-[#000000]">
-            {currentDate}
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
-        <div className="flex flex-auto justify justify-between ">
-          <p className="justify justify-start flex flex-start font-normal font-montserrat text-[16px] text-[#6A6A6A]">
-            Service
-          </p>
-          <p className="justify justify-end flex flex-end font-semibold font-montserrat text-[16px] text-[#000000]">
-            Data
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
-        <div className="flex flex-auto justify justify-between mb-[16px]">
-          <p className="justify justify-start flex flex-start font-normal font-montserrat text-[16px] text-[#6A6A6A]">
-            Description
-          </p>
-          <p className=" font-semibold font-montserrat text-[16px] text-[#000000]">
-            Your SME data <br />
-            balance is 4384GB <br />
-            expires 02/10/2024. <br />
-            Thank you{" "}
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
-        <div className="flex flex-auto justify justify-between ">
-          <p className="justify justify-start flex font-montserrat flex-start font-normal text-[16px] text-[#6A6A6A]">
-            Amount
-          </p>
-          <p className="justify justify-end flex flex-end font-montserrat font-semibold text-[16px] text-[#000000]">
-            N796
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
-        <div className="flex flex-auto justify justify-between ">
-          <p className="justify justify-start flex flex-start font-normal font-montserrat text-[16px] text-[#6A6A6A]">
-            Old Balance
-          </p>
-          <p className="justify justify-end flex flex-end font-semibold text-[16px] font-montserrat text-[#000000]">
-            N702.4
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
-        <div className="flex flex-auto justify justify-between mb-[16px] ">
-          <p className="justify justify-start flex flex-start font-normal font-montserrat text-[16px] text-[#6A6A6A]">
-            New Balance
-          </p>
-          <p className="justify justify-end flex flex-end font-semibold font-montserrat text-[16px] text-[#000000]">
-            N843.4
-          </p>
-        </div>
-      </div>
-
-      <div className="flex flex-auto items-center justify-center mt-[56px] m-2 mb-8">
-        <Link to="/userreceipt">
-          <button
-            type="submit"
-            className={`bg-original font-montserrat py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] `}
-          >
-            {loading ? "transferring..." : "View user receipt"}
-          </button>
-        </Link>
-      </div>
+      </motion.div>
     </section>
   );
 };
