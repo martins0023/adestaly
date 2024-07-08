@@ -91,6 +91,29 @@ const Review = () => {
     setModalIsOpen(false);
   };
 
+  const [pin, setPin] = useState(["", "", "", ""]);
+
+  const handleNumberClick = (number) => {
+    const newPin = [...pin];
+    const emptyIndex = newPin.findIndex((digit) => digit === "");
+    if (emptyIndex !== -1) {
+      newPin[emptyIndex] = number.toString();
+      setPin(newPin);
+    }
+  };
+
+  const handleClear = () => {
+    const newPin = [...pin];
+    const lastFilledIndex = newPin
+      .slice()
+      .reverse()
+      .findIndex((digit) => digit !== "");
+    if (lastFilledIndex !== -1) {
+      newPin[3 - lastFilledIndex] = "";
+      setPin(newPin);
+    }
+  };
+
   return (
     <section className={`${styles.paddingX} p-1`}>
       <motion.div
@@ -100,99 +123,99 @@ const Review = () => {
         animate="visible"
         exit="exit"
       >
-      <div className="w-full flex  justify-between items-center max-w-7xl mx-auto p-3">
-        <Link
-          to="/"
-          className="flex"
-          onClick={() => {
-            navigate(-1);
-            window.scrollTo(0, 0);
-          }}
-        >
-          <img
-            src={arrow_back_ios}
-            alt="back"
-            className="w-[24px] h-[24px] object-contain"
-          />
-        </Link>
-
-        <p className="flex justify justify-end ml-[100px] flex-end text-black text-[12px] font-semibold cursor-pointer ">
-          <span className="">Review</span>
-        </p>
-        <ul className="flex list-none ml-[109px] sm:flex flex-row">
+        <div className="w-full flex  justify-between items-center max-w-7xl mx-auto p-3">
           <Link
-            to="/dashboard"
-            className="flex  "
+            to="/"
+            className="flex"
             onClick={() => {
-              setActive("");
+              navigate(-1);
               window.scrollTo(0, 0);
             }}
           >
             <img
-              src={home}
-              alt="home"
-              className="cursor-pointer w-[24px] h-[24px]"
+              src={arrow_back_ios}
+              alt="back"
+              className="w-[24px] h-[24px] object-contain"
             />
           </Link>
-        </ul>
-      </div>
 
-      <div className="mt-[54px] bg-white rounded-3xl p-7 m-3 gap-[24px]">
-        <div className="flex flex-auto justify justify-between mt-[16px] ">
-          <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
-            Biller
+          <p className="flex justify justify-end ml-[100px] flex-end text-black text-[12px] font-semibold cursor-pointer ">
+            <span className="">Review</span>
           </p>
-          <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
-            MTN
-          </p>
+          <ul className="flex list-none ml-[109px] sm:flex flex-row">
+            <Link
+              to="/dashboard"
+              className="flex  "
+              onClick={() => {
+                setActive("");
+                window.scrollTo(0, 0);
+              }}
+            >
+              <img
+                src={home}
+                alt="home"
+                className="cursor-pointer w-[24px] h-[24px]"
+              />
+            </Link>
+          </ul>
         </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] " />
-        <div className="flex flex-auto justify justify-between mt-[16px] ">
-          <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
-            Product
-          </p>
-          <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
-            MTNNG
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px]" />
-        <div className="flex flex-auto justify justify-between ">
-          <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
-            Amount
-          </p>
-          <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
-            200.00
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
-        <div className="flex flex-auto justify justify-between ">
-          <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
-            Time
-          </p>
-          <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
-            {currentTime}
-          </p>
-        </div>
-        <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
-        <div className="flex flex-auto justify justify-between mb-[16px]">
-          <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
-            Date
-          </p>
-          <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
-            {currentDate}
-          </p>
-        </div>
-      </div>
 
-      <div className="flex flex-auto items-center justify-center mt-[56px] m-2">
-        <button
-          type="submit"
-          className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] `}
-          onClick={openModal}
-        >
-          {loading ? "transferring..." : "Continue"}
-        </button>
-      </div>
+        <div className="mt-[54px] bg-white rounded-3xl p-7 m-3 gap-[24px]">
+          <div className="flex flex-auto justify justify-between mt-[16px] ">
+            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+              Biller
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+              MTN
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] " />
+          <div className="flex flex-auto justify justify-between mt-[16px] ">
+            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+              Product
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+              MTNNG
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px]" />
+          <div className="flex flex-auto justify justify-between ">
+            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+              Amount
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+              200.00
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
+          <div className="flex flex-auto justify justify-between ">
+            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+              Time
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+              {currentTime}
+            </p>
+          </div>
+          <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
+          <div className="flex flex-auto justify justify-between mb-[16px]">
+            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+              Date
+            </p>
+            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+              {currentDate}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-auto items-center justify-center mt-[56px] m-2">
+          <button
+            type="submit"
+            className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] `}
+            onClick={openModal}
+          >
+            {loading ? "transferring..." : "Continue"}
+          </button>
+        </div>
       </motion.div>
 
       <div className="mt-[170px] py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold  w-full h-[60px]"></div>
@@ -219,11 +242,13 @@ const Review = () => {
             Enter Pin
           </p>
           <div className="mt-4 flex justify-center gap-[12px]">
-            {[...Array(4)].map((_, index) => (
+            {pin.map((digit, index) => (
               <input
                 key={index}
                 type="password"
                 maxLength="1"
+                value={digit}
+                readOnly
                 className="w-[56px] h-[56px] text-center border border-gray-400 rounded-lg m-1 font-black text-lg text-[#000000]"
               />
             ))}
@@ -233,27 +258,30 @@ const Review = () => {
               <button
                 key={number}
                 className="bg-gray-200 text-black text-lg w-[90.33px] h-[62px] gap-[32px] rounded-sm"
-                onClick={() => console.log(number)}
+                onClick={() => handleNumberClick(number)}
               >
                 {number}
               </button>
             ))}
-            <div className="w-[90.33px] h-[62px]"></div>{" "}
-            {/* Empty placeholder */}
+            <div className="w-[90.33px] h-[62px]"></div>
+            {/*Empty placeholder*/}
             <button
               className="bg-gray-200 text-black text-lg w-[90.33px] h-[62px] gap-[32px] rounded-sm"
-              onClick={() => console.log(0)}
+              onClick={() => handleNumberClick(0)}
             >
               0
             </button>
             <button
               className="bg-[#EEEEEE] text-white text-lg w-[90.33px] h-[62px] rounded-sm flex justify-center items-center"
-              onClick={() => console.log("clear")}
+              onClick={handleClear}
             >
               <img src={cancel} className="w-[32px] h-[24px] object-contain" />
             </button>
           </div>
-          <button onClick={handleNavigation} className="mt-6 bg-[#ffff] text-[#8E1011] border-[1.5px] border-[#8E1011] py-3 px-12 rounded-full">
+          <button
+            onClick={handleNavigation}
+            className="mt-6 bg-[#ffff] text-[#8E1011] border-[1.5px] border-[#8E1011] py-3 px-12 rounded-full"
+          >
             Pay
           </button>
         </div>

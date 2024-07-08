@@ -167,6 +167,15 @@ const GetStarted = () => {
             </button>
           </div>
         </form>
+        <div className="mt-4">
+          <p className="text-[#353945] font-normal text-[12px] text-center">
+            Already Have an account?{" "}
+            <span className="text-[#8E1011] font-semibold text-[12px]">
+              {" "}
+              <a href="/login"> Sign In</a>
+            </span>
+          </p>
+        </div>
       </motion.div>
     </div>
   );

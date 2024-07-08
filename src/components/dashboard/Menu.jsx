@@ -24,6 +24,11 @@ import {
 const Menu = () => {
   const navigate = useNavigate();
 
+  const HandleHome = () => {
+    //
+    navigate("/dashboard");
+  };
+
   const containerVariants = {
     hidden: { opacity: 0, x: "-100vw" },
     visible: {
@@ -93,7 +98,7 @@ const Menu = () => {
                 to="/electricity"
               />
               <ServiceItem icon={cable_icon} label="Cable Tv" to="/cable" />
-              <ServiceItem icon={swap_icon} label="Swap Airtime" />
+              <ServiceItem icon={swap_icon} label="Swap Airtime" to="/airtimetocash" />
               <ServiceItem icon={exam_icon} label="Exam Pin" to="/exam" />
               <ServiceItem icon={datapin_icon} label="Data Pin" />
               <ServiceItem icon={fund_icon} label="Add Fund" to="/more" />
@@ -122,6 +127,14 @@ const Menu = () => {
               <ServiceItem icon={contact_icon} label="Contact" to="#" />
               <ServiceItem icon={logout_icon} label="Logout" to="/logout" />
             </div>
+          </div>
+          <div>
+            <button
+              onClick={HandleHome}
+              className="mt-6 bg-[#ffff] font-montserrat py-3 px-20 text-[#8E1011] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[60px]"
+            >
+              HOME
+            </button>
           </div>
         </div>
       </motion.div>

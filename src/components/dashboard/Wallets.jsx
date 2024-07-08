@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Draggable from "react-draggable";
 import Modal from "react-modal";
 import {
@@ -43,7 +43,7 @@ import {
 import { styles } from "../../styles";
 import ServiceModal from "./ServiceModal";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Wallets = () => {
   const navigate = useNavigate();
@@ -55,15 +55,47 @@ const Wallets = () => {
   };
   //make height
   const [isFullHeight, setIsFullHeight] = useState(false);
+  const scrollContainerRef = useRef(null);
+  const prevScrollY = useRef(0);
 
   const toggleHeight = () => {
     setIsFullHeight(!isFullHeight);
   };
+
+  useEffect(() => {
+    const handleScroll = (event) => {
+      const currentScrollY = event.target.scrollTop;
+
+      // Check if the user is scrolling up or down
+      if (currentScrollY > prevScrollY.current && isFullHeight) {
+        // User is scrolling down
+        setIsFullHeight(false);
+      } else if (currentScrollY < prevScrollY.current && !isFullHeight) {
+        // User is scrolling up
+        setIsFullHeight(true);
+      }
+
+      prevScrollY.current = currentScrollY;
+    };
+
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [isFullHeight]);
+
   //convert to cash
   const [convertmodalIsOpen, setConvertModalIsOpen] = useState(false);
 
   const convertopenModal = () => {
-    setConvertModalIsOpen(true);
+    navigate("/airtimetocash");
+    //setConvertModalIsOpen(true);
   };
 
   const convertcloseModal = () => {
@@ -92,6 +124,13 @@ const Wallets = () => {
     { id: "etisalat", img: etisalat, name: "9mobile" },
   ];
 
+  const handleAirtime = () => {
+    if (selectedNetwork) {
+      // Handle button submission
+      navigate("/airtime");
+    }
+  };
+
   //Exam pin
   const [exammodalIsOpen, setExamModalIsOpen] = useState(false);
 
@@ -109,6 +148,13 @@ const Wallets = () => {
     { id: "waec", img: waec, name: "WAEC" },
     { id: "neco", img: neco, name: "NECO" },
   ];
+
+  const handleExam = () => {
+    if (selectedExam) {
+      // Handle button submission
+      navigate("/exam");
+    }
+  };
 
   //Electricity
   const [electricitymodalIsOpen, setElectricityModalIsOpen] = useState(false);
@@ -134,12 +180,27 @@ const Wallets = () => {
     { id: "phedc", img: phedc, name: "PHEDC" },
   ];
 
+  const handleElectricity = () => {
+    if (selectedElectricity) {
+      // Handle button submission
+      navigate("/electricity");
+    }
+  };
+
   //cables
   const cables = [
     { id: "dstv", img: dstv, name: "DSTV" },
     { id: "gotv", img: gotv, name: "GOTV" },
     { id: "startimes", img: startimes, name: "STARTIMES" },
   ];
+
+  const handleCable = () => {
+    if (selectedCable) {
+      // Handle button submission
+      navigate("/cable");
+    }
+  };
+
   const [cablemodalIsOpen, setCablemodalIsOpen] = useState(false);
 
   const cableopenModal = () => {
@@ -198,7 +259,7 @@ const Wallets = () => {
             <motion.div
               variants={itemVariants}
               whileHover={cardHoverVariants.hover}
-              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-[167px] rounded-xl w-full lg:w-[664px] p-8 pt-5 m-1 bg-hero-pattern bg-no-repeat bg-cover bg-center"
+              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-[167px] rounded-xl w-full lg:w-[full] lg:h-[200px] p-8 pt-5 m-1 bg-hero-pattern bg-no-repeat bg-cover bg-center"
             >
               <div className="flex justify-between items-center ">
                 <div className="">
@@ -235,19 +296,22 @@ const Wallets = () => {
             </motion.div>
           </div>
 
-          <div className={` `}>
-            <div className="mt-3">
-              <div className="flex flex-wrap justify-evenly gap-3 lg:gap-6">
-                {[
-                  { img: currency, text: "Add Money" },
-                  { img: withdraw, text: "Withdraw" },
-                  { img: convert, text: "Convert" },
-                ].map((item, idx) => (
-                  <motion.div
-                    variants={itemVariants}
-                    whileHover={cardHoverVariants.hover}
-                    key={idx}
-                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[72px] w-[106px] lg:w-[264px] rounded-xl flex flex-col items-center justify-center p-3 lg:p-8"
+          <div className="mt-3">
+            <div className="flex flex-wrap justify-between m-1">
+              {[
+                { img: currency, text: "Add Money", to: "/more" },
+                { img: withdraw, text: "Withdraw", to: "/withdrawfunds" },
+                { img: convert, text: "Convert" },
+              ].map((item, idx) => (
+                <motion.div
+                  variants={itemVariants}
+                  whileHover={cardHoverVariants.hover}
+                  key={idx}
+                  className=""
+                >
+                  <Link
+                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[72px] w-[106px] lg:w-[264px]  rounded-xl flex flex-col items-center justify-center p-3 lg:p-8"
+                    to={item.to}
                   >
                     <img
                       src={item.img}
@@ -257,65 +321,65 @@ const Wallets = () => {
                     <p className="text-white font-semibold text-xs lg:text-sm mt-1">
                       {item.text}
                     </p>
-                  </motion.div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4">
+            <div className="bg-colorbg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl ">
+              <div className="flex justify-between mb-4 p-4">
+                <p className="font-semibold text-black text-base ">
+                  My Services
+                </p>
+              </div>
+              <div className="flex flex-wrap justify-around lg:justify-between gap-4 m-1 lg:gap-6">
+                {[
+                  { img: airtime, text: "Airtime", onClick: openModal },
+                  {
+                    img: electricity,
+                    text: "Electricity",
+                    onClick: electricityopenModal,
+                  },
+                  {
+                    img: airtimeswap,
+                    text: "Airtime Swap",
+                    onClick: convertopenModal,
+                  },
+                  { img: data, text: "Buy Data", onClick: openModal },
+                  { img: exampin, text: "Exam Pin", onClick: examopenModal },
+                  {
+                    img: referrals,
+                    text: "Referrals",
+                    onClick: handleNavigate,
+                  },
+                  { img: cable, text: "Cable TV", onClick: cableopenModal },
+                  { img: datapin, text: "Data Pin", onClick: null },
+                  { img: logout, text: "Logout", onClick: null },
+                ].map((item, idx) => (
+                  <motion.button
+                    variants={itemVariants}
+                    whileHover={cardHoverVariants.hover}
+                    key={idx}
+                    type="button"
+                    className="bg-[#F9F9F9] text-xs lg:text-sm text-[14px] border border-[#D8D8D8] font-medium py-2 px-3 lg:py-2 lg:px-4 h-[91px] w-[102px] lg:w-[383.33px] rounded-xl text-black flex flex-col items-center"
+                    onClick={item.onClick}
+                  >
+                    <img
+                      src={item.img}
+                      alt={item.text}
+                      className="w-8 h-8 lg:w-12 lg:h-12 mb-2"
+                    />
+                    {item.text}
+                  </motion.button>
                 ))}
               </div>
             </div>
-            <div className="mt-4">
-              <div className="bg-colorbg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-4 lg:p-6">
-                <div className="flex justify-between mb-4">
-                  <p className="font-semibold text-black text-base">
-                    My Services
-                  </p>
-                </div>
-                <div className="flex flex-wrap justify-evenly gap-3 lg:gap-6">
-                  {[
-                    { img: airtime, text: "Airtime", onClick: openModal },
-                    {
-                      img: electricity,
-                      text: "Electricity",
-                      onClick: electricityopenModal,
-                    },
-                    {
-                      img: airtimeswap,
-                      text: "Airtime Swap",
-                      onClick: convertopenModal,
-                    },
-                    { img: data, text: "Buy Data", onClick: openModal },
-                    { img: exampin, text: "Exam Pin", onClick: examopenModal },
-                    {
-                      img: referrals,
-                      text: "Referrals",
-                      onClick: handleNavigate,
-                    },
-                    { img: cable, text: "Cable TV", onClick: cableopenModal },
-                    { img: datapin, text: "Data Pin", onClick: null },
-                    { img: logout, text: "Logout", onClick: null },
-                  ].map((item, idx) => (
-                    <motion.button
-                      variants={itemVariants}
-                      whileHover={cardHoverVariants.hover}
-                      key={idx}
-                      type="button"
-                      className="bg-[#F9F9F9] text-xs lg:text-sm text-[14px] border border-[#D8D8D8] font-medium py-2 px-3 lg:py-2 lg:px-4 h-[91px] w-[102px] lg:w-[383.33px] rounded-xl text-black flex flex-col items-center"
-                      onClick={item.onClick}
-                    >
-                      <img
-                        src={item.img}
-                        alt={item.text}
-                        className="w-8 h-8 lg:w-12 lg:h-12 mb-2"
-                      />
-                      {item.text}
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="absolute bottom-px right-0">
-              {" "}
-              {/* Ensure it has a higher z-index */}
-              <img src={whatsapp} className="w-14 h-14" alt="WhatsApp Icon" />
-            </div>
+          </div>
+          <div className="absolute bottom-px right-0">
+            {" "}
+            {/* Ensure it has a higher z-index */}
+            <img src={whatsapp} className="w-14 h-14" alt="WhatsApp Icon" />
           </div>
         </div>
       </motion.div>
@@ -433,7 +497,13 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
-            <button className="mt-6 bg-[#D3A5A5] text-white py-3 px-12 rounded-full w-full">
+            <button
+              onClick={handleCable}
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+                selectedCable ? "" : "opacity-50 cursor-not-allowed"
+              }`}
+              disabled={!selectedCable}
+            >
               Continue
             </button>
           </div>
@@ -491,7 +561,13 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
-            <button className="mt-6 bg-[#D3A5A5] text-white py-3 px-12 rounded-full w-full">
+            <button
+              onClick={handleExam}
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+                selectedExam ? "" : "opacity-50 cursor-not-allowed"
+              }`}
+              disabled={!selectedExam}
+            >
               Continue
             </button>
           </div>
@@ -515,7 +591,7 @@ const Wallets = () => {
                 ✕
               </button>
               <p className="font-semibold text-[16px] text-[#000000]">
-                Social Network
+                Select Network
               </p>
             </div>
             <div className="grid grid-cols-2 gap-[46px] p-3 mt-9">
@@ -549,7 +625,13 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
-            <button className="mt-6 bg-[#D3A5A5] text-white py-3 px-12 rounded-full w-full">
+            <button
+              onClick={handleAirtime}
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+                selectedNetwork ? "" : "opacity-50 cursor-not-allowed"
+              }`}
+              disabled={!selectedNetwork}
+            >
               Continue
             </button>
           </div>
@@ -603,7 +685,7 @@ const Wallets = () => {
           }`}
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 relative">
+          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 relative overflow-hidden">
             <div
               className="cursor-pointer w-[66px] h-1 bg-[#5B5B5B] rounded-full mx-auto mb-4"
               onClick={toggleHeight}
@@ -620,7 +702,10 @@ const Wallets = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 p-3 mt-6">
+            <div
+              ref={scrollContainerRef}
+              className="grid grid-cols-2 gap-6 p-3 mt-6 overflow-y-auto no-scrollbar max-h-[70vh]"
+            >
               {electricities.map((electricity) => (
                 <div
                   key={electricity.id}
@@ -651,7 +736,13 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
-            <button className="mt-6 bg-[#D3A5A5] text-white py-3 px-12 rounded-full w-full">
+            <button
+              onClick={handleElectricity}
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+                selectedElectricity ? "" : "opacity-50 cursor-not-allowed"
+              }`}
+              disabled={!selectedElectricity}
+            >
               Continue
             </button>
           </div>

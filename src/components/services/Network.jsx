@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
-import { dropdown, naira } from "../../assets";
+import { arrow_back_ios, dropdown, naira } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
 
 const Network = () => {
@@ -114,6 +114,25 @@ const Network = () => {
         animate="visible"
         exit="exit"
       >
+        <div className="w-full flex justify-between items-center mb-6">
+          <Link
+            to="/"
+            className="flex m-1"
+            onClick={() => {
+              navigate(-1);
+              window.scrollTo(0, 0);
+            }}
+          >
+            <img
+              src={arrow_back_ios}
+              alt="back"
+              className="w-[24px] h-[24px] object-contain"
+            />
+            <p className="text-black justify-center ml-5 font-semibold text-[18px]">
+              Buy Airtime
+            </p>
+          </Link>
+        </div>
         <div className="w-full justify-between items-center max-w-7xl mx-auto ">
           <div className="flex flex-wrap lg:flex-nowrap ">
             <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-[79px] rounded-xl w-full lg:w-[1254px] p-[20px] m-2 bg-hero-pattern bg-no-repeat bg-cover bg-center">

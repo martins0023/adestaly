@@ -1,13 +1,73 @@
 import React from "react";
+import Navbar from "../dashboard/Navbar";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
-import { arrow_back_ios, dropdown, naira } from "../../assets";
+import {
+  arrow_back_ios,
+  cashflow,
+  convert,
+  dropdown,
+  info,
+  naira,
+} from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
 
-const Bundles = () => {
+const ConvertCash = () => {
   const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    network: "",
+    senderNumber: "",
+    amount: "",
+    pay: "",
+  });
+
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const [isFieldEnabled, setIsFieldEnabled] = useState({
+    senderNumber: false,
+    amount: false,
+    pay: false,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  useEffect(() => {
+    setIsFieldEnabled({
+      senderNumber: !!formData.network,
+      amount: !!formData.network && !!formData.senderNumber,
+      pay: !!formData.network && !!formData.senderNumber && !!formData.amount,
+    });
+
+    const allFieldsFilled =
+      formData.network &&
+      formData.senderNumber &&
+      formData.amount &&
+      formData.pay;
+
+    setIsFormValid(allFieldsFilled);
+  }, [formData]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    navigate("/review");
+  };
+  const [loading, setLoading] = useState(false);
+
+  const [isEnabled, setIsEnabled] = useState(false);
+
+  const handleToggle = () => {
+    setIsEnabled(!isEnabled);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0, x: "-100vw" },
@@ -35,67 +95,6 @@ const Bundles = () => {
       transition: { duration: 0.3 },
     },
   };
-
-  const [formData, setFormData] = useState({
-    network: "",
-    type: "",
-    dataplan: "",
-    phoneNumber: "",
-    pay: "",
-  });
-
-  const [isFormValid, setIsFormValid] = useState(false);
-
-  const [isFieldEnabled, setIsFieldEnabled] = useState({
-    type: false,
-    dataplan: false,
-    phoneNumber: false,
-    pay: false,
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  useEffect(() => {
-    setIsFieldEnabled({
-      type: !!formData.network,
-      dataplan: !!formData.network && !!formData.type,
-      phoneNumber: !!formData.network && !!formData.type && !!formData.dataplan,
-      pay:
-        !!formData.network &&
-        !!formData.type &&
-        !!formData.dataplan &&
-        !!formData.phoneNumber,
-    });
-
-    const allFieldsFilled =
-      formData.network &&
-      formData.type &&
-      formData.dataplan &&
-      formData.phoneNumber &&
-      formData.pay;
-
-    setIsFormValid(allFieldsFilled);
-  }, [formData]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    navigate("/review");
-  };
-  const [loading, setLoading] = useState(false);
-
-  const [isEnabled, setIsEnabled] = useState(false);
-
-  const handleToggle = () => {
-    setIsEnabled(!isEnabled);
-  };
-
   return (
     <section className={`${styles.paddingX} `}>
       <motion.div
@@ -120,7 +119,7 @@ const Bundles = () => {
               className="w-[24px] h-[24px] object-contain"
             />
             <p className="text-black justify-center ml-5 font-semibold text-[18px]">
-              Buy Data
+              Airtime To Cash
             </p>
           </Link>
         </div>
@@ -145,6 +144,13 @@ const Bundles = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="flex flex-row justify-center gap-[8px] items-center border border-black h-[70px] rounded-xl m-2">
+            <img src={cashflow} className="h-[38px] w-[38px]" />
+            <p className="uppercase font-bold text-black text-[14px]">
+              CONVERT AIRTIME TO CASH
+            </p>
           </div>
 
           <div className="flex flex-col gap-8 justify justify-between p-3">
@@ -175,55 +181,30 @@ const Bundles = () => {
 
               <label className="flex flex-col">
                 <span className="text-white font-medium mb-4"></span>
-                <select
-                  name="type"
-                  placeholder="Select Data Type"
-                  value={formData.type}
-                  onChange={handleInputChange}
-                  disabled={!isFieldEnabled.type}
-                  className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
-                    isFieldEnabled.type ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
-                >
-                  <option value="" disabled>
-                    Select Data Type
-                  </option>
-                  <option value="vtu">Corporate</option>
-                </select>
-              </label>
-
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4"></span>
-                <select
+                <input
                   type="tel"
-                  name="dataplan"
-                  placeholder="Select Data Plan"
-                  value={formData.dataplan}
+                  name="senderNumber"
+                  placeholder="Sender Number"
+                  value={formData.senderNumber}
                   onChange={handleInputChange}
-                  disabled={!isFieldEnabled.dataplan}
-                  className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
-                    isFieldEnabled.dataplan ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
-                >
-                  <option value="" disabled>
-                    Select Data Plan
-                  </option>
-                  <option value="mtn-4g">1500 - MTN - 4GB for 30days</option>
-                  <option value="mtn-10g">3000 - MTN - 10GB for 30days</option>
-                </select>
+                  disabled={!isFieldEnabled.senderNumber}
+                  className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
+                    isFieldEnabled.senderNumber ? "rounded-lg" : "border-0"
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                />
               </label>
 
               <label className="flex flex-col">
                 <span className="text-white font-medium mb-4"></span>
                 <input
-                  type="tel"
-                  name="phoneNumber"
-                  placeholder="Phone Number"
-                  value={formData.phoneNumber}
+                  type="number"
+                  name="amount"
+                  placeholder="Amount"
+                  value={formData.amount}
                   onChange={handleInputChange}
-                  disabled={!isFieldEnabled.phoneNumber}
+                  disabled={!isFieldEnabled.amount}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
-                    isFieldEnabled.phoneNumber ? "rounded-lg" : "border-0"
+                    isFieldEnabled.amount ? "rounded-lg" : "border-0"
                   } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
                 />
               </label>
@@ -233,7 +214,7 @@ const Bundles = () => {
                 <input
                   type="number"
                   name="pay"
-                  placeholder="Amount to Pay"
+                  placeholder="Amount to be Credited"
                   value={formData.pay}
                   onChange={handleInputChange}
                   disabled={!isFieldEnabled.pay}
@@ -243,19 +224,26 @@ const Bundles = () => {
                 />
               </label>
 
-              <div className="flex gap-[11px] mt-2">
-                <Switch
-                  onChange={handleToggle}
-                  checked={isEnabled}
-                  offColor="#ccc"
-                  onColor="#8E1011"
-                  uncheckedIcon={false}
-                  checkedIcon={false}
-                  className="react-switch"
-                />
-                <label className="font-normal text-black text-16 mr-4">
-                  Disable Number Validator
-                </label>
+              <div className="flex flex-col gap-[8px] mt-[16px] ml-1">
+                <div className="flex flex-row gap-[4px] items-center">
+                  <img src={info} className="w-[12px] h-[12px]" />
+                  <p className="text-[12px] font-normal text-[#8E1011]">
+                    Please contact admin first before sending airtime.
+                  </p>
+                </div>
+                <div className="flex flex-row gap-[4px] items-center">
+                  <img src={info} className="w-[12px] h-[12px]" />
+                  <p className="text-[12px] font-normal text-[#8E1011]">
+                    Click on submit only when have transfered the Airtime.
+                  </p>
+                </div>
+                <div className="flex flex-row gap-[4px] items-center">
+                  <img src={info} className="w-[12px] h-[12px]" />
+                  <p className="text-[12px] font-normal text-[#8E1011]">
+                    When verifed, your wallet would be credited. If you prefer a
+                    bank transfer, please communicate with the admin.
+                  </p>
+                </div>
               </div>
 
               <div className="flex flex-auto items-center justify-center mt-[56px]">
@@ -266,11 +254,11 @@ const Bundles = () => {
                     isFormValid ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                 >
-                  {loading ? "transferring..." : "Buy Data"}
+                  {loading ? "transferring..." : "Submit"}
                 </button>
               </div>
 
-              <div className=" " />
+              <div className="mb-5 mt-5" />
             </form>
           </div>
         </div>
@@ -279,4 +267,4 @@ const Bundles = () => {
   );
 };
 
-export default Bundles;
+export default ConvertCash;

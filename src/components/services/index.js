@@ -6,6 +6,7 @@ import UserReceipt from "./UserReceipt";
 import Cable from "./Cable";
 import Exam from "./Exam";
 import Electricity from "./Electricity";
+import AirtimeToCash from "./AirtimeToCash";
 
 export {
     Airtime,
@@ -15,5 +16,6 @@ export {
     UserReceipt,
     Cable,
     Exam,
-    Electricity
+    Electricity,
+    AirtimeToCash
 }

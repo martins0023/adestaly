@@ -4,6 +4,7 @@ import { GetStarted, CreatePassword, Signup, Login } from "./components";
 import { Dashboard, Menu, Mtn } from "./components/dashboard";
 import {
   Airtime,
+  AirtimeToCash,
   Cable,
   Data,
   Electricity,
@@ -55,6 +56,7 @@ const App = () => {
             <Route path="/History" element={<History />} />
             <Route path="/Referrals" element={<Referrals />} />
             <Route path="/WithdrawFunds" element={<WithdrawFunds />} />
+            <Route path="/AirtimeToCash" element={<AirtimeToCash />} />
           </Routes>
         </div>
       </div>
