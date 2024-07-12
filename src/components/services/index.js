@@ -7,6 +7,7 @@ import Cable from "./Cable";
 import Exam from "./Exam";
 import Electricity from "./Electricity";
 import AirtimeToCash from "./AirtimeToCash";
+import Back from "./Back";
 
 export {
     Airtime,
@@ -17,5 +18,6 @@ export {
     Cable,
     Exam,
     Electricity,
-    AirtimeToCash
+    AirtimeToCash,
+    Back,
 }

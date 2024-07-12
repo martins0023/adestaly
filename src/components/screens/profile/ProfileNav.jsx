@@ -1,0 +1,42 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+import { styles } from "../../../styles";
+import { apps, icon, notification, person } from "../../../assets";
+
+const ProfileNav = () => {
+  const [active, setActive] = useState("");
+  const [toggle, setToggle] = useState(false);
+  return (
+    <nav
+      className={`${styles.paddingX} w-full flex items-center py-5  top-0 z-20 bg-colorbg pr-3`}
+    >
+      <div className="w-full flex justify-between max-w-7xl mx-auto">
+        <Link
+          to="/"
+          className="flex items-center "
+          onClick={() => {
+            setActive("");
+            window.scrollTo(0, 0);
+          }}
+        >
+          <img src={icon} alt="logo" className="w-14 h-14 object-contain" />
+        </Link>
+        <ul className="flex list-none ml-[109px] sm:flex flex-row items-center">
+          <Link to="/menu">
+            <img src={apps} alt="apps" className="cursor-pointer mr-2" />
+          </Link>
+          <Link to="/notifications">
+            <img
+              src={notification}
+              alt="notification"
+              className="cursor-pointer"
+            />
+          </Link>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default ProfileNav;

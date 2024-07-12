@@ -1,14 +1,22 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+
+//app
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { arrow_back_ios, dropdown, naira } from "../../assets";
-import { Link, useNavigate } from "react-router-dom";
+//import { NetworkContext } from "./NetworkContext";
 
 const Network = () => {
+  //set selected network state management
+  //const { selectedNetwork } = useContext(NetworkContext);
+
+  //navigation handling
   const navigate = useNavigate();
 
+  //handle form
   const [formData, setFormData] = useState({
     network: "",
     type: "",
@@ -126,9 +134,9 @@ const Network = () => {
             <img
               src={arrow_back_ios}
               alt="back"
-              className="w-[24px] h-[24px] object-contain"
+              className="w-[18px] h-[18px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[18px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
               Buy Airtime
             </p>
           </Link>

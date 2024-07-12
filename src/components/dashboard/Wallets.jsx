@@ -301,7 +301,7 @@ const Wallets = () => {
               {[
                 { img: currency, text: "Add Money", to: "/more" },
                 { img: withdraw, text: "Withdraw", to: "/withdrawfunds" },
-                { img: convert, text: "Convert" },
+                { img: convert, text: "Convert", to: "/airtimetocash" },
               ].map((item, idx) => (
                 <motion.div
                   variants={itemVariants}

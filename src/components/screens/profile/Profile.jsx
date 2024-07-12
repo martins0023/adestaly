@@ -1,8 +1,15 @@
 import React from 'react'
+import ProfileNav from './ProfileNav'
+import ProfileDetails from './ProfileDetails'
+import BottomNavbar from '../../dashboard/BottomNavbar'
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <section>
+      <ProfileNav />
+      <ProfileDetails />
+      <BottomNavbar />
+    </section>
   )
 }
 

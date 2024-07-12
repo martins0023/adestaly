@@ -97,7 +97,36 @@ import call from "./call.png";
 import visible from "./remove_red_eye.png"
 import visible_off from "./visibility_off.png"
 
+import account_circle from "./account_circle.png";
+import colored_call from "./colored_call.png";
+import colored_email from "./colored_email.png";
+import colored_lock from "./colored_lock.png";
+import colored_visibility from "./colored_visibility.png";
+import colored_visibility_off from "./colored_visibility_off.png";
+import character from "./character.png";
+import security from "./security.png";
+import invite from "./invite.png";
+import share from "./share.png";
+import whatsappref from "./whatsappref.png";
+import camera_icon from "./camera_alt.png";
+import place from "./place.png";
+import pricing from "./pricing.png";
+
 export {
+  pricing,
+  place,
+  camera_icon,
+  whatsappref,
+  share,
+  invite,
+  security,
+  character,
+  colored_visibility_off,
+  colored_visibility,
+  colored_lock,
+  colored_email,
+  colored_call,
+  account_circle,
   call,
   visible,
   visible_off,

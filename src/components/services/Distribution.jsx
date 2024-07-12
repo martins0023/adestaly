@@ -124,9 +124,9 @@ const Distribution = () => {
             <img
               src={arrow_back_ios}
               alt="back"
-              className="w-[24px] h-[24px] object-contain"
+              className="w-[18px] h-[18px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[18px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
               Buy Electricity
             </p>
           </Link>
