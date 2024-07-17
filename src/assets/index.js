@@ -112,7 +112,22 @@ import camera_icon from "./camera_alt.png";
 import place from "./place.png";
 import pricing from "./pricing.png";
 
+import colored_contact from "./colored_contact.png";
+import get_in_touch from "./get_in_touch.png";
+import transaction from "./transaction.png";
+import whatsapp_group from "./whatsapp_group.png";
+import whatsapp_colored from "./whatsapp_colored.png";
+import service_hour from "./service.png";
+import mail from "./mail.png";
+
 export {
+  mail,
+  service_hour,
+  colored_contact,
+  get_in_touch,
+  transaction,
+  whatsapp_group,
+  whatsapp_colored,
   pricing,
   place,
   camera_icon,

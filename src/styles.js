@@ -11,7 +11,7 @@ const styles = {
     sectionHeadText:
       "text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
     sectionSubText:
-      "sm:text-[24px] text-[14px] text-[#141416] tracking-wider font-medium",
+      "sm:text-[24px] text-[#141416] tracking-wider font-medium",
     sectionSubText2:
       "sm:text-[14px] text-[12px] tracking-wider text-[#777E90] font-400",
     container:

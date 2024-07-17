@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { GetStarted, CreatePassword, Signup, Login } from "./components";
-import { Dashboard, Menu, Mtn } from "./components/dashboard";
+import { GetStarted, CreatePassword, Signup, Login, ForgetPassword } from "./components";
+import { Contact, Dashboard, Menu, Mtn } from "./components/dashboard";
 //import { NetworkProvider } from "./components/services/NetworkContext";
 import {
   Airtime,
@@ -33,11 +33,12 @@ const App = () => {
       <div className="relative z-0 bg-colorbg">
         <div className="pb-20">
           <Routes>
-            <Route index element={<GetStarted />} />
+            <Route index element={<Dashboard />} />
             <Route path="/getstarted" element={<GetStarted />} />
             <Route path="/CreatePassword" element={<CreatePassword />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Login" element={<Login />} />
+            <Route path="/forgetpassword" element={<ForgetPassword />} />
             <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/Mtn" element={<Mtn />} />
             <Route path="/Airtime" element={<Airtime />} />
@@ -66,6 +67,7 @@ const App = () => {
             <Route path="/EditLogin" element={<EditLogin />} />
             <Route path="/EditTransactionPin" element={<EditTransactionPin />} />
             <Route path="/Pricing" element={<Pricing />} />
+            <Route path="/Contact-us" element={<Contact />} />
           </Routes>
         </div>
       </div>

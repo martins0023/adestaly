@@ -76,7 +76,9 @@ const ProfileDetails = () => {
       >
         <div className="mt-[10px] bg-white rounded-2xl p-6 m-3 gap-[24px] font-montserrat">
           <div className="flex flex-col items-center mt-8">
+            <Link to="/editprofile" >
             <img src={person} className="w-[124px] h-[124px] rounded-full" alt="person" />
+            </Link>
             <div className=" flex flex-col items-center gap-[8px]">
               <p className="text-[18px] text-black mt-[16px] font-semibold">
                 Miracle Oladapo

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -6,6 +6,7 @@ import {
   airtime_icon,
   arrow_back_ios,
   cable_icon,
+  cashflow,
   contact_icon,
   data_icon,
   datapin_icon,
@@ -19,7 +20,9 @@ import {
   profile_icon,
   referrals_icon,
   swap_icon,
+  transaction,
 } from "../../assets";
+import Modal from "react-modal";
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -27,6 +30,44 @@ const Menu = () => {
   const HandleHome = () => {
     //
     navigate("/dashboard");
+  };
+
+  const [convertmodalIsOpen, setConvertModalIsOpen] = useState(false);
+
+  const convertopenModal = () => {
+    //navigate("/airtimetocash");
+    setConvertModalIsOpen(true);
+  };
+
+  const convertcloseModal = () => {
+    setConvertModalIsOpen(false);
+  };
+
+  const [loading, setLoading] = useState(false);
+
+  const [formData, setFormData] = useState({
+    pin: "",
+  });
+
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  useEffect(() => {
+    const allFieldsFilled = formData.pin;
+
+    setIsFormValid(allFieldsFilled);
+  }, [formData]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
   };
 
   const containerVariants = {
@@ -98,7 +139,11 @@ const Menu = () => {
                 to="/electricity"
               />
               <ServiceItem icon={cable_icon} label="Cable Tv" to="/cable" />
-              <ServiceItem icon={swap_icon} label="Swap Airtime" to="/airtimetocash" />
+              <ServiceItem
+                icon={swap_icon}
+                label="Swap Airtime"
+                to="/airtimetocash"
+              />
               <ServiceItem icon={exam_icon} label="Exam Pin" to="/exam" />
               <ServiceItem icon={datapin_icon} label="Data Pin" />
               <ServiceItem icon={fund_icon} label="Add Fund" to="/more" />
@@ -117,14 +162,22 @@ const Menu = () => {
               />
               <ServiceItem icon={pricing_icon} label="Pricing" to="/pricing" />
               <ServiceItem icon={profile_icon} label="Profile" to="/profile" />
-              <ServiceItem icon={agent_icon} label="Agent" to="/agent" />
+              <ServiceItem
+                icon={agent_icon}
+                label="Agent"
+                onClick={convertopenModal}
+              />
               <ServiceItem icon={history_icon} label="History" to="/history" />
               <ServiceItem
                 icon={notification_icon}
                 label="Notification"
                 to="/notifications"
               />
-              <ServiceItem icon={contact_icon} label="Contact" to="#" />
+              <ServiceItem
+                icon={contact_icon}
+                label="Contact"
+                to="/contact-us"
+              />
               <ServiceItem icon={logout_icon} label="Logout" to="/logout" />
             </div>
           </div>
@@ -139,12 +192,90 @@ const Menu = () => {
         </div>
       </motion.div>
       <div className="mt-10"></div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="flex items-center justify-center "
+      >
+        <Modal
+          isOpen={convertmodalIsOpen}
+          onRequestClose={convertcloseModal}
+          contentLabel="AIRTIME TO CASH"
+          className="fixed inset-0 flex items-center justify-center  bg-black bg-opacity-10"
+          overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+        >
+          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 flex flex-col items-center m-3">
+            <div className="flex flex-row justify-between items-center mb-4 w-full">
+              <button
+                onClick={convertcloseModal}
+                className="text-black text-xl font-bold"
+              >
+                ✕
+              </button>
+              <p className="font-bold text-[16px] text-[#8E1011]">
+                Confirm Transaction Upgrade
+              </p>
+            </div>
+            <div className="p-3 mt-[24px] flex justify-center items-center">
+              <img
+                src={transaction}
+                alt="Become an agaent"
+                className="w-full h-auto items-center"
+              />
+            </div>
+            <div className="flex justify-between items-center mb-4 mt-[24px]">
+              <p className="font-normal text-justify text-[16px] text-[#8E1011]">
+                You are about to upgrade to an Agent Account. You can view our
+                pricing page for details about the discounts available for
+                Agents. <br />
+                You would be charged a total of N1 for this service. To
+                continue, enter your transaction pin below.
+              </p>
+            </div>
+
+            <form
+              className="mt-[12px] flex flex-col gap-[11px] relative w-full"
+              onSubmit={handleSubmit}
+            >
+              <label className="flex flex-col">
+                <span className="text-[#666666] py-1 px-1 text-[12px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  Transaction Pin
+                </span>
+                <input
+                  type="number"
+                  name="pin"
+                  value={formData.pin}
+                  onChange={handleInputChange}
+                  placeholder="1234"
+                  className={`bg-white py-4 px-6 placeholder:text-black text-black ${
+                    formData.pin ? "rounded-lg" : "border-[#EEEFF4]"
+                  } rounded-xl outline-none border-[#000000] border-1 w-full h-[56px] font-medium`}
+                />
+              </label>
+
+              <div>
+                <button
+                  onClick={convertcloseModal}
+                  disabled={!isFormValid}
+                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
+                    isFormValid ? "" : "opacity-50 cursor-not-allowed"
+                  }`}
+                >
+                  {loading ? "transferring..." : "CONTINUE"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </Modal>
+      </motion.div>
     </section>
   );
 };
 
-const ServiceItem = ({ icon, label, to }) => (
-  <Link to={to}>
+const ServiceItem = ({ icon, label, to, onClick }) => (
+  <Link to={to} onClick={onClick}>
     <div className="flex flex-col justify-between items-center gap-2">
       <img src={icon} className="w-[62px] h-[59px]" />
       <p className="text-[#000000] font-medium text-[14px] text-center">

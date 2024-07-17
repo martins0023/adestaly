@@ -1,20 +1,20 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import { email, icon } from "../assets";
 
 const GetStarted = () => {
   const [form, setForm] = useState({
-    firstname: '',
-    lastname: '',
-    mobile: '',
-    email: '',
-    state: ''
+    firstname: "",
+    lastname: "",
+    mobile: "",
+    email: "",
+    state: "",
   });
   const [loading, setLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false); // State for alert visibility
@@ -25,7 +25,7 @@ const GetStarted = () => {
     const { name, value } = e.target;
     setForm({
       ...form,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -35,12 +35,12 @@ const GetStarted = () => {
       setShowAlert(true); // Show alert if form is incomplete
     } else {
       // Handle form submission
-      navigate('/createpassword');
+      navigate("/createpassword");
     }
   };
 
   const isFormValid = () => {
-    return Object.values(form).every((value) => value.trim() !== '');
+    return Object.values(form).every((value) => value.trim() !== "");
   };
 
   return (
@@ -58,11 +58,15 @@ const GetStarted = () => {
           <img src={icon} className="w-[141px] h-[95px]" alt="adestaly" />
         </div>
         <div className="flex justify-center items-center">
-          <p className={`${styles.sectionSubText} text-center text-[18px] font-semibold`}>
+          <p
+            className={`${styles.sectionSubText} text-center text-[24px] font-semibold`}
+          >
             Begin the <span className="text-original">adestaly</span> experience
           </p>
         </div>
-        <h3 className={`${styles.sectionSubText2} text-center font-normal text-[14px] mt-2`}>
+        <h3
+          className={`${styles.sectionSubText2} text-center font-normal text-[14px] mt-2`}
+        >
           Getting started is absolutely free.
         </h3>
         <div className="flex justify-end">
@@ -127,7 +131,11 @@ const GetStarted = () => {
                   text-black rounded-lg outline-none
                   border-[#E6E6E6] font-medium border-2"
               />
-              <img src={email} className="absolute right-3 w-5 h-5" alt="Email Icon" />
+              <img
+                src={email}
+                className="absolute right-3 w-5 h-5"
+                alt="Email Icon"
+              />
             </div>
           </label>
           <label className="flex flex-col">
@@ -143,16 +151,16 @@ const GetStarted = () => {
                 border-[#E6E6E6] font-medium border-2"
             >
               <option value="" disabled>
-                  Select State
-                </option>
-                <option value="abia">ABIA</option>
-                <option value="abuja">ABUJA</option>
-                <option value="lagos">LAGOS</option>
-                <option value="oyo">OYO</option>
-                <option value="osun">OSUN</option>
-                <option value="kwara">KWARA</option>
-                <option value="nassarawa">NASSARAWA</option>
-                <option value="niger">NIGER</option>
+                Select State
+              </option>
+              <option value="abia">ABIA</option>
+              <option value="abuja">ABUJA</option>
+              <option value="lagos">LAGOS</option>
+              <option value="oyo">OYO</option>
+              <option value="osun">OSUN</option>
+              <option value="kwara">KWARA</option>
+              <option value="nassarawa">NASSARAWA</option>
+              <option value="niger">NIGER</option>
             </select>
           </label>
           <div className="flex justify-center mt-6">
@@ -160,7 +168,9 @@ const GetStarted = () => {
               type="submit"
               className={`bg-original py-3 px-20 outline-none uppercase h-[60px]
                 xl w-full sm:w-[406px] text-white font-bold
-                rounded-full ${!isFormValid() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                rounded-full ${
+                  !isFormValid() ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               disabled={!isFormValid()}
             >
               {loading ? "signing up..." : "Continue"}

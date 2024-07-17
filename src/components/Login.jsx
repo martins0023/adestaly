@@ -72,7 +72,7 @@ const Login = () => {
         </div>
         <div className="flex justify-center items-center">
           <p
-            className={`${styles.sectionSubText} text-center text-[18px] font-semibold`}
+            className={`${styles.sectionSubText} text-center text-[24px] font-semibold`}
           >
             Continue the <span className="text-original">adestaly</span>{" "}
             experience
@@ -141,11 +141,12 @@ const Login = () => {
             </div>
           </label>
 
-          <h3
+          <a
             className={`${styles.sectionSubText2} flex justify-end items-end mt-4 text-original`}
+            href="/forgetpassword"
           >
             Forgot Password?
-          </h3>
+          </a>
 
           <label className="flex flex-row">
             <input

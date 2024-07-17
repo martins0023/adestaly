@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BottomNavbar from "../../dashboard/BottomNavbar";
 import ProfileNav from "./ProfileNav";
 import {
+  arrow_back_ios,
   camera_icon,
   colored_visibility,
   colored_visibility_off,
@@ -198,6 +199,25 @@ const EditTransactionPin = () => {
         animate="visible"
         exit="exit"
       >
+        <div className="w-full flex justify-between items-center max-w-7xl mx-auto ml-2">
+          <Link
+            to="/"
+            className="flex m-1"
+            onClick={() => {
+              navigate(-1);
+              window.scrollTo(0, 0);
+            }}
+          >
+            <img
+              src={arrow_back_ios}
+              alt="back"
+              className="w-[20px] h-[20px] object-contain"
+            />
+            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
+              Edit Transaction Pin
+            </p>
+          </Link>
+        </div>
         <div className="bg-white rounded-2xl p-6 m-3 gap-[24px]">
           <div className="flex flex-row gap-[15px] m-3 items-center mt-8">
             <div

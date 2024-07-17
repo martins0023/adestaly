@@ -1,12 +1,13 @@
 import React from 'react'
 import Navbar from '../dashboard/Navbar'
 import Network from './Network'
+import ServiceNavbar from './ServiceNavbar'
 
 
 const Airtime = () => {
   return (
     <section className="">
-        <Navbar />
+        <ServiceNavbar />
         <Network />
     </section>
   )

@@ -69,14 +69,10 @@ const Signup = () => {
         className="flex-[0.75]  p-8 rounded-2xl"
       >
         <div className="flex justify-center items-center">
-          <img
-            src={icon}
-            className="w-[199px] h-[134px]"
-            alt="adestaly"
-          />
+          <img src={icon} className="w-[199px] h-[134px]" alt="adestaly" />
         </div>
         <div className="flex justify-center items-center">
-          <p className={`${styles.sectionSubText}`}>
+          <p className={`${styles.sectionSubText} text-[24px]`}>
             Begin the <span className="text-original"> adestaly{` `}</span>{" "}
             experience
           </p>

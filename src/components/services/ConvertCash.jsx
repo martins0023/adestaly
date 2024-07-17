@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../dashboard/Navbar";
-import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
-import Switch from "react-switch";
 import {
   arrow_back_ios,
   cashflow,
@@ -11,6 +9,10 @@ import {
   dropdown,
   info,
   naira,
+  mtn, // Add the appropriate network images
+  glo,
+  airtel,
+  etisalat,
 } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -31,6 +33,8 @@ const ConvertCash = () => {
     amount: false,
     pay: false,
   });
+
+  const [isAdditionalInfoVisible, setIsAdditionalInfoVisible] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -58,16 +62,10 @@ const ConvertCash = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    navigate("/review");
+    setIsAdditionalInfoVisible(true);
   };
+
   const [loading, setLoading] = useState(false);
-
-  const [isEnabled, setIsEnabled] = useState(false);
-
-  const handleToggle = () => {
-    setIsEnabled(!isEnabled);
-  };
 
   const containerVariants = {
     hidden: { opacity: 0, x: "-100vw" },
@@ -95,6 +93,22 @@ const ConvertCash = () => {
       transition: { duration: 0.3 },
     },
   };
+
+  const getNetworkImage = (network) => {
+    switch (network) {
+      case "mtn":
+        return mtn;
+      case "glo":
+        return glo;
+      case "airtel":
+        return airtel;
+      case "9mobile":
+        return etisalat;
+      default:
+        return null;
+    }
+  };
+
   return (
     <section className={`${styles.paddingX} `}>
       <motion.div
@@ -104,7 +118,7 @@ const ConvertCash = () => {
         animate="visible"
         exit="exit"
       >
-        <div className="w-full flex justify-between items-center mb-6">
+        <div className="w-full flex justify-between items-center max-w-7xl mx-auto mb-6">
           <Link
             to="/"
             className="flex m-1"
@@ -118,14 +132,14 @@ const ConvertCash = () => {
               alt="back"
               className="w-[18px] h-[18px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
               Airtime To Cash
             </p>
           </Link>
         </div>
         <div className="w-full justify-between items-center max-w-7xl mx-auto ">
           <div className="flex flex-wrap lg:flex-nowrap ">
-            <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-[79px] rounded-xl w-full lg:w-[1254px] p-[20px] m-2 bg-hero-pattern bg-no-repeat bg-cover bg-center">
+            <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-[79px] rounded-xl w-full lg:w-full p-[20px] m-2 bg-hero-pattern bg-no-repeat bg-cover bg-center">
               <div className="flex justify-between items-center ">
                 <div className="row-span-30 gap-4">
                   <p className="text-[#FFFFFF] text-[12px] font-semibold">
@@ -167,7 +181,7 @@ const ConvertCash = () => {
                   onChange={handleInputChange}
                   className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                     formData.network ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[56px] font-medium`}
                 >
                   <option value="" disabled>
                     Select Network
@@ -190,7 +204,7 @@ const ConvertCash = () => {
                   disabled={!isFieldEnabled.senderNumber}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.senderNumber ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
@@ -205,7 +219,7 @@ const ConvertCash = () => {
                   disabled={!isFieldEnabled.amount}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.amount ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
@@ -220,9 +234,50 @@ const ConvertCash = () => {
                   disabled={!isFieldEnabled.pay}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.pay ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
+
+              {isAdditionalInfoVisible && (
+                <div className="bg-white p-5 rounded-xl mt-4 items-center">
+                  <div className="">
+                    <div className="bg-[#f5f5f5] w-full h-full items-center justify-center flex flex-col gap-[8px]">
+                      <img
+                        src={getNetworkImage(formData.network)}
+                        alt="Network"
+                        className="w-[72px] h-[72px] mr-3 rounded-full mt-[8px]"
+                      />
+                      <p className="text-black font-semibold mb-[8px]">
+                        <span className="uppercase">{formData.network}</span>{" "}
+                        {` `} Network
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-[16px] mt-[16px]">
+                      <p className="font-medium text-[12px] text-[#919191]">
+                        Phone Number:{" "}
+                        <span className="text-black font-semibold">
+                          {" "}
+                          {formData.senderNumber}
+                        </span>
+                      </p>
+                      <p className="font-medium text-[12px] text-[#919191]">
+                        Set New Pin:{" "}
+                        <span className="text-black font-semibold">
+                          {" "}
+                          *600*000*Newpin*Newpin#
+                        </span>
+                      </p>
+                      <p className="font-medium text-[12px] text-[#919191]">
+                        Transfer Code:{" "}
+                        <span className="text-black font-semibold">
+                          {" "}
+                          *600*000*Number*Amount*Pin#
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <div className="flex flex-col gap-[8px] mt-[16px] ml-1">
                 <div className="flex flex-row gap-[4px] items-center">
@@ -240,8 +295,8 @@ const ConvertCash = () => {
                 <div className="flex flex-row gap-[4px] items-center">
                   <img src={info} className="w-[12px] h-[12px]" />
                   <p className="text-[12px] font-normal text-[#8E1011]">
-                    When verifed, your wallet would be credited. If you prefer a
-                    bank transfer, please communicate with the admin.
+                    When verified, your wallet would be credited. If you prefer
+                    a bank transfer, please communicate with the admin.
                   </p>
                 </div>
               </div>

@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "../dashboard/Navbar";
 import ConvertCash from "./ConvertCash";
+import ServiceNavbar from "./ServiceNavbar";
 
 const AirtimeToCash = () => {
   return (
     <section>
-      <Navbar />
+      <ServiceNavbar />
       <ConvertCash />
     </section>
   );

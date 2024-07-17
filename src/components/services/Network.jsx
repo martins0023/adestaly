@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { arrow_back_ios, dropdown, naira } from "../../assets";
+import Navbar from "../dashboard/Navbar";
 //import { NetworkContext } from "./NetworkContext";
 
 const Network = () => {
@@ -122,7 +123,7 @@ const Network = () => {
         animate="visible"
         exit="exit"
       >
-        <div className="w-full flex justify-between items-center mb-6">
+        <div className="w-full flex justify-between items-center max-w-7xl mx-auto mb-6">
           <Link
             to="/"
             className="flex m-1"
@@ -136,11 +137,16 @@ const Network = () => {
               alt="back"
               className="w-[18px] h-[18px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
               Buy Airtime
             </p>
           </Link>
         </div>
+        
+        <div>
+          
+        </div>
+
         <div className="w-full justify-between items-center max-w-7xl mx-auto ">
           <div className="flex flex-wrap lg:flex-nowrap ">
             <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-[79px] rounded-xl w-full lg:w-[1254px] p-[20px] m-2 bg-hero-pattern bg-no-repeat bg-cover bg-center">
@@ -178,7 +184,7 @@ const Network = () => {
                   onChange={handleInputChange}
                   className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                     formData.network ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[56px] font-medium`}
                 >
                   <option value="" disabled>
                     Select Network
@@ -200,7 +206,7 @@ const Network = () => {
                   disabled={!isFieldEnabled.type}
                   className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.type ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[56px] font-medium`}
                 >
                   <option value="" disabled>
                     Select Type
@@ -220,7 +226,7 @@ const Network = () => {
                   disabled={!isFieldEnabled.phoneNumber}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.phoneNumber ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
@@ -235,7 +241,7 @@ const Network = () => {
                   disabled={!isFieldEnabled.amount}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.amount ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
@@ -250,7 +256,7 @@ const Network = () => {
                   disabled={!isFieldEnabled.pay}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.pay ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
@@ -264,7 +270,7 @@ const Network = () => {
                   onChange={handleInputChange}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.discount ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 

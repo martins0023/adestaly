@@ -90,7 +90,7 @@ const Exampins = () => {
         animate="visible"
         exit="exit"
       >
-        <div className="w-full flex justify-between items-center mb-6">
+        <div className="w-full flex justify-between items-center max-w-7xl mx-auto mb-6">
           <Link
             to="/"
             className="flex m-1"
@@ -104,7 +104,7 @@ const Exampins = () => {
               alt="back"
               className="w-[18px] h-[18px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
               Exam Pin
             </p>
           </Link>
@@ -146,7 +146,7 @@ const Exampins = () => {
                   onChange={handleInputChange}
                   className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                     formData.exam ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[56px] font-medium`}
                 >
                   <option value="" disabled>
                     Exam Type
@@ -167,7 +167,7 @@ const Exampins = () => {
                   disabled={!isFieldEnabled.quantity}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.quantity ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
@@ -182,7 +182,7 @@ const Exampins = () => {
                   disabled={!isFieldEnabled.pay}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.pay ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 

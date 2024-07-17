@@ -112,7 +112,7 @@ const Distribution = () => {
         animate="visible"
         exit="exit"
       >
-        <div className="w-full flex justify-between items-center mb-6">
+        <div className="w-full flex justify-between items-center max-w-7xl mx-auto mb-6">
           <Link
             to="/"
             className="flex m-1"
@@ -126,7 +126,7 @@ const Distribution = () => {
               alt="back"
               className="w-[18px] h-[18px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
               Buy Electricity
             </p>
           </Link>
@@ -168,7 +168,7 @@ const Distribution = () => {
                   onChange={handleInputChange}
                   className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                     formData.distribution ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[56px] font-medium`}
                 >
                   <option value="" disabled>
                     Select Distribution
@@ -194,7 +194,7 @@ const Distribution = () => {
                   disabled={!isFieldEnabled.type}
                   className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.type ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[56px] font-medium`}
                 >
                   <option value="" disabled>
                     Select Type
@@ -214,7 +214,7 @@ const Distribution = () => {
                   disabled={!isFieldEnabled.phoneNumber}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.phoneNumber ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
@@ -229,7 +229,7 @@ const Distribution = () => {
                   disabled={!isFieldEnabled.meterno}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.meterno ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
@@ -244,7 +244,7 @@ const Distribution = () => {
                   disabled={!isFieldEnabled.amount}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.amount ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
@@ -259,7 +259,7 @@ const Distribution = () => {
                   disabled={!isFieldEnabled.pay}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.pay ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
                 />
               </label>
 
