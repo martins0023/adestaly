@@ -128,7 +128,7 @@ const EditProfile = () => {
               alt="back"
               className="w-[20px] h-[20px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
               Edit Profile Details
             </p>
           </Link>
@@ -198,7 +198,7 @@ const EditProfile = () => {
                       formData.name
                         ? "rounded-lg"
                         : "border-[#EEEFF4] lg:w-full"
-                    } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                    } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full text-[12px] h-[52px] font-medium`}
                   />
                   <img
                     src={account_circle}
@@ -224,7 +224,7 @@ const EditProfile = () => {
                       isFieldEnabled.email
                         ? "rounded-lg"
                         : "border-[#EEEFF4] lg:w-full"
-                    } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                    } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[52px] text-[12px] font-medium`}
                   />
                   <img
                     src={colored_email}
@@ -250,7 +250,7 @@ const EditProfile = () => {
                       isFieldEnabled.phoneNumber
                         ? "rounded-lg"
                         : "border-[#EEEFF4] lg:w-full"
-                    } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                    } rounded-xl outline-none border-[#000000] font-medium border-1 h-[52px] text-[12px] lg:w-[408px] w-full`}
                   />
                   <img
                     src={colored_call}
@@ -276,7 +276,7 @@ const EditProfile = () => {
                       isFieldEnabled.state
                         ? "rounded-lg"
                         : "border-[#EEEFF4] lg:w-full"
-                    } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                    } rounded-xl outline-none border-[#000000] font-medium border-1 h-[52px] text-[12px] lg:w-[408px] w-full`}
                   />
                 </div>
                 <img
@@ -290,7 +290,7 @@ const EditProfile = () => {
                 <button
                   type="submit"
                   disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] lg:w-full text-white font-bold shadow-md rounded-full w-full h-[60px] ${
+                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] lg:w-full text-white font-bold shadow-md rounded-full w-full h-[53px] ${
                     isFormValid ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                 >

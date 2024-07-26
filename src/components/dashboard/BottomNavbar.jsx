@@ -32,8 +32,8 @@ const BottomNavbar = () => {
             activeNav === item.path ? 'text-[#7E0B0B]' : 'text-[#919191]'
           }`}
         >
-          <div className="text-2xl">{item.icon}</div>
-          <span className="text-sm">{item.name}</span>
+          <div className="text-xl">{item.icon}</div>
+          <span className="text-[12px]">{item.name}</span>
         </Link>
       ))}
     </div>

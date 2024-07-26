@@ -175,7 +175,7 @@ const EditLogin = () => {
               alt="back"
               className="w-[20px] h-[20px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
               Edit Login Details
             </p>
           </Link>
@@ -273,7 +273,7 @@ const EditLogin = () => {
                         form[field]
                           ? "rounded-lg"
                           : "border-[#EEEFF4] lg:w-full"
-                      } rounded-xl outline-none border-[#000000] text-[18px] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                      } rounded-xl outline-none border-[#000000] text-[12px] border-1 lg:w-[408px] w-full h-[52px] font-medium`}
                     />
                     <img
                       src={
@@ -319,7 +319,7 @@ const EditLogin = () => {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className={`bg-original py-3 px-20 outline-none uppercase h-[60px] xl w-full sm:w-[406px] text-white font-bold rounded-full ${
+                className={`bg-original py-3 px-20 outline-none uppercase h-[53px] xl w-full sm:w-[406px] text-white font-bold rounded-full ${
                   !isFormValid() ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={!isFormValid()}

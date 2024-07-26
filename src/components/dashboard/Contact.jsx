@@ -143,24 +143,24 @@ const Contact = () => {
           <div className="flex flex-col mt-[24px] gap-[16px]">
             <div className=" bg-white rounded-sm flex flex-row h-[64px] items-center gap-[16px] p-[15px]">
               <img src={colored_contact} className="w-[32px] h-[32px]" />
-              <p className="text-black font-normal text-[16px]">Call Us</p>
+              <p className="text-black font-normal text-[12px]">Call Us</p>
             </div>
 
             <div className=" bg-white rounded-sm flex flex-row h-[64px] items-center gap-[16px] p-[15px]">
               <img src={mail} className="w-[32px] h-[32px]" />
-              <p className="text-black font-normal text-[16px]">Mail Us</p>
+              <p className="text-black font-normal text-[12px]">Mail Us</p>
             </div>
 
             <div className=" bg-white rounded-sm flex flex-row h-[64px] items-center gap-[16px] p-[15px]">
               <img src={whatsapp_colored} className="w-[32px] h-[32px]" />
-              <p className="text-black font-normal text-[16px]">
+              <p className="text-black font-normal text-[12px]">
                 Message Us on WhatsApp
               </p>
             </div>
 
             <div className=" bg-white rounded-sm flex flex-row h-[64px] items-center gap-[16px] p-[15px]">
               <img src={whatsapp_group} className="w-[32px] h-[32px]" />
-              <p className="text-black font-normal text-[16px]">
+              <p className="text-black font-normal text-[12px]">
                 Join our WhatsApp Group
               </p>
             </div>
@@ -171,10 +171,10 @@ const Contact = () => {
               <div className="flex flex-row gap-[15px] mt-[10px]">
                 <img src={get_in_touch} className="w-[60px] h-[60px]" />
                 <div className="flex flex-col">
-                  <p className="text-black font-normal text-[16px]">
+                  <p className="text-black font-normal text-[14px]">
                     Get in Touch With Us
                   </p>
-                  <p className="text-black font-bold text-[24px]">
+                  <p className="text-black font-bold text-[18px]">
                     Direct Messsage
                   </p>
                 </div>
@@ -189,9 +189,9 @@ const Contact = () => {
                     placeholder="Name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className={`bg-white py-4 px-6 text-[18px] placeholder:text-secondary text-black ${
+                    className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                       formData.name ? "rounded-lg" : "border-[#EEEFF4]"
-                    } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-normal`}
+                    } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[52px] text-[12px] font-normal`}
                   />
                 </label>
 
@@ -205,11 +205,11 @@ const Contact = () => {
                       value={formData.emailaddr}
                       onChange={handleInputChange}
                       disabled={!isFieldEnabled.emailaddr}
-                      className={`bg-white py-4 px-6 text-[18px] placeholder:text-secondary text-black ${
+                      className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                         isFieldEnabled.emailaddr
                           ? "rounded-lg"
                           : "border-[#EEEFF4]"
-                      } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-normal`}
+                      } rounded-xl outline-none border-[#000000] border-1 h-[52px] text-[12px] lg:w-[408px] w-full font-normal`}
                     />
                     <img
                       src={email}
@@ -228,9 +228,9 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     disabled={!isFieldEnabled.subject}
-                    className={`bg-[#ffff] py-4 px-6 text-[18px] placeholder:text-secondary text-black ${
+                    className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                       isFieldEnabled.subject ? "rounded-lg" : "border-[#EEEFF4]"
-                    } rounded-xl outline-none border-[#000000] font-normal border-1 lg:w-[408px] w-full`}
+                    } rounded-xl outline-none border-[#000000] font-normal border-1 h-[52px] text-[12px] lg:w-[408px] w-full`}
                   />
                 </label>
 
@@ -243,18 +243,18 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     disabled={!isFieldEnabled.message}
-                    className={`bg-[#ffff] py-4 px-6 text-[18px] placeholder:text-secondary text-black ${
+                    className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                       isFieldEnabled.message ? "rounded-lg" : "border-[#EEEFF4]"
-                    } rounded-xl outline-none border-[#000000] h-[153px] font-normal border-1 lg:w-[408px] w-full`}
+                    } rounded-xl outline-none border-[#000000] h-[153px] font-normal border-1 text-[12px] lg:w-[408px] w-full`}
                   />
                 </label>
               </div>
             </div>
 
-            <div className="flex flex-auto items-center justify-center mt-[48px]">
+            <div className="flex flex-auto items-center justify-center mt-[40px]">
               <button
                 type="submit"
-                className={`bg-original py-3 px-20 outline-none uppercase h-[60px] xl w-full sm:w-[406px] text-white font-bold rounded-full ${
+                className={`bg-original py-3 px-20 outline-none uppercase h-[53px] xl w-full sm:w-[406px] text-white font-bold rounded-full ${
                   !isFormValid ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={!isFormValid}

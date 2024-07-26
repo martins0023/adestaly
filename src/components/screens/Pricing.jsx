@@ -134,14 +134,14 @@ const Pricing = () => {
       >
         <div className="bg-white rounded-2xl p-6 m-3">
           <div className="flex flex-row justify-center gap-4">
-            <h2 className="text-center text-[#8E1011] text-[32px] font-semibold mb-6">
+            <h2 className="text-center text-[#8E1011] text-[18px] font-semibold mb-6">
               Our Pricing
             </h2>
-            <img src={pricing} className="w-[42px] h-[42px]" />
+            <img src={pricing} className="w-[32px] h-[32px]" />
           </div>
 
           <section className="mb-6">
-            <h3 className="text-lg font-semibold text-left mb-2 text-black">Networks</h3>
+            <h3 className="text-[16px] font-semibold text-left mb-2 text-black">Networks</h3>
             <table className="w-full border-collapse">
               <thead className="bg-[#8E1011] text-white">
                 <tr>
@@ -151,7 +151,7 @@ const Pricing = () => {
               </thead>
               <tbody>
                 {networks.map(network => (
-                  <tr key={network.id}>
+                  <tr key={network.id} className="text-[12px]">
                     <td className="p-2 border text-center text-black">{network.id}</td>
                     <td className="p-2 border text-center text-black">{network.name}</td>
                   </tr>
@@ -161,7 +161,7 @@ const Pricing = () => {
           </section>
 
           <section className="mb-6">
-            <h3 className="text-lg font-semibold text-left text-black mb-2">Airtime</h3>
+            <h3 className="text-[16px] font-semibold text-left text-black mb-2">Airtime</h3>
             <table className="w-full border-collapse">
               <thead className="bg-[#8E1011] text-white">
                 <tr>
@@ -173,7 +173,7 @@ const Pricing = () => {
               </thead>
               <tbody>
                 {airtime.map(item => (
-                  <tr key={item.network}>
+                  <tr key={item.network} className="text-[12px]">
                     <td className="p-2 border text-center text-black">{item.network}</td>
                     <td className="p-2 border text-center text-black">{item.subscriber}%</td>
                     <td className="p-2 border text-center text-black">{item.agents}%</td>
@@ -185,7 +185,7 @@ const Pricing = () => {
           </section>
 
           <section className="mb-6 overflow-x-auto">
-            <h3 className="text-lg font-semibold text-left mb-2 text-black">Data Plan</h3>
+            <h3 className="text-[16px] font-semibold text-left mb-2 text-black">Data Plan</h3>
             <p className="text-sm text-[#8E1011] mb-2">
               Scroll horizontally to view the entire table
             </p>
@@ -202,7 +202,7 @@ const Pricing = () => {
               </thead>
               <tbody>
                 {dataPlans.map(plan => (
-                  <tr key={plan.planId}>
+                  <tr key={plan.planId} className="text-[12px]">
                     <td className="p-2 border text-center text-black">{plan.network}</td>
                     <td className="p-2 border text-center text-black">{plan.planId}</td>
                     <td className="p-2 border text-center text-black">{plan.plan}</td>
@@ -216,7 +216,7 @@ const Pricing = () => {
           </section>
 
           <section className="mb-6">
-            <h3 className="text-lg font-semibold text-left mb-2 text-black">
+            <h3 className="text-[16px] font-semibold text-left mb-2 text-black">
               Cable TV Provider
             </h3>
             <table className="w-full border-collapse">
@@ -228,7 +228,7 @@ const Pricing = () => {
               </thead>
               <tbody>
                 {cableProviders.map(provider => (
-                  <tr key={provider.id}>
+                  <tr key={provider.id} className="text-[12px]">
                     <td className="p-2 border text-center text-black">{provider.id}</td>
                     <td className="p-2 border text-center text-black">{provider.name}</td>
                   </tr>
@@ -238,7 +238,7 @@ const Pricing = () => {
           </section>
 
           <section className="mb-6 overflow-x-auto">
-            <h3 className="text-lg font-semibold text-left text-black mb-2">Cable Plan</h3>
+            <h3 className="text-[16px] font-semibold text-left text-black mb-2">Cable Plan</h3>
             <p className="text-sm text-[#8E1011] mb-2">
               Scroll horizontally to view the entire table
             </p>
@@ -255,7 +255,7 @@ const Pricing = () => {
               </thead>
               <tbody>
                 {cablePlans.map(plan => (
-                  <tr key={plan.planId}>
+                  <tr key={plan.planId} className="text-[12px]">
                     <td className="p-2 border text-center text-black">{plan.network}</td>
                     <td className="p-2 border text-center text-black">{plan.planId}</td>
                     <td className="p-2 border text-center text-black">{plan.plan}</td>
@@ -269,7 +269,7 @@ const Pricing = () => {
           </section>
 
           <section className="mb-6">
-            <h3 className="text-lg font-semibold text-left mb-2">
+            <h3 className="text-[16px] text-black font-semibold text-left mb-2">
               Electricity Token
             </h3>
             <table className="w-full border-collapse">
@@ -281,7 +281,7 @@ const Pricing = () => {
               </thead>
               <tbody>
                 {electricityTokens.map(token => (
-                  <tr key={token.id}>
+                  <tr key={token.id} className="text-[12px]">
                     <td className="p-2 border text-center text-black">{token.id}</td>
                     <td className="p-2 border text-center text-black">{token.provider}</td>
                   </tr>
@@ -291,7 +291,7 @@ const Pricing = () => {
           </section>
 
           <section className="mb-6">
-            <h3 className="text-lg font-semibold text-left mb-2">Exam Pin</h3>
+            <h3 className="text-[16px] text-black font-semibold text-left mb-2">Exam Pin</h3>
             <table className="w-full border-collapse">
               <thead className="bg-[#8E1011] text-white">
                 <tr>
@@ -302,7 +302,7 @@ const Pricing = () => {
               </thead>
               <tbody>
                 {examPins.map(pin => (
-                  <tr key={pin.id}>
+                  <tr key={pin.id} className="text-[12px]">
                     <td className="p-2 border text-center text-black">{pin.id}</td>
                     <td className="p-2 border text-center text-black">{pin.provider}</td>
                     <td className="p-2 border text-center text-black">{pin.price}</td>

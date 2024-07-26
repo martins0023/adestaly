@@ -114,9 +114,9 @@ const FundsForm = () => {
               placeholder="Referral to wallet"
               value={formData.referral}
               onChange={handleInputChange}
-              className={`bg-white py-4 px-6 placeholder:text-black text-[18px] text-black ${
+              className={`bg-white py-4 px-6 placeholder:text-black text-black ${
                 formData.referral ? "rounded-lg" : "border-[#EEEFF4]"
-              } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+              } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[52px] text-[12px] font-medium`}
             >
               <option value="" className="text-black">
                 Referral to wallet
@@ -126,7 +126,7 @@ const FundsForm = () => {
           </label>
 
           <label className="flex flex-col">
-            <span className="text-[#666666] py-1 px-1 text-[12px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+            <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
               Receiver Email
             </span>
             <input
@@ -135,14 +135,14 @@ const FundsForm = () => {
               placeholder="Enter Email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`bg-white py-4 px-6 placeholder:text-black text-black text-[18px] ${
+              className={`bg-white py-4 px-6 placeholder:text-black text-black ${
                 formData.email ? "rounded-lg" : "border-[#EEEFF4]"
-              } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+              } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[52px] text-[12px] font-medium`}
             />
           </label>
 
           <label className="flex flex-col">
-            <span className="text-[#666666] py-1 px-1 text-[12px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+            <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
               Amount
             </span>
             <input
@@ -152,14 +152,14 @@ const FundsForm = () => {
               value={formData.amount}
               onChange={handleInputChange}
               disabled={!isFieldEnabled.amount}
-              className={`bg-white py-4 px-6 placeholder:text-black text-black text-[18px] ${
+              className={`bg-white py-4 px-6 placeholder:text-black text-black ${
                 isFieldEnabled.amount ? "rounded-lg" : "border-[#EEEFF4]"
-              } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+              } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[52px] text-[12px] font-medium`}
             />
           </label>
 
           <label className="flex flex-col">
-            <span className="text-[#666666] py-1 px-1 text-[12px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+            <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
               Aount to pay
             </span>
             <input
@@ -169,14 +169,14 @@ const FundsForm = () => {
               value={formData.pay}
               onChange={handleInputChange}
               disabled={!isFieldEnabled.pay}
-              className={`bg-[#ffff] py-4 px-6 placeholder:text-black text-black text-[18px] ${
+              className={`bg-[#ffff] py-4 px-6 placeholder:text-black text-black ${
                 isFieldEnabled.pay ? "rounded-lg" : "border-[#EEEFF4]"
-              } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+              } rounded-xl outline-none border-[#000000] font-medium border-1 h-[52px] text-[12px] lg:w-[408px] w-full`}
             />
           </label>
 
           <div className="mt-4">
-            <p className="text-[#8E1011] font-semibold text-[14px]">
+            <p className="text-[#8E1011] font-semibold text-[12px]">
               Note:{" "}
               <span className="text-[#8E1011] font-normal">
                 {" "}
@@ -190,7 +190,7 @@ const FundsForm = () => {
               onClick={convertopenModal}
               type="submit"
               disabled={!isFormValid}
-              className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
+              className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] ${
                 isFormValid ? "" : "opacity-50 cursor-not-allowed"
               }`}
             >
@@ -198,7 +198,7 @@ const FundsForm = () => {
             </button>
           </div>
 
-          <div className="mb-5 mt-5" />
+          <div className="mb-2 mt-2" />
         </form>
       </div>
       <div className="flex items-center justify-center ">

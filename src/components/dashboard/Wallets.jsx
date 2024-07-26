@@ -259,19 +259,19 @@ const Wallets = () => {
             <motion.div
               variants={itemVariants}
               whileHover={cardHoverVariants.hover}
-              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-[167px] rounded-xl w-full lg:w-[full] lg:h-[200px] p-8 pt-5 m-1 bg-hero-pattern bg-no-repeat bg-cover bg-center"
+              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-[150px] rounded-xl w-full lg:w-[full] lg:h-[200px] p-8 pt-5 m-1 bg-hero-pattern bg-no-repeat bg-cover bg-center"
             >
               <div className="flex justify-between items-center ">
                 <div className="">
-                  <p className="font-semibold text-white text-sm lg:text-base w-[143px]">
+                  <p className="font-semibold text-white text-[14px] lg:text-base w-[143px]">
                     My Wallet Balance
                   </p>
-                  <div className="flex items-center mt-2">
+                  <div className="flex items-center mt-1">
                     <img
                       src={naira}
-                      className="w-[30px] h-[28.6px] lg:w-8 lg:h-8 "
+                      className="w-[24px] h-[20.6px] lg:w-8 lg:h-8 "
                     />
-                    <p className="font-bold text-2xl lg:text-3xl ml-2">
+                    <p className="font-bold text-xl lg:text-3xl ml-2">
                       1,000.65
                     </p>
                     <button
@@ -285,7 +285,7 @@ const Wallets = () => {
                 </div>
               </div>
 
-              <div className=" mt-5 lg:mt-6">
+              <div className=" mt-4 lg:mt-6">
                 <button
                   type="button"
                   className="bg-[#773333] lg:py-2 lg:px-4 py-2 px-3 outline-none rounded-xl font-semibold shadow-md"
@@ -296,7 +296,7 @@ const Wallets = () => {
             </motion.div>
           </div>
 
-          <div className="mt-3">
+          <div className="mt-2">
             <div className="flex flex-wrap justify-between m-1">
               {[
                 { img: currency, text: "Add Money", to: "/more" },
@@ -310,15 +310,15 @@ const Wallets = () => {
                   className=""
                 >
                   <Link
-                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[72px] w-[106px] lg:w-[264px]  rounded-xl flex flex-col items-center justify-center p-3 lg:p-8"
+                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[60px] w-[106px] lg:w-[264px]  rounded-xl flex flex-col items-center justify-center p-3 lg:p-8"
                     to={item.to}
                   >
                     <img
                       src={item.img}
                       alt={item.text}
-                      className="w-6 h-6 lg:w-8 lg:h-8"
+                      className="w-4 h-4 lg:w-4 lg:h-4"
                     />
-                    <p className="text-white font-semibold text-xs lg:text-sm mt-1">
+                    <p className="text-white font-semibold text-[10px] lg:text-sm mt-1">
                       {item.text}
                     </p>
                   </Link>
@@ -362,13 +362,13 @@ const Wallets = () => {
                     whileHover={cardHoverVariants.hover}
                     key={idx}
                     type="button"
-                    className="bg-[#F9F9F9] text-xs lg:text-sm text-[14px] border border-[#D8D8D8] font-medium py-2 px-3 lg:py-2 lg:px-4 h-[91px] w-[102px] lg:w-[383.33px] rounded-xl text-black flex flex-col items-center"
+                    className="bg-[#F9F9F9] text-center lg:text-sm text-[10px] border border-[#D8D8D8] font-medium py-2 px-3 lg:py-2 lg:px-4 h-[65px] w-[102px] lg:w-[383.33px] rounded-xl text-black flex flex-col items-center"
                     onClick={item.onClick}
                   >
                     <img
                       src={item.img}
                       alt={item.text}
-                      className="w-8 h-8 lg:w-12 lg:h-12 mb-2"
+                      className="w-6 h-6 lg:w-6 lg:h-6 mb-2"
                     />
                     {item.text}
                   </motion.button>
@@ -454,7 +454,7 @@ const Wallets = () => {
           className="fixed inset-0 flex items-center justify-center mt-[180px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={cablecloseModal}
@@ -466,7 +466,7 @@ const Wallets = () => {
                 Select Cable
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] p-3 mt-9">
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
               {cables.map((cable) => (
                 <div
                   key={cable.id}
@@ -476,10 +476,10 @@ const Wallets = () => {
                   <img
                     src={cable.img}
                     alt={cable.name}
-                    className="w-full h-auto"
+                    className="w-[100px] h-[100px]"
                   />
                   {selectedCable === cable.id && (
-                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center w-[100px] h-[100px]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-12 w-12 text-white"
@@ -515,10 +515,10 @@ const Wallets = () => {
           isOpen={exammodalIsOpen}
           onRequestClose={examcloseModal}
           contentLabel="Select Exam"
-          className="fixed inset-0 flex items-center justify-center mt-[370px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center mt-[340px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={examcloseModal}
@@ -530,7 +530,7 @@ const Wallets = () => {
                 Select Exam
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] p-3 mt-9">
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
               {exams.map((exam) => (
                 <div
                   key={exam.id}
@@ -540,10 +540,10 @@ const Wallets = () => {
                   <img
                     src={exam.img}
                     alt={exam.name}
-                    className="w-full h-auto"
+                    className="w-[100px] h-[100px]"
                   />
                   {selectedExam === exam.id && (
-                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center w-[100px] h-[100px]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-12 w-12 text-white"
@@ -582,7 +582,7 @@ const Wallets = () => {
           className="fixed inset-0 flex items-center justify-center mt-[180px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={closeModal}
@@ -594,7 +594,7 @@ const Wallets = () => {
                 Select Network
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] p-3 mt-9">
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
               {networks.map((network) => (
                 <div
                   key={network.id}
@@ -604,10 +604,10 @@ const Wallets = () => {
                   <img
                     src={network.img}
                     alt={network.name}
-                    className="w-full h-auto"
+                    className="w-[100px] h-[100px]"
                   />
                   {selectedNetwork === network.id && (
-                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center w-[100px] h-[100px]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-12 w-12 text-white"
@@ -680,14 +680,14 @@ const Wallets = () => {
           isOpen={electricitymodalIsOpen}
           onRequestClose={electricitycloseModal}
           contentLabel="Social Network"
-          className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 transition-all duration-300 ${
-            isFullHeight ? "h-full" : "h-[1200px]"
+          className={`fixed inset-0 flex items-center justify-center transition-all duration-300 ${
+            isFullHeight ? "h-full" : "h-[80vh]"
           }`}
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 relative overflow-hidden">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full h-auto mt-[215px] max-w-md p-7 relative overflow-hidden">
             <div
-              className="cursor-pointer w-[66px] h-1 bg-[#5B5B5B] rounded-full mx-auto mb-4"
+              className="cursor-pointer w-[66px] h-1 bg-[#5B5B5B] rounded-3xl mx-auto mb-4"
               onClick={toggleHeight}
             ></div>
             <div className="flex justify-between items-center mb-4">
@@ -704,7 +704,7 @@ const Wallets = () => {
 
             <div
               ref={scrollContainerRef}
-              className="grid grid-cols-2 gap-6 p-3 mt-6 overflow-y-auto no-scrollbar max-h-[70vh]"
+              className="grid grid-cols-2 gap-6 p-3 mt-6 ml-4 overflow-y-auto no-scrollbar max-h-[60vh]"
             >
               {electricities.map((electricity) => (
                 <div
@@ -715,10 +715,10 @@ const Wallets = () => {
                   <img
                     src={electricity.img}
                     alt={electricity.name}
-                    className="w-full h-auto"
+                    className="w-[100px] h-[100px]"
                   />
                   {selectedElectricity === electricity.id && (
-                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center w-[100px] h-[100px]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-12 w-12 text-white"

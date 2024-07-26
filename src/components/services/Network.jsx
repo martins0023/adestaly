@@ -123,7 +123,7 @@ const Network = () => {
         animate="visible"
         exit="exit"
       >
-        <div className="w-full flex justify-between items-center max-w-7xl mx-auto mb-6">
+        <div className="w-full flex justify-between items-center max-w-7xl mx-auto mb-4">
           <Link
             to="/"
             className="flex m-1"
@@ -137,7 +137,7 @@ const Network = () => {
               alt="back"
               className="w-[18px] h-[18px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
               Buy Airtime
             </p>
           </Link>
@@ -172,7 +172,7 @@ const Network = () => {
 
           <div className="flex flex-col gap-8 justify justify-between p-3">
             <form
-              className="mt-[12px] flex flex-col gap-[11px]"
+              className="mt-[5px] flex flex-col gap-[1px]"
               onSubmit={handleSubmit}
             >
               <label className="flex flex-col">
@@ -184,7 +184,7 @@ const Network = () => {
                   onChange={handleInputChange}
                   className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                     formData.network ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[56px] font-medium`}
+                  } text-[12px] rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[52px] font-medium`}
                 >
                   <option value="" disabled>
                     Select Network
@@ -206,7 +206,7 @@ const Network = () => {
                   disabled={!isFieldEnabled.type}
                   className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.type ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[56px] font-medium`}
+                  } text-[12px] rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[52px] font-medium`}
                 >
                   <option value="" disabled>
                     Select Type
@@ -224,9 +224,9 @@ const Network = () => {
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
                   disabled={!isFieldEnabled.phoneNumber}
-                  className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
+                  className={`bg-[#ffff] text-[12px] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.phoneNumber ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full h-[52px]`}
                 />
               </label>
 
@@ -241,7 +241,7 @@ const Network = () => {
                   disabled={!isFieldEnabled.amount}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.amount ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
+                  } text-[12px] rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full h-[52px]`}
                 />
               </label>
 
@@ -256,7 +256,7 @@ const Network = () => {
                   disabled={!isFieldEnabled.pay}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.pay ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
+                  } text-[12px] rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full h-[52px]`}
                 />
               </label>
 
@@ -270,7 +270,7 @@ const Network = () => {
                   onChange={handleInputChange}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.discount ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
+                  } text-[12px] rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full h-[52px]`}
                 />
               </label>
 
@@ -284,16 +284,16 @@ const Network = () => {
                   checkedIcon={false}
                   className="react-switch"
                 />
-                <label className="font-normal text-black text-16 mr-4">
+                <label className="font-normal text-black text-[12px] mt-1 mr-4">
                   Disable Number Validator
                 </label>
               </div>
 
-              <div className="flex flex-auto items-center justify-center mt-[56px]">
+              <div className="flex flex-auto items-center justify-center mt-[40px]">
                 <button
                   type="submit"
                   disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
+                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] ${
                     isFormValid ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                 >
@@ -301,7 +301,7 @@ const Network = () => {
                 </button>
               </div>
 
-              <div className="mb-5 mt-5" />
+              <div className=" " />
             </form>
           </div>
         </div>

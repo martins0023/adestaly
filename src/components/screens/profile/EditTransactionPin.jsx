@@ -213,7 +213,7 @@ const EditTransactionPin = () => {
               alt="back"
               className="w-[20px] h-[20px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
               Edit Transaction Pin
             </p>
           </Link>
@@ -310,7 +310,7 @@ const EditTransactionPin = () => {
                     }
                     className={`bg-white py-4 px-6 placeholder:text-black text-black ${
                       form[field] ? "rounded-lg" : "border-[#EEEFF4] lg:w-full"
-                    } rounded-xl outline-none border-[#000000] text-[18px] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                    } rounded-xl outline-none border-[#000000] text-[12px] border-1 lg:w-[408px] w-full h-[52px] font-medium`}
                   />
                   <img
                     src={
@@ -355,7 +355,7 @@ const EditTransactionPin = () => {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className={`bg-original py-3 px-20 outline-none uppercase h-[60px] xl w-full sm:w-[406px] text-white font-bold rounded-full ${
+                className={`bg-original py-3 px-20 outline-none uppercase h-[53px] xl w-full sm:w-[406px] text-white font-bold rounded-full ${
                   !isFormValid() ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={!isFormValid()}
@@ -397,8 +397,8 @@ const EditTransactionPin = () => {
                   placeholder="Enter Pin"
                   value={formData.pin}
                   onChange={handlePinChange}
-                  className="bg-white py-4 px-6 placeholder:text-black text-[18px] text-black 
-                      lg:w-full rounded-xl outline-none border-[#EEEFF4] border-2  w-full h-[56px] font-medium"
+                  className="bg-white py-4 px-6 placeholder:text-black text-[12px] text-black 
+                      lg:w-full rounded-xl outline-none border-[#EEEFF4] border-2  w-full h-[52px] font-medium"
                 />
                 <img
                   src={
@@ -420,8 +420,8 @@ const EditTransactionPin = () => {
                 value={formData.action}
                 onChange={handlePinChange}
                 placeholder="Select State"
-                className="bg-[#ffff] py-4 px-6
-                placeholder:text-black tex-[18px]
+                className="bg-[#ffff] py-4 px-6 h-[52px]
+                placeholder:text-black text-[12px]
                 text-black rounded-xl outline-none
                 border-[#EEEFF4] font-medium border-2"
               >
@@ -436,7 +436,7 @@ const EditTransactionPin = () => {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className={`bg-original py-3 px-20 outline-none uppercase h-[60px] xl w-full sm:w-[406px] text-white font-bold rounded-full mb-[40px] mt-[32px] ${
+                className={`bg-original py-3 px-20 outline-none uppercase h-[53px] xl w-full sm:w-[406px] text-white font-bold rounded-full mb-[40px] mt-[32px] ${
                   !isPinValid() ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={!isPinValid()}

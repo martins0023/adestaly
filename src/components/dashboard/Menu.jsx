@@ -184,7 +184,7 @@ const Menu = () => {
           <div>
             <button
               onClick={HandleHome}
-              className="mt-6 bg-[#ffff] font-montserrat py-3 px-20 text-[#8E1011] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[60px]"
+              className="mt-5 mb-1 bg-[#ffff] font-montserrat py-3 px-20 text-[#8E1011] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[60px]"
             >
               HOME
             </button>
@@ -259,7 +259,7 @@ const Menu = () => {
                 <button
                   onClick={convertcloseModal}
                   disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
+                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[50px] ${
                     isFormValid ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                 >
@@ -277,8 +277,8 @@ const Menu = () => {
 const ServiceItem = ({ icon, label, to, onClick }) => (
   <Link to={to} onClick={onClick}>
     <div className="flex flex-col justify-between items-center gap-2">
-      <img src={icon} className="w-[62px] h-[59px]" />
-      <p className="text-[#000000] font-medium text-[14px] text-center">
+      <img src={icon} className="w-[52px] h-[49px]" />
+      <p className="text-[#000000] font-medium text-[12px] text-center">
         {label}
       </p>
     </div>

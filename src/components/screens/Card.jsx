@@ -139,7 +139,7 @@ const Card = () => {
               onSubmit={handleSubmit}
             >
               <label className="flex flex-col">
-                <span className="text-[#666666] py-1 px-1 text-[12px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
                   Amount
                 </span>
                 <input
@@ -148,14 +148,14 @@ const Card = () => {
                   placeholder="Enter Amount"
                   value={formData.amount}
                   onChange={handleInputChange}
-                  className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
+                  className={`bg-white py-4 px-6 placeholder:text-[12px] text-black ${
                     formData.amount ? "rounded-lg" : "border-[#EEEFF4]"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[52px] font-medium`}
                 />
               </label>
 
               <label className="flex flex-col">
-                <span className="text-[#666666] py-1 px-1 text-[12px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
                   Charges
                 </span>
                 <input
@@ -165,14 +165,14 @@ const Card = () => {
                   value={formData.charges}
                   onChange={handleInputChange}
                   disabled={!isFieldEnabled.charges}
-                  className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
+                  className={`bg-white py-4 px-6 placeholder:text-[12px] text-black ${
                     isFieldEnabled.charges ? "rounded-lg" : "border-[#EEEFF4]"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[52px] font-medium`}
                 />
               </label>
 
               <label className="flex flex-col">
-                <span className="text-[#666666] py-1 px-1 text-[12px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
                   You would get
                 </span>
                 <input
@@ -182,9 +182,9 @@ const Card = () => {
                   value={formData.get}
                   onChange={handleInputChange}
                   disabled={!isFieldEnabled.get}
-                  className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
+                  className={`bg-[#ffff] py-4 px-6 placeholder:text-[12px] text-black ${
                     isFieldEnabled.get ? "rounded-lg" : "border-[#EEEFF4]"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-[408px] w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 h-[52px] lg:w-[408px] w-full`}
                 />
               </label>
 
@@ -195,11 +195,11 @@ const Card = () => {
                 />
               </div>
 
-              <div className="flex flex-auto items-center justify-center mt-[56px]">
+              <div className="flex flex-auto items-center justify-center mt-[40px]">
                 <button
                   type="submit"
                   disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
+                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] ${
                     isFormValid ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                 >

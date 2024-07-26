@@ -90,7 +90,7 @@ const Exampins = () => {
         animate="visible"
         exit="exit"
       >
-        <div className="w-full flex justify-between items-center max-w-7xl mx-auto mb-6">
+        <div className="w-full flex justify-between items-center max-w-7xl mx-auto mb-4">
           <Link
             to="/"
             className="flex m-1"
@@ -104,7 +104,7 @@ const Exampins = () => {
               alt="back"
               className="w-[18px] h-[18px] object-contain"
             />
-            <p className="text-black justify-center ml-5 font-semibold text-[16px]">
+            <p className="text-black justify-center ml-5 font-semibold text-[14px]">
               Exam Pin
             </p>
           </Link>
@@ -134,7 +134,7 @@ const Exampins = () => {
 
           <div className="flex flex-col gap-8 justify justify-between p-3">
             <form
-              className="mt-[12px] flex flex-col gap-[11px]"
+              className="mt-[5px] flex flex-col gap-[1px]"
               onSubmit={handleSubmit}
             >
               <label className="flex flex-col">
@@ -146,7 +146,7 @@ const Exampins = () => {
                   onChange={handleInputChange}
                   className={`bg-white py-4 px-6 placeholder:text-secondary text-black ${
                     formData.exam ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-full w-full h-[52px] text-[12px] font-medium`}
                 >
                   <option value="" disabled>
                     Exam Type
@@ -167,7 +167,7 @@ const Exampins = () => {
                   disabled={!isFieldEnabled.quantity}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.quantity ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 h-[52px] text-[12px] lg:w-full w-full`}
                 />
               </label>
 
@@ -182,7 +182,7 @@ const Exampins = () => {
                   disabled={!isFieldEnabled.pay}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
                     isFieldEnabled.pay ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 lg:w-full w-full`}
+                  } rounded-xl outline-none border-[#000000] font-medium border-1 h-[52px] text-[12px] lg:w-full w-full`}
                 />
               </label>
 
@@ -196,16 +196,16 @@ const Exampins = () => {
                   checkedIcon={false}
                   className="react-switch"
                 />
-                <label className="font-normal text-black text-16 mr-4">
+                <label className="font-normal text-black text-[12px] mt-1 mr-4">
                   Disable Number Validator
                 </label>
               </div>
 
-              <div className="flex flex-auto items-center justify-center mt-[56px]">
+              <div className="flex flex-auto items-center justify-center mt-[40px]">
                 <button
                   type="submit"
                   disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] ${
+                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] ${
                     isFormValid ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                 >
@@ -213,7 +213,7 @@ const Exampins = () => {
                 </button>
               </div>
 
-              <div className="mb-20 " />
+              <div className="mb-10 " />
             </form>
           </div>
         </div>

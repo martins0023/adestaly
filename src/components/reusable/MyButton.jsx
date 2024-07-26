@@ -2,12 +2,12 @@ import React from 'react';
 
 const MyButton = ({ isFormValid, loading, onClick }) => {
   return (
-    <div className="flex flex-auto items-center justify-center mt-[56px]">
+    <div className="flex flex-auto items-center justify-center mt-[40px]">
       <button
         type="button"
         disabled={!isFormValid || loading}
         onClick={onClick}
-        className={`bg-[#8E1011] py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] flex items-center justify-center ${
+        className={`bg-[#8E1011] py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] flex items-center justify-center ${
           isFormValid && !loading ? "" : "opacity-50 cursor-not-allowed"
         }`}
       >
