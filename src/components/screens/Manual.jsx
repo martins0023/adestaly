@@ -81,10 +81,10 @@ const Manual = () => {
       >
         <div className="mt-[20px] bg-white rounded-2xl p-6 m-3 gap-[24px] font-montserrat">
           <div className="flex flex-col justify justify-center items-center mt-[16px] gap-[12px] font-montserrat">
-            <p className="font-semibold text-[24px] text-[#000] font-montserrat text-center">
+            <p className="font-semibold text-[18px] text-[#000] font-montserrat text-center">
               Manual (Bank Transfer)
             </p>
-            <p className="font-medium text-[14px] text-[#000] text-center font-montserrat">
+            <p className="font-medium text-[16px] text-[#000] text-center font-montserrat">
               Pay with card, bank transfer, ussd or bank deposit.
             </p>
           </div>
@@ -99,20 +99,20 @@ const Manual = () => {
                     alt="Bank logo"
                   />
                   <div>
-                    <p className="text-base text-[14px] font-medium font-montserrat text-black">
+                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
                       Bank Name: <span className="font-semibold">UBA Bank</span>
                     </p>
-                    <p className="text-base text-[14px] font-medium font-montserrat text-black">
+                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
                       Account Name:{" "}
                       <span className="font-semibold">John Doe</span>
                     </p>
-                    <p className="text-base text-[14px] font-medium font-montserrat text-black">
+                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
                       Account No:{" "}
                       <span className="font-semibold">2123587356</span>
                     </p>
                   </div>
                 </div>
-                <p className="text-red-800 text-left text-[12px] font-medium">
+                <p className="text-red-800 text-left text-[10px] font-medium">
                   <span className="font-bold">Note:</span> Automated bank
                   transfer attracts additional charges of ₦50 only.
                 </p>
@@ -120,13 +120,13 @@ const Manual = () => {
               <div className="flex flex-col gap-[16px] mt-4">
                 <motion.button
                   variants={itemVariants}
-                  className="bg-red-800 font-montserrat text-[14px] text-white font-semibold text-center rounded-full w-full h-9"
+                  className="bg-red-800 font-montserrat text-[12px] text-white font-semibold text-center rounded-full w-full h-9"
                 >
                   Copy Account No
                 </motion.button>
                 <motion.button
                   variants={itemVariants}
-                  className="bg-[#F7E5E5] font-montserrat text-[14px] text-[#8E1011] font-semibold text-center rounded-full w-full h-9"
+                  className="bg-[#F7E5E5] font-montserrat text-[12px] text-[#8E1011] font-semibold text-center rounded-full w-full h-9"
                 >
                   Contact Admin
                 </motion.button>

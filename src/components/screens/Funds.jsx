@@ -62,7 +62,7 @@ const Funds = () => {
                   src={bank}
                   className="w-[24px] h-[24px]"
                 />
-                <p className="justify justify-start flex flex-start font-normal text-[16px] font-montserrat text-[#000000]">
+                <p className="justify justify-start flex flex-start font-normal text-[14px] font-montserrat text-[#000000]">
                   Bank Transfer
                 </p>
               </div>
@@ -81,7 +81,7 @@ const Funds = () => {
                   src={credit_card}
                   className="w-[24px] h-[24px]"
                 />
-                <p className="justify justify-start flex font-montserrat flex-start font-normal text-[16px] text-[#000000]">
+                <p className="justify justify-start flex font-montserrat flex-start font-normal text-[14px] text-[#000000]">
                   Card
                 </p>
               </div>
@@ -100,7 +100,7 @@ const Funds = () => {
                   src={payments}
                   className="w-[24px] h-[24px]"
                 />
-                <p className="justify justify-start flex flex-start font-montserrat font-normal text-[16px] text-[#000000]">
+                <p className="justify justify-start flex flex-start font-montserrat font-normal text-[14px] text-[#000000]">
                   Manual
                 </p>
               </div>

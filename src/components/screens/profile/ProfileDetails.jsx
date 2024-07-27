@@ -100,7 +100,7 @@ const ProfileDetails = () => {
                   src={colored_lock}
                   className="w-[24px] h-[24px]"
                 />
-                <p className="justify justify-start flex flex-start font-normal text-[18px] font-montserrat text-[#000000]">
+                <p className="justify justify-start flex flex-start font-normal text-[14px] font-montserrat text-[#000000]">
                   Password
                 </p>
               </div>
@@ -119,7 +119,7 @@ const ProfileDetails = () => {
                   src={security}
                   className="w-[24px] h-[24px]"
                 />
-                <p className="justify justify-start flex flex-start font-normal text-[18px] font-montserrat text-[#000000]">
+                <p className="justify justify-start flex flex-start font-normal text-[14px] font-montserrat text-[#000000]">
                   Pin
                 </p>
               </div>

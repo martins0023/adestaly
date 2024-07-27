@@ -319,7 +319,7 @@ const EditLogin = () => {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className={`bg-original py-3 px-20 outline-none uppercase h-[53px] xl w-full sm:w-[406px] text-white font-bold rounded-full ${
+                className={`bg-original py-3 px-30 outline-none uppercase h-[53px] xl w-full sm:w-[406px] text-white font-bold rounded-full ${
                   !isFormValid() ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={!isFormValid()}
