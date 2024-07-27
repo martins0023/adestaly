@@ -125,7 +125,7 @@ const Card = () => {
       >
         <div className="mt-[20px] bg-white rounded-2xl p-6 m-3 gap-[24px] font-montserrat">
           <div className="flex flex-col justify justify-center items-center mt-[16px] gap-[12px] font-montserrat">
-            <p className="font-semibold text-[24px] text-[#000] font-montserrat text-center">
+            <p className="font-semibold text-[20px] text-[#000] font-montserrat text-center">
               Card
             </p>
             <p className="font-medium text-[14px] text-[#000] text-center font-montserrat">
