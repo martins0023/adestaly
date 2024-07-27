@@ -32,6 +32,35 @@ const Bank_transfer = () => {
     },
   };
 
+  const accounts = [
+    {
+      bank: "Fidelity Bank",
+      accountNo: "2123587356",
+      image: bank1,
+    },
+    {
+      bank: "UBA Bank",
+      accountNo: "2123587356",
+      image: bank1,
+    },
+    {
+      bank: "Wema Bank",
+      accountNo: "3127847232",
+      image: bank1,
+    },
+  ];
+
+  const copyToClipboard = (accountNo) => {
+    navigator.clipboard
+      .writeText(accountNo)
+      .then(() => {
+        alert("Account number copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Could not copy text: ", err);
+      });
+  };
+
   const navigate = useNavigate();
   return (
     <section>
@@ -90,107 +119,47 @@ const Bank_transfer = () => {
             animate="visible"
             exit="exit"
           >
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col bg-white border rounded-2xl justify-between mt-12 m-3 p-3"
-            >
-              <div className="flex flex-col gap-3">
-                <div className="flex flex-row gap-4 items-center">
-                  <img
-                    src={bank1}
-                    className="w-16 h-16 bg-red-100 rounded-full"
-                    alt="Bank logo"
-                  />
-                  <div>
-                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
-                      Bank Transfer:{" "}
-                      <span className="font-semibold">Fidelity Bank</span>
-                    </p>
-                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
-                      Account No:{" "}
-                      <span className="font-semibold">2123587356</span>
-                    </p>
+            {accounts.map((account, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="flex flex-col bg-white border rounded-2xl justify-between mt-12 m-3 p-3"
+              >
+                <div className="flex flex-col gap-3">
+                  <div className="flex flex-row gap-4 items-center">
+                    <img
+                      src={account.image}
+                      className="w-16 h-16 bg-red-100 rounded-full"
+                      alt="Bank logo"
+                    />
+                    <div>
+                      <p className="text-base text-[12px] font-medium font-montserrat text-black">
+                        Bank Transfer:{" "}
+                        <span className="font-semibold">{account.bank}</span>
+                      </p>
+                      <p className="text-base text-[12px] font-medium font-montserrat text-black">
+                        Account No:{" "}
+                        <span className="font-semibold">
+                          {account.accountNo}
+                        </span>
+                      </p>
+                    </div>
                   </div>
+                  <p className="text-red-800 text-left text-[10px] font-medium">
+                    <span className="font-bold">Note:</span> Automated bank
+                    transfer attracts additional charges of ₦50 only.
+                  </p>
                 </div>
-                <p className="text-red-800 text-left text-[10px] font-medium">
-                  <span className="font-bold">Note:</span> Automated bank
-                  transfer attracts additional charges of ₦50 only.
-                </p>
-              </div>
-              <div className="mt-4">
-                <button className="bg-red-800 font-montserrat text-[12px] text-white text-center rounded-full w-full h-9">
-                  Copy Account No
-                </button>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col bg-white border rounded-2xl justify-between m-3 p-3"
-            >
-              <div className="flex flex-col gap-3">
-                <div className="flex flex-row gap-4 items-center">
-                  <img
-                    src={bank1}
-                    className="w-16 h-16 bg-red-100 rounded-full"
-                    alt="Bank logo"
-                  />
-                  <div>
-                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
-                      Bank Transfer:{" "}
-                      <span className="font-semibold">UBA Bank</span>
-                    </p>
-                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
-                      Account No:{" "}
-                      <span className="font-semibold">2123587356</span>
-                    </p>
-                  </div>
+                <div className="mt-4">
+                  <button
+                    className="bg-red-800 font-montserrat text-[12px] text-white text-center rounded-full w-full h-9"
+                    onClick={() => copyToClipboard(account.accountNo)}
+                  >
+                    Copy Account No
+                  </button>
                 </div>
-                <p className="text-red-800 text-left text-[10px] font-medium">
-                  <span className="font-bold">Note:</span> Automated bank
-                  transfer attracts additional charges of ₦50 only.
-                </p>
-              </div>
-              <div className="mt-4">
-                <button className="bg-red-800 font-montserrat text-[12px] text-white text-center rounded-full w-full h-9">
-                  Copy Account No
-                </button>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col bg-white border rounded-2xl justify-between m-3 p-3"
-            >
-              <div className="flex flex-col gap-3">
-                <div className="flex flex-row gap-4 items-center">
-                  <img
-                    src={bank1}
-                    className="w-16 h-16 bg-red-100 rounded-full"
-                    alt="Bank logo"
-                  />
-                  <div>
-                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
-                      Bank Transfer:{" "}
-                      <span className="font-semibold">Wema Bank</span>
-                    </p>
-                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
-                      Account No:{" "}
-                      <span className="font-semibold">3127847232</span>
-                    </p>
-                  </div>
-                </div>
-                <p className="text-red-800 text-left text-[10px] font-medium">
-                  <span className="font-bold">Note:</span> Automated bank
-                  transfer attracts additional charges of ₦50 only.
-                </p>
-              </div>
-              <div className="mt-4">
-                <button className="bg-red-800 font-montserrat text-[12px] text-white text-center rounded-full w-full h-9">
-                  Copy Account No
-                </button>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>

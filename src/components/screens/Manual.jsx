@@ -33,6 +33,16 @@ const Manual = () => {
   };
 
   const navigate = useNavigate();
+
+  const accountNo = "2123587356";
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(accountNo).then(() => {
+      alert("Account number copied to clipboard!");
+    }).catch(err => {
+      console.error('Could not copy text: ', err);
+    });
+  };
   return (
     <section>
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto p-3 font-montserrat">
@@ -108,7 +118,7 @@ const Manual = () => {
                     </p>
                     <p className="text-base text-[12px] font-medium font-montserrat text-black">
                       Account No:{" "}
-                      <span className="font-semibold">2123587356</span>
+                      <span className="font-semibold">{accountNo}</span>
                     </p>
                   </div>
                 </div>
@@ -120,6 +130,7 @@ const Manual = () => {
               <div className="flex flex-col gap-[16px] mt-4">
                 <motion.button
                   variants={itemVariants}
+                  onClick={copyToClipboard}
                   className="bg-red-800 font-montserrat text-[12px] text-white font-semibold text-center rounded-full w-full h-9"
                 >
                   Copy Account No
