@@ -118,15 +118,16 @@ const Menu = () => {
               <img
                 src={arrow_back_ios}
                 alt="back"
-                className="w-[24px] h-[24px] object-contain"
+                className="w-[18px] h-[18px] object-contain"
               />
+              <p className="text-black justify-center ml-3 font-semibold text-[14px] mb-1">
+              Payment Services
+            </p>
             </Link>
           </div>
 
           <div className="m-4">
-            <p className="flex text-black text-[16px] font-semibold cursor-pointer">
-              Payment Services
-            </p>
+            
             <motion.div
               variants={itemVariants}
               className="grid grid-cols-4 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-5"
@@ -151,7 +152,7 @@ const Menu = () => {
           </div>
 
           <div className="m-4 mt-[64px]">
-            <p className="flex text-black text-[16px] font-semibold cursor-pointer">
+            <p className="flex text-black text-[14px] font-semibold cursor-pointer">
               Other
             </p>
             <div className="grid grid-cols-4 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-5">
@@ -184,7 +185,7 @@ const Menu = () => {
           <div>
             <button
               onClick={HandleHome}
-              className="mt-5 mb-1 bg-[#ffff] font-montserrat py-3 px-20 text-[#8E1011] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[60px]"
+              className="mt-5 mb-1 bg-[#ffff] font-montserrat py-3 px-20 text-[#8E1011] border-[1.5px] text-[14px] border-[#8E1011] rounded-full uppercase w-full h-[53px]"
             >
               HOME
             </button>

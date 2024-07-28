@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
@@ -30,6 +29,9 @@ const Decoder = () => {
     phoneNumber: false,
     iuc: false,
   });
+
+  const [clickCount, setClickCount] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -73,18 +75,22 @@ const Decoder = () => {
     // Handle form submission
     navigate("/review");
   };
-  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
     setLoading(true);
-    // Simulate an API call
-    setTimeout(() => {
-      const randomNames = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown'];
-      const randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
-      setCustomerName(randomName);
-      setLoading(false);
-      //navigate("/review")
-    }, 2000);
+    setClickCount((prevCount) => prevCount + 1);
+    
+    if (clickCount === 0) {
+      // Simulate an API call
+      setTimeout(() => {
+        const randomNames = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown'];
+        const randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
+        setCustomerName(randomName);
+        setLoading(false);
+      }, 2000);
+    } else if (clickCount === 1) {
+      navigate("/review");
+    }
   };
 
   const [isEnabled, setIsEnabled] = useState(false);

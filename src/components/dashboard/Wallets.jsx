@@ -328,7 +328,7 @@ const Wallets = () => {
           </div>
           <div className="mt-4">
             <div className="bg-colorbg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl ">
-              <div className="flex justify-between mb-4 p-4">
+              <div className="flex justify-between mb-1 p-4">
                 <p className="font-semibold text-black text-base ">
                   My Services
                 </p>
