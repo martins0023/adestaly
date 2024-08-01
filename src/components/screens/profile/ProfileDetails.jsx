@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
+import Modal from "react-modal";
 import {
   arrow_forward,
   character,
@@ -9,10 +10,21 @@ import {
   security,
   share,
   whatsapp,
-  person
+  person,
+  success,
 } from "../../../assets";
 
 const ProfileDetails = () => {
+  const [convertmodalIsOpen, setConvertModalIsOpen] = useState(false);
+
+  const convertopenModal = () => {
+    setConvertModalIsOpen(true);
+  };
+
+  const convertcloseModal = () => {
+    setConvertModalIsOpen(false);
+  };
+
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -37,6 +49,11 @@ const ProfileDetails = () => {
     );
     // Clear the message after 2 seconds
     setTimeout(() => setCopyStatus(""), 2000);
+  };
+
+  const handleButtonClick = () => {
+    copyToClipboard();
+    convertopenModal();
   };
 
   const containerVariants = {
@@ -76,8 +93,12 @@ const ProfileDetails = () => {
       >
         <div className="mt-[10px] bg-white rounded-2xl p-6 m-3 gap-[24px] font-montserrat">
           <div className="flex flex-col items-center mt-8">
-            <Link to="/editprofile" >
-            <img src={person} className="w-[124px] h-[124px] rounded-full" alt="person" />
+            <Link to="/editprofile">
+              <img
+                src={person}
+                className="w-[124px] h-[124px] rounded-full"
+                alt="person"
+              />
             </Link>
             <div className=" flex flex-col items-center gap-[8px]">
               <p className="text-[18px] text-black mt-[16px] font-semibold">
@@ -157,7 +178,7 @@ const ProfileDetails = () => {
                   https://adestathehfyedych
                 </p>
                 <button
-                  onClick={copyToClipboard}
+                  onClick={handleButtonClick}
                   className=" cursor-pointer w-[47px] h-[24px] bg-[#8E1011] rounded-lg uppercase font-semibold text-[12px] mt-1.5 justify-end"
                 >
                   copy
@@ -172,10 +193,50 @@ const ProfileDetails = () => {
           </div>
 
           <div className="mb-8">
-            <button onClick={handleCommission} className="mt-6 bg-[#ffff] font-montserrat font-semibold text-[14px]  text-[#8E1011] border-[1.5px] border-[#8E1011] rounded-full w-full h-[36px]">
+            <button
+              onClick={handleCommission}
+              className="mt-6 bg-[#ffff] font-montserrat font-semibold text-[14px]  text-[#8E1011] border-[1.5px] border-[#8E1011] rounded-full w-full h-[36px]"
+            >
               View Commission
             </button>
           </div>
+        </div>
+        <div className="flex items-center justify-center ">
+          <Modal
+            isOpen={convertmodalIsOpen}
+            onRequestClose={convertcloseModal}
+            contentLabel="SUCCESS"
+            className="fixed inset-0 flex items-center justify-center  bg-black bg-opacity-10"
+            overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+          >
+            <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 flex flex-col items-center m-3">
+              <div className="p-3 flex justify-center items-center">
+                <img
+                  src={success}
+                  alt="success"
+                  className="w-full h-auto items-center"
+                />
+              </div>
+              <div className="mb-4">
+                <p className="font-semibold text-[20px] text-[#000000] text-center">
+                  Success
+                </p>
+              </div>
+              <div className="flex justify-between items-center mb-4">
+                <p className="font-normal text-center text-[14px] text-[#000000]">
+                  Copied To Clipboard Successfully
+                </p>
+              </div>
+              <div className="flex flex-col w-full gap-[1px]">
+                <button
+                  onClick={convertcloseModal}
+                  className="mt-6 bg-[#8E1011] font-montserrat py-3 px-20 text-[#FFFF] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[53px]"
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          </Modal>
         </div>
       </motion.div>
     </section>

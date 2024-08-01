@@ -5,6 +5,12 @@ import Modal from "react-modal";
 import { report } from "../../../assets";
 
 const FundsForm = () => {
+  const navigate = useNavigate();
+
+  const NavigateReview = () => {
+    navigate("/review")
+  }
+
   const [convertmodalIsOpen, setConvertModalIsOpen] = useState(false);
 
   const convertopenModal = () => {
@@ -187,7 +193,7 @@ const FundsForm = () => {
 
           <div className="flex flex-auto items-center justify-center mt-[46px]">
             <button
-              onClick={convertopenModal}
+              onClick={NavigateReview}
               type="submit"
               disabled={!isFormValid}
               className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] ${

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
+import Modal from "react-modal";
 import BottomNavbar from "../../dashboard/BottomNavbar";
 import ProfileNav from "./ProfileNav";
 import {
@@ -10,9 +11,20 @@ import {
   colored_visibility_off,
   lock,
   person,
+  success,
 } from "../../../assets";
 
 const EditLogin = () => {
+  const [convertmodalIsOpen, setConvertModalIsOpen] = useState(false);
+
+  const convertopenModal = () => {
+    setConvertModalIsOpen(true);
+  };
+
+  const convertcloseModal = () => {
+    setConvertModalIsOpen(false);
+  };
+
   //password state
   //password visibility
   const [passwordVisibility, setPasswordVisibility] = useState({
@@ -70,10 +82,15 @@ const EditLogin = () => {
       // Simulate a successful submission
       setTimeout(() => {
         setLoading(false);
-        navigate("/login"); // Navigate to the next page
+        convertopenModal();
+        //navigate("/login"); // Navigate to the next page
       }, 2000);
     }
   };
+
+  const NavigateLogin = () =>{
+    navigate("/login")
+  }
 
   const getStrengthBarClass = (strength) => {
     switch (strength) {
@@ -324,11 +341,48 @@ const EditLogin = () => {
                 }`}
                 disabled={!isFormValid()}
               >
-                {loading ? "Transferring..." : "Update Password"}
+                {loading ? "Updating..." : "Update Password"}
               </button>
             </div>
           </form>
           <div className="flex flex-col gap-8 justify justify-between p-3"></div>
+        </div>
+        <div className="flex items-center justify-center ">
+          <Modal
+            isOpen={convertmodalIsOpen}
+            onRequestClose={convertcloseModal}
+            contentLabel="SUCCESS"
+            className="fixed inset-0 flex items-center justify-center  bg-black bg-opacity-10"
+            overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+          >
+            <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 flex flex-col items-center m-3">
+              <div className="p-3 flex justify-center items-center">
+                <img
+                  src={success}
+                  alt="success"
+                  className="w-full h-auto items-center"
+                />
+              </div>
+              <div className="mb-4">
+                <p className="font-semibold text-[20px] text-[#000000] text-center">
+                  Success
+                </p>
+              </div>
+              <div className="flex justify-between items-center mb-4">
+                <p className="font-normal text-center text-[14px] text-[#000000]">
+                  Login Details Updated Successfully
+                </p>
+              </div>
+              <div className="flex flex-col w-full gap-[1px]">
+                <button
+                  onClick={NavigateLogin}
+                  className="mt-6 bg-[#8E1011] font-montserrat py-3 px-20 text-[#FFFF] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[53px]"
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          </Modal>
         </div>
       </motion.div>
 

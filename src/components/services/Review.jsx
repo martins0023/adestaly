@@ -160,57 +160,57 @@ const Review = () => {
           </ul>
         </div>
 
-        <div className="mt-[54px] bg-white rounded-3xl p-7 m-3 gap-[24px]">
+        <div className="mt-[20px] bg-white rounded-3xl p-7 m-3 gap-[24px]">
           <div className="flex flex-auto justify justify-between mt-[16px] ">
-            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+            <p className="justify justify-start flex flex-start font-normal text-[164x] text-[#6A6A6A]">
               Biller
             </p>
-            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+            <p className="justify justify-end flex flex-end font-semibold text-[14px] text-[#000000]">
               MTN
             </p>
           </div>
           <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] " />
-          <div className="flex flex-auto justify justify-between mt-[16px] ">
-            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+          <div className="flex flex-auto justify justify-between mt-[14px] ">
+            <p className="justify justify-start flex flex-start font-normal text-[14px] text-[#6A6A6A]">
               Product
             </p>
-            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+            <p className="justify justify-end flex flex-end font-semibold text-[14px] text-[#000000]">
               MTNNG
             </p>
           </div>
           <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px]" />
           <div className="flex flex-auto justify justify-between ">
-            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+            <p className="justify justify-start flex flex-start font-normal text-[14px] text-[#6A6A6A]">
               Amount
             </p>
-            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+            <p className="justify justify-end flex flex-end font-semibold text-[14px] text-[#000000]">
               200.00
             </p>
           </div>
           <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
           <div className="flex flex-auto justify justify-between ">
-            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+            <p className="justify justify-start flex flex-start font-normal text-[14px] text-[#6A6A6A]">
               Time
             </p>
-            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+            <p className="justify justify-end flex flex-end font-semibold text-[14px] text-[#000000]">
               {currentTime}
             </p>
           </div>
           <hr className=" w-full height-[1px]  backgroundColor: '#E2E2E2' mt-[16px] mb-[16px] " />
           <div className="flex flex-auto justify justify-between mb-[16px]">
-            <p className="justify justify-start flex flex-start font-normal text-[16px] text-[#6A6A6A]">
+            <p className="justify justify-start flex flex-start font-normal text-[14px] text-[#6A6A6A]">
               Date
             </p>
-            <p className="justify justify-end flex flex-end font-semibold text-[16px] text-[#000000]">
+            <p className="justify justify-end flex flex-end font-semibold text-[14px] text-[#000000]">
               {currentDate}
             </p>
           </div>
         </div>
 
-        <div className="flex flex-auto items-center justify-center mt-[56px] m-2">
+        <div className="flex flex-auto items-center justify-center mt-[50px] m-2">
           <button
             type="submit"
-            className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[60px] `}
+            className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] `}
             onClick={openModal}
           >
             {loading ? "transferring..." : "Continue"}

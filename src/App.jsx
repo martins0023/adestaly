@@ -8,6 +8,7 @@ import {
   AirtimeToCash,
   Cable,
   Data,
+  DataPinScreen,
   Electricity,
   Exam,
   Review,
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="/Mtn" element={<Mtn />} />
             <Route path="/Airtime" element={<Airtime />} />
             <Route path="/Data" element={<Data />} />
+            <Route path="/DataPin" element={<DataPinScreen />} />
             <Route path="/Review" element={<Review />} />
             <Route
               path="/TransactionDetails"

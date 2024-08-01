@@ -103,12 +103,12 @@ const NotificationScreen = () => {
         <motion.div
           variants={itemVariants}
           whileHover={cardHoverVariants.hover}
-          className="mt-[24px] bg-white rounded-2xl px-2 py-7 m-3 gap-[24px] font-montserrat"
+          className="mt-[18px] bg-white rounded-2xl px-2 py-7 m-3 gap-[18px] font-montserrat"
         >
           <div className="flex flex-row justify justify-around">
             <div className="flex ml-[-11px] justify-start flex-row gap-[16px]">
-              <img src={message} className="w-[32px] h-[32px]" />
-              <p className="font-semibold text-[24px] text-[#000] font-montserrat">
+              <img src={message} className="w-[30px] h-[30px]" />
+              <p className="font-semibold text-[20px] text-[#000] font-montserrat">
                 Adestaly
               </p>
             </div>
@@ -133,12 +133,12 @@ const NotificationScreen = () => {
         <motion.div
           variants={itemVariants}
           whileHover={cardHoverVariants.hover}
-          className="mt-[24px] bg-white rounded-2xl px-2 py-7 m-3 gap-[24px] font-montserrat"
+          className="mt-[18px] bg-white rounded-2xl px-2 py-7 m-3 gap-[18px] font-montserrat"
         >
           <div className="flex flex-row justify justify-around">
             <div className="flex ml-[-11px] justify-start flex-row gap-[16px]">
-              <img src={message} className="w-[32px] h-[32px]" />
-              <p className="font-semibold text-[24px] text-[#000] font-montserrat">
+              <img src={message} className="w-[30px] h-[30px]" />
+              <p className="font-semibold text-[20px] text-[#000] font-montserrat">
                 Adestaly
               </p>
             </div>
@@ -163,12 +163,12 @@ const NotificationScreen = () => {
         <motion.div
           variants={itemVariants}
           whileHover={cardHoverVariants.hover}
-          className="mt-[24px] bg-white rounded-2xl px-2 py-7 m-3 gap-[24px] font-montserrat"
+          className="mt-[18px] bg-white rounded-2xl px-2 py-7 m-3 gap-[18px] font-montserrat"
         >
           <div className="flex flex-row justify justify-around">
             <div className="flex ml-[-11px] justify-start flex-row gap-[16px]">
-              <img src={message} className="w-[32px] h-[32px]" />
-              <p className="font-semibold text-[24px] text-[#000] font-montserrat">
+              <img src={message} className="w-[30px] h-[30px]" />
+              <p className="font-semibold text-[20px] text-[#000] font-montserrat">
                 Adestaly
               </p>
             </div>

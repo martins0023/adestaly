@@ -65,7 +65,7 @@ const ComissionRef = () => {
   };
 
   const [formData, setFormData] = useState({
-    link: "",
+    link: "https://adestaly.com/66773kji",
   });
 
   const [isFormValid, setIsFormValid] = useState(false);
@@ -106,25 +106,26 @@ const ComissionRef = () => {
         </motion.div>
 
         <div className="bg-white p-3 rounded-xl">
-          <p className="text-black font-semibold text-[20px]">Referral Link</p>
+          <p className="text-black font-semibold text-[14px]">Referral Link</p>
           <div>
             <form
               className="mt-[12px] flex flex-col gap-[11px] relative"
               onSubmit={handleSubmit}
             >
               <label className="flex flex-col">
-                <span className="text-[#666666] py-1 text-[12px] absolute top-1/6 transform -translate-y-1/5 px-3 font-normal mb-4">
+                <span className="text-[#666666] py-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 px-3 font-normal mb-4">
                   Your Link
                 </span>
                 <input
                   type="text"
                   name="link"
-                  placeholder="https://adestaly.com/miracle"
+                  placeholder="https://adestaly.com/"
                   value={formData.link}
                   onChange={handleInputChange}
+                  disabled
                   className={`bg-white py-4 px-3 placeholder:text-[#000000] text-black ${
                     formData.link ? "rounded-lg" : "border-[#EEEFF4]"
-                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[408px] w-full h-[56px] font-medium`}
+                  } rounded-xl outline-none border-[#000000] border-1 lg:w-[full] w-full h-[52px] text-[12px] font-medium`}
                 />
               </label>
 
@@ -139,33 +140,32 @@ const ComissionRef = () => {
                 >
                   {loading ? "transferring..." : "Withdraw"}
                 </motion.button>
-                <motion.button
-                  variants={itemVariants}
-                  type="submit"
-                  disabled={!isFormValid}
-                  className={`bg-[#F7E5E5] font-montserrat text-[14px] text-[#8E1011] font-semibold text-center rounded-full w-full h-9 ${
-                    isFormValid ? "" : " cursor-not-allowed"
-                  }`}
-                >
-                  {loading ? "transferring..." : "Copy Link"}
-                </motion.button>
               </div>
             </form>
+            <div className="mt-2">
+              <motion.button
+                variants={itemVariants}
+                type="submit"
+                className="bg-[#F7E5E5] font-montserrat text-[14px] text-[#8E1011] font-semibold text-center rounded-full w-full h-9 cursor-not-allowed"
+              >
+                {loading ? "transferring..." : "Copy Link"}
+              </motion.button>
+            </div>
           </div>
         </div>
 
         <div className="bg-white p-3 rounded-xl">
-          <p className="text-black font-semibold text-[20px]">
+          <p className="text-black font-semibold text-[18px]">
             Commission List
           </p>
           <div className="border-[#EEEFF4] border rounded-xl mt-4">
             <div className="flex flex-auto justify justify-between mt-[46px] m-3">
               <div className="flex fle-row gap-[10px]">
-                <p className="justify justify-start flex flex-start font-semibold text-[16px] font-montserrat text-[#8E1011]">
+                <p className="justify justify-start flex flex-start font-semibold text-[14px] font-montserrat text-[#8E1011]">
                   Service
                 </p>
               </div>
-              <p className="justify justify-end flex flex-end font-semibold text-[16px] font-montserrat text-[#8E1011]">
+              <p className="justify justify-end flex flex-end font-semibold text-[14px] font-montserrat text-[#8E1011]">
                 Bonus
               </p>
             </div>
@@ -174,11 +174,11 @@ const ComissionRef = () => {
 
             <div className="flex flex-auto justify justify-between  m-3">
               <div className="flex fle-row gap-[10px]">
-                <p className="justify justify-start flex flex-start font-medium text-[14px] font-montserrat text-[#000000]">
+                <p className="justify justify-start flex flex-start font-medium text-[12px] font-montserrat text-[#000000]">
                   Account Upgrade
                 </p>
               </div>
-              <p className="justify justify-end flex flex-end font-semibold text-[14px] font-montserrat text-[#000000]">
+              <p className="justify justify-end flex flex-end font-semibold text-[12px] font-montserrat text-[#000000]">
                 NO
               </p>
             </div>
@@ -187,11 +187,11 @@ const ComissionRef = () => {
 
             <div className="flex flex-auto justify justify-between  m-3">
               <div className="flex fle-row gap-[10px]">
-                <p className="justify justify-start flex flex-start font-medium text-[14px] font-montserrat text-[#000000]">
+                <p className="justify justify-start flex flex-start font-medium text-[12px] font-montserrat text-[#000000]">
                   Airtime Bonus
                 </p>
               </div>
-              <p className="justify justify-end flex flex-end font-semibold text-[14px] font-montserrat text-[#000000]">
+              <p className="justify justify-end flex flex-end font-semibold text-[12px] font-montserrat text-[#000000]">
                 NO
               </p>
             </div>
@@ -200,11 +200,11 @@ const ComissionRef = () => {
 
             <div className="flex flex-auto justify justify-between m-3">
               <div className="flex fle-row gap-[10px]">
-                <p className="justify justify-start flex flex-start font-medium text-[14px] font-montserrat text-[#000000]">
+                <p className="justify justify-start flex flex-start font-medium text-[12px] font-montserrat text-[#000000]">
                   Data Bonus
                 </p>
               </div>
-              <p className="justify justify-end flex flex-end font-semibold text-[14px] font-montserrat text-[#000000]">
+              <p className="justify justify-end flex flex-end font-semibold text-[12px] font-montserrat text-[#000000]">
                 NO
               </p>
             </div>
@@ -213,11 +213,11 @@ const ComissionRef = () => {
 
             <div className="flex flex-auto justify justify-between m-3">
               <div className="flex fle-row gap-[10px]">
-                <p className="justify justify-start flex flex-start font-medium text-[14px] font-montserrat text-[#000000]">
+                <p className="justify justify-start flex flex-start font-medium text-[12px] font-montserrat text-[#000000]">
                   Cable TV Bonus
                 </p>
               </div>
-              <p className="justify justify-end flex flex-end font-semibold text-[14px] font-montserrat text-[#000000]">
+              <p className="justify justify-end flex flex-end font-semibold text-[12px] font-montserrat text-[#000000]">
                 NO
               </p>
             </div>
@@ -226,11 +226,11 @@ const ComissionRef = () => {
 
             <div className="flex flex-auto justify justify-between m-3">
               <div className="flex fle-row gap-[10px]">
-                <p className="justify justify-start flex flex-start font-medium text-[14px] font-montserrat text-[#000000]">
+                <p className="justify justify-start flex flex-start font-medium text-[12px] font-montserrat text-[#000000]">
                   Electricity Bonus
                 </p>
               </div>
-              <p className="justify justify-end flex flex-end font-semibold text-[14px] font-montserrat text-[#000000]">
+              <p className="justify justify-end flex flex-end font-semibold text-[12px] font-montserrat text-[#000000]">
                 NO
               </p>
             </div>
@@ -239,11 +239,11 @@ const ComissionRef = () => {
 
             <div className="flex flex-auto justify justify-between m-3">
               <div className="flex fle-row gap-[10px]">
-                <p className="justify justify-start flex flex-start font-medium text-[14px] font-montserrat text-[#000000]">
+                <p className="justify justify-start flex flex-start font-medium text-[12px] font-montserrat text-[#000000]">
                   Exam Bonus
                 </p>
               </div>
-              <p className="justify justify-end flex flex-end font-semibold text-[14px] font-montserrat text-[#000000]">
+              <p className="justify justify-end flex flex-end font-semibold text-[12px] font-montserrat text-[#000000]">
                 NO
               </p>
             </div>

@@ -146,12 +146,12 @@ const Menu = () => {
                 to="/airtimetocash"
               />
               <ServiceItem icon={exam_icon} label="Exam Pin" to="/exam" />
-              <ServiceItem icon={datapin_icon} label="Data Pin" />
+              <ServiceItem icon={datapin_icon} label="Data Pin" to="/datapin" />
               <ServiceItem icon={fund_icon} label="Add Fund" to="/more" />
             </motion.div>
           </div>
 
-          <div className="m-4 mt-[64px]">
+          <div className="m-4 mt-[30px]">
             <p className="flex text-black text-[14px] font-semibold cursor-pointer">
               Other
             </p>

@@ -13,6 +13,10 @@
   color-scheme: dark;
 }
 
+html, body {
+  background-color: #ffffff; /* Change this to your desired background color */
+}
+
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;

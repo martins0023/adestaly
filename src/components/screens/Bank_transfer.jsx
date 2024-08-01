@@ -1,10 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { arrow_back_ios, bank, bank1, home } from "../../assets";
+import { arrow_back_ios, bank, bank1, home, success } from "../../assets";
 import BottomNavbar from "../dashboard/BottomNavbar";
+import Modal from "react-modal";
 
 const Bank_transfer = () => {
+  const [convertmodalIsOpen, setConvertModalIsOpen] = useState(false);
+
+  const convertopenModal = () => {
+    setConvertModalIsOpen(true);
+  };
+
+  const convertcloseModal = () => {
+    setConvertModalIsOpen(false);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0, x: "-100vw" },
     visible: {
@@ -54,11 +65,16 @@ const Bank_transfer = () => {
     navigator.clipboard
       .writeText(accountNo)
       .then(() => {
-        alert("Account number copied to clipboard!");
+        
       })
       .catch((err) => {
         console.error("Could not copy text: ", err);
       });
+  };
+
+  const handleButtonClick = (accountNo) => {
+    copyToClipboard(accountNo);
+    convertopenModal();
   };
 
   const navigate = useNavigate();
@@ -153,7 +169,7 @@ const Bank_transfer = () => {
                 <div className="mt-4">
                   <button
                     className="bg-red-800 font-montserrat text-[12px] text-white text-center rounded-full w-full h-9"
-                    onClick={() => copyToClipboard(account.accountNo)}
+                    onClick={() => handleButtonClick(account.accountNo)}
                   >
                     Copy Account No
                   </button>
@@ -162,6 +178,44 @@ const Bank_transfer = () => {
             ))}
           </motion.div>
         </div>
+      </div>
+      <div className=""></div>
+      <div className="flex items-center justify-center ">
+        <Modal
+          isOpen={convertmodalIsOpen}
+          onRequestClose={convertcloseModal}
+          contentLabel="SUCCESS"
+          className="fixed inset-0 flex items-center justify-center  bg-black bg-opacity-10"
+          overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+        >
+          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 flex flex-col items-center m-3">
+            <div className="p-3 flex justify-center items-center">
+              <img
+                src={success}
+                alt="success"
+                className="w-full h-auto items-center"
+              />
+            </div>
+            <div className="mb-4">
+              <p className="font-semibold text-[20px] text-[#000000] text-center">
+                Success
+              </p>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <p className="font-normal text-center text-[14px] text-[#000000]">
+                Copied To Clipboard Successfully
+              </p>
+            </div>
+            <div className="flex flex-col w-full gap-[1px]">
+              <button
+                onClick={convertcloseModal}
+                className="mt-6 bg-[#8E1011] font-montserrat py-3 px-20 text-[#FFFF] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[53px]"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </Modal>
       </div>
       <BottomNavbar />
     </section>

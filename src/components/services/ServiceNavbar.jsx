@@ -8,7 +8,7 @@ const ServiceNavbar = () => {
   const [active, setActive] = useState("");
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5  top-0 z-20 bg-colorbg pr-3`}
+      className={`${styles.paddingX} w-full flex items-center py-1  top-0 z-20 bg-colorbg pr-3`}
     >
       
     </nav>

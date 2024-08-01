@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyButton = ({ isFormValid, loading, onClick }) => {
+const MyButton = ({ isFormValid, loading, onClick, buttonText }) => {
   return (
     <div className="flex flex-auto items-center justify-center mt-[40px]">
       <button
@@ -34,7 +34,7 @@ const MyButton = ({ isFormValid, loading, onClick }) => {
             PROCESSING...
           </div>
         ) : (
-          "Buy Cable"
+          buttonText
         )}
       </button>
     </div>

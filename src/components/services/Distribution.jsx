@@ -5,9 +5,13 @@ import { styles } from "../../styles";
 import Switch from "react-switch";
 import { arrow_back_ios, dropdown, info, naira } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
+import MyButton from "../reusable/MyButton";
 
 const Distribution = () => {
   const navigate = useNavigate();
+
+  const [customerName, setCustomerName] = useState("");
+  const [clickCount, setClickCount] = useState(0);
 
   const [formData, setFormData] = useState({
     distribution: "",
@@ -67,6 +71,33 @@ const Distribution = () => {
     e.preventDefault();
     // Handle form submission
     navigate("/review");
+  };
+
+  const handleClick = () => {
+    setLoading(true);
+    setClickCount((prevCount) => prevCount + 1);
+
+    if (clickCount === 0) {
+      // Simulate an API call
+      setTimeout(() => {
+        const randomNames = [
+          "John Doe",
+          "Jane Smith",
+          "Alice Johnson",
+          "Bob Brown",
+          "Mujeeb Mujeeb",
+          "Tolani Tolani",
+          "Wole Smutblac",
+          "Miracle O.A",
+        ];
+        const randomName =
+          randomNames[Math.floor(Math.random() * randomNames.length)];
+        setCustomerName(randomName);
+        setLoading(false);
+      }, 2000);
+    } else if (clickCount === 1) {
+      navigate("/review");
+    }
   };
   const [loading, setLoading] = useState(false);
 
@@ -203,8 +234,10 @@ const Distribution = () => {
                 </select>
               </label>
 
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4"></span>
+              <label className="flex flex-col mt-[17px]">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  Customer Phone Number
+                </span>
                 <input
                   type="tel"
                   name="phoneNumber"
@@ -218,8 +251,10 @@ const Distribution = () => {
                 />
               </label>
 
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4"></span>
+              <label className="flex flex-col mt-[17px]">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  Meter Number
+                </span>
                 <input
                   type="number"
                   name="meterno"
@@ -233,8 +268,26 @@ const Distribution = () => {
                 />
               </label>
 
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4"></span>
+              {customerName && (
+                <label className="flex flex-col mt-[17px]">
+                  <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                    Customer Name
+                  </span>
+                  <input
+                    type="text"
+                    name="customerName"
+                    placeholder="Customer Name"
+                    value={customerName}
+                    disabled
+                    className="bg-[#ffff] py-4 px-6 text-black rounded-xl outline-none border-[#000000] font-medium border-1 h-[52px] text-[12px] lg:w-full w-full"
+                  />
+                </label>
+              )}
+
+              <label className="flex flex-col mt-[17px]">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  Amount
+                </span>
                 <input
                   type="number"
                   name="amount"
@@ -248,8 +301,10 @@ const Distribution = () => {
                 />
               </label>
 
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4"></span>
+              <label className="flex flex-col mt-[17px]">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  Amount to Pay
+                </span>
                 <input
                   type="number"
                   name="pay"
@@ -278,16 +333,25 @@ const Distribution = () => {
                 </div>
               </div>
 
-              <div className="flex flex-auto items-center justify-center mt-[40px]">
-                <button
-                  type="submit"
-                  disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] ${
-                    isFormValid ? "" : "opacity-50 cursor-not-allowed"
-                  }`}
-                >
-                  {loading ? "transferring..." : "Continue"}
-                </button>
+              <div className="flex flex-col justify-center mt-[10px] gap-[10px]">
+                <MyButton
+                  isFormValid={isFormValid}
+                  loading={loading}
+                  onClick={handleClick}
+                  className=""
+                  buttonText="Purchase Plan"
+                />
+                {customerName && (
+                  <button
+                    onClick={() => {
+                      navigate(-1);
+                      window.scrollTo(0, 0);
+                    }}
+                    className=" bg-[#ffff] font-montserrat xl sm:w-[406px] py-3 px-20 text-[#8E1011] text-[14px] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[53px] flex items-center justify-center"
+                  >
+                    GO BACK
+                  </button>
+                )}
               </div>
 
               <div className=" " />

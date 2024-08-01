@@ -8,6 +8,7 @@ import Exam from "./Exam";
 import Electricity from "./Electricity";
 import AirtimeToCash from "./AirtimeToCash";
 import Back from "./Back";
+import DataPinScreen from "./DataPinScreen";
 
 export {
     Airtime,
@@ -20,4 +21,5 @@ export {
     Electricity,
     AirtimeToCash,
     Back,
+    DataPinScreen
 }

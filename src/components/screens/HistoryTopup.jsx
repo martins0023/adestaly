@@ -72,12 +72,12 @@ const TransactionCard = ({ transaction, currentDate, currentTime }) => (
             className="w-8 h-8 mr-3 rounded-full"
           />
           <div className="flex flex-col">
-            <p className="text-black font-semibold text-[16px]">
+            <p className="text-black font-semibold text-[14px]">
               {transaction.type}
             </p>
           </div>
         </div>
-        <p className="text-black font-semibold text-[16px]">
+        <p className="text-black font-semibold text-[14px]">
           {transaction.amount}
         </p>
       </div>
@@ -203,7 +203,7 @@ const HistoryTopup = () => {
           type="text"
           name="keyword"
           placeholder="Keyword"
-          className="bg-white py-4 px-6 pl-12 border border-[#EEEFF4] placeholder:text-black text-black rounded-xl outline-none w-full h-[56px] font-medium"
+          className="bg-white py-4 px-6 pl-12 border text-[12px] border-[#EEEFF4] placeholder:text-black text-black rounded-xl outline-none w-full h-[56px] font-medium"
         />
         <img
           src={search}

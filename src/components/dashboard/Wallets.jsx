@@ -104,6 +104,60 @@ const Wallets = () => {
 
   const [selectedConvert, setSelectedConvert] = useState(null);
 
+  //datascreen modal
+  const [datascreenmodalIsOpen, setDatascreenModalIsOpen] = useState(false);
+
+  const datascreenopenModal = () => {
+    setDatascreenModalIsOpen(true);
+  };
+
+  const datascreencloseModal = () => {
+    setDataModalIsOpen(false);
+  };
+
+  const [selectedDataScreenNetwork, setSelectedDataScreenNetwork] = useState(null);
+
+  const datascreennetworks = [
+    { id: "mtn", img: mtn, name: "MTN" },
+    { id: "airtel", img: airtel, name: "Airtel" },
+    { id: "glo", img: glo, name: "Glo" },
+    { id: "etisalat", img: etisalat, name: "9mobile" },
+  ];
+
+  const handleDataScreen = () => {
+    if (selectedDataScreenNetwork) {
+      // Handle button submission
+      navigate("/datapin");
+    }
+  };
+
+  //datamodal state
+  const [datamodalIsOpen, setDataModalIsOpen] = useState(false);
+
+  const dataopenModal = () => {
+    setDataModalIsOpen(true);
+  };
+
+  const datacloseModal = () => {
+    setDataModalIsOpen(false);
+  };
+
+  const [selectedDataNetwork, setSelectedDataNetwork] = useState(null);
+
+  const datanetworks = [
+    { id: "mtn", img: mtn, name: "MTN" },
+    { id: "airtel", img: airtel, name: "Airtel" },
+    { id: "glo", img: glo, name: "Glo" },
+    { id: "etisalat", img: etisalat, name: "9mobile" },
+  ];
+
+  const handleData = () => {
+    if (selectedDataNetwork) {
+      // Handle button submission
+      navigate("/data");
+    }
+  };
+
   //airtimes
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -214,8 +268,8 @@ const Wallets = () => {
   const [selectedCable, setSelectedCable] = useState(null);
 
   const handleNetworkClick = (networkId) => {
-    setSelectedNetwork(networkId);
-    navigate("/airtime"); // Navigate to the "airtime" page
+    setSelectedCable(networkId);
+    navigate("/cable"); // Navigate to the "airtime" page
   };
 
   const containerVariants = {
@@ -346,7 +400,7 @@ const Wallets = () => {
                     text: "Airtime Swap",
                     onClick: convertopenModal,
                   },
-                  { img: data, text: "Buy Data", onClick: openModal },
+                  { img: data, text: "Buy Data", onClick: dataopenModal },
                   { img: exampin, text: "Exam Pin", onClick: examopenModal },
                   {
                     img: referrals,
@@ -354,7 +408,7 @@ const Wallets = () => {
                     onClick: handleNavigate,
                   },
                   { img: cable, text: "Cable TV", onClick: cableopenModal },
-                  { img: datapin, text: "Data Pin", onClick: null },
+                  { img: datapin, text: "Data Pin", onClick: datascreenopenModal },
                   { img: logout, text: "Logout", onClick: null },
                 ].map((item, idx) => (
                   <motion.button
@@ -376,26 +430,26 @@ const Wallets = () => {
               </div>
             </div>
           </div>
-          <div className="absolute bottom-px right-0">
+          <div className="relative bottom-px right-0  justify-end">
             {" "}
             {/* Ensure it has a higher z-index */}
-            <img src={whatsapp} className="w-14 h-14" alt="WhatsApp Icon" />
+            <img src={whatsapp} className="w-16 h-16" alt="WhatsApp Icon" />
           </div>
         </div>
       </motion.div>
 
       <div className="flex items-center justify-center ">
         <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
+          isOpen={datamodalIsOpen}
+          onRequestClose={datacloseModal}
           contentLabel="Select network"
           className="fixed inset-0 flex items-center justify-center mt-[180px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
-                onClick={closeModal}
+                onClick={datacloseModal}
                 className="text-black text-xl font-bold"
               >
                 ✕
@@ -404,20 +458,20 @@ const Wallets = () => {
                 Select Network
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] p-3 mt-9">
-              {networks.map((network) => (
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
+              {datanetworks.map((network) => (
                 <div
                   key={network.id}
                   className="relative cursor-pointer"
-                  onClick={() => handleNetworkClick(network.id)}
+                  onClick={() => setSelectedDataNetwork(network.id)}
                 >
                   <img
                     src={network.img}
                     alt={network.name}
-                    className="w-full h-auto"
+                    className="w-[100px] h-[100px]"
                   />
-                  {selectedNetwork === network.id && (
-                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                  {selectedDataNetwork === network.id && (
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center w-[100px] h-[100px]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-12 w-12 text-white"
@@ -436,9 +490,75 @@ const Wallets = () => {
               ))}
             </div>
             <button
-              className="mt-6 bg-[#D3A5A5] text-black py-3 px-12 rounded-full w-full"
-              disabled={!selectedNetwork} // Disable if no network is selected
-              onClick={() => selectedNetwork && navigate("/airtime")} // Navigate on button click
+              onClick={handleData}
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+                selectedDataNetwork ? "" : "opacity-50 cursor-not-allowed"
+              }`}
+              disabled={!selectedDataNetwork}
+            >
+              Continue
+            </button>
+          </div>
+        </Modal>
+      </div>
+
+      <div className="flex items-center justify-center ">
+        <Modal
+          isOpen={datascreenmodalIsOpen}
+          onRequestClose={datascreencloseModal}
+          contentLabel="Select network"
+          className="fixed inset-0 flex items-center justify-center mt-[180px] bg-black bg-opacity-10"
+          overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+        >
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
+            <div className="flex justify-between items-center mb-4">
+              <button
+                onClick={datacloseModal}
+                className="text-black text-xl font-bold"
+              >
+                ✕
+              </button>
+              <p className="font-semibold text-[16px] text-[#000000]">
+                Select Network
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
+              {datascreennetworks.map((network) => (
+                <div
+                  key={network.id}
+                  className="relative cursor-pointer"
+                  onClick={() => setSelectedDataScreenNetwork(network.id)}
+                >
+                  <img
+                    src={network.img}
+                    alt={network.name}
+                    className="w-[100px] h-[100px]"
+                  />
+                  {selectedDataScreenNetwork === network.id && (
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center w-[100px] h-[100px]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-12 w-12 text-white"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 00-1.414-1.414L8 11.172 4.707 7.879a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={handleDataScreen}
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+                selectedDataScreenNetwork ? "" : "opacity-50 cursor-not-allowed"
+              }`}
+              disabled={!selectedDataScreenNetwork}
             >
               Continue
             </button>
@@ -515,7 +635,7 @@ const Wallets = () => {
           isOpen={exammodalIsOpen}
           onRequestClose={examcloseModal}
           contentLabel="Select Exam"
-          className="fixed inset-0 flex items-center justify-center mt-[340px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center mt-[300px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
           <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
@@ -579,7 +699,7 @@ const Wallets = () => {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center mt-[180px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center mt-[170px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
           <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">

@@ -42,6 +42,7 @@ const ConvertCash = () => {
       ...prevData,
       [name]: value,
     }));
+    setIsAdditionalInfoVisible(true);
   };
 
   useEffect(() => {
@@ -62,7 +63,8 @@ const ConvertCash = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsAdditionalInfoVisible(true);
+    // Submit form logic
+    navigate("/review")
   };
 
   const [loading, setLoading] = useState(false);
@@ -289,7 +291,7 @@ const ConvertCash = () => {
                 <div className="flex flex-row gap-[4px] items-center">
                   <img src={info} className="w-[12px] h-[12px]" />
                   <p className="text-[12px] font-normal text-[#8E1011]">
-                    Click on submit only when have transfered the Airtime.
+                    Click on submit only when have transferred the Airtime.
                   </p>
                 </div>
                 <div className="flex flex-row gap-[4px] items-center">

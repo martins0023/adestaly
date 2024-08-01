@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
-import { arrow_back_ios, dropdown, naira } from "../../assets";
+import { arrow_back_ios, dropdown, info, naira } from "../../assets";
 import MyButton from "../reusable/MyButton";
 import { Link, useNavigate } from "react-router-dom";
 
 const Decoder = () => {
   const navigate = useNavigate();
 
-  const [customerName, setCustomerName] = useState('');
+  const [customerName, setCustomerName] = useState("");
 
   const [formData, setFormData] = useState({
     cable: "",
@@ -79,12 +79,18 @@ const Decoder = () => {
   const handleClick = () => {
     setLoading(true);
     setClickCount((prevCount) => prevCount + 1);
-    
+
     if (clickCount === 0) {
       // Simulate an API call
       setTimeout(() => {
-        const randomNames = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown'];
-        const randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
+        const randomNames = [
+          "John Doe",
+          "Jane Smith",
+          "Alice Johnson",
+          "Bob Brown",
+        ];
+        const randomName =
+          randomNames[Math.floor(Math.random() * randomNames.length)];
         setCustomerName(randomName);
         setLoading(false);
       }, 2000);
@@ -221,8 +227,10 @@ const Decoder = () => {
                 </select>
               </label>
 
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4"></span>
+              <label className="flex flex-col mt-[18px]">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  Amount to Pay
+                </span>
                 <input
                   type="number"
                   name="amount"
@@ -255,8 +263,10 @@ const Decoder = () => {
                 </select>
               </label>
 
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4"></span>
+              <label className="flex flex-col mt-[18px]">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  Customer Phone Number
+                </span>
                 <input
                   type="tel"
                   name="phoneNumber"
@@ -270,8 +280,10 @@ const Decoder = () => {
                 />
               </label>
 
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4"></span>
+              <label className="flex flex-col mt-[18px]">
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  IUC Phone Number
+                </span>
                 <input
                   type="number"
                   name="iuc"
@@ -286,8 +298,10 @@ const Decoder = () => {
               </label>
 
               {customerName && (
-                <label className="flex flex-col">
-                  <span className="text-white font-medium mb-4"></span>
+                <label className="flex flex-col mt-[18px]">
+                  <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                    Customer Name
+                  </span>
                   <input
                     type="text"
                     name="customerName"
@@ -299,28 +313,52 @@ const Decoder = () => {
                 </label>
               )}
 
-              <div className="flex gap-[11px] mt-2">
-                <Switch
-                  onChange={handleToggle}
-                  checked={isEnabled}
-                  offColor="#ccc"
-                  onColor="#8E1011"
-                  uncheckedIcon={false}
-                  checkedIcon={false}
-                  className="react-switch"
-                />
-                <label className="font-normal text-black text-[12px] mt-1 mr-4">
-                  Disable Number Validator
-                </label>
+              <div className="flex flex-col gap-[8px] my-5">
+                {customerName && (
+                  <div className="flex flex-row gap-[6px]  items-center">
+                    <img src={info} className="w-[12px] h-[12px]" />
+                    <p className="text-[12px] font-normal text-[#8E1011]">
+                      Please confirm that the above details are correct before
+                      you click on purchase
+                    </p>
+                  </div>
+                )}
+
+                <div className="flex gap-[11px] mt-2">
+                  <Switch
+                    onChange={handleToggle}
+                    checked={isEnabled}
+                    offColor="#ccc"
+                    onColor="#8E1011"
+                    uncheckedIcon={false}
+                    checkedIcon={false}
+                    className="react-switch"
+                  />
+                  <label className="font-normal text-black text-[12px] mt-1 mr-4">
+                    Disable Number Validator
+                  </label>
+                </div>
               </div>
 
-              <div className="">
+              <div className="flex flex-col justify-center gap-[10px]">
                 <MyButton
                   isFormValid={isFormValid}
                   loading={loading}
                   onClick={handleClick}
                   className=""
+                  buttonText="Purchase Plan"
                 />
+                {customerName && (
+                  <button
+                    onClick={() => {
+                      navigate(-1);
+                      window.scrollTo(0, 0);
+                    }}
+                    className=" bg-[#ffff] font-montserrat xl sm:w-[406px] py-3 px-20 text-[#8E1011] text-[14px] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[53px] flex items-center justify-center"
+                  >
+                    GO BACK
+                  </button>
+                )}
               </div>
 
               <div className=" " />
