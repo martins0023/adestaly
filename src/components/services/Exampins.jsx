@@ -201,15 +201,15 @@ const Exampins = () => {
                 </label>
               </div>
 
-              <div className="flex flex-auto items-center justify-center mt-[40px]">
+              <div className="flex flex-auto items-center justify-center mt-[40px] mb-12">
                 <button
                   type="submit"
                   disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] ${
+                  className={`bg-original py-3 px-20 outline-none uppercase xl text-[12px] sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[45px] ${
                     isFormValid ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                 >
-                  {loading ? "transferring..." : "Buy Data"}
+                  {loading ? "transferring..." : "Buy Pin"}
                 </button>
               </div>
 

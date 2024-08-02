@@ -94,7 +94,7 @@ const NotificationScreen = () => {
         <div className="w-full flex  justify-between items-center max-w-7xl mx-auto p-3">
           <p className="flex flex-col gap-[6px] justify justify-end ml-[100px] text-center flex-end text-black text-[12px] font-semibold cursor-pointer ">
             <span className="text-[#8E1011]">All Notifications</span>
-            <span className="font-semibold text-black text-[20px]">
+            <span className="font-semibold text-black text-[18px]">
               Notifications
             </span>
           </p>
@@ -103,12 +103,12 @@ const NotificationScreen = () => {
         <motion.div
           variants={itemVariants}
           whileHover={cardHoverVariants.hover}
-          className="mt-[18px] bg-white rounded-2xl px-2 py-7 m-3 gap-[18px] font-montserrat"
+          className="mt-[12px] bg-white rounded-2xl px-2 py-7 m-3 gap-[18px] font-montserrat"
         >
           <div className="flex flex-row justify justify-around">
             <div className="flex ml-[-11px] justify-start flex-row gap-[16px]">
-              <img src={message} className="w-[30px] h-[30px]" />
-              <p className="font-semibold text-[20px] text-[#000] font-montserrat">
+              <img src={message} className="w-[28px] h-[28px]" />
+              <p className="font-semibold text-[18px] text-[#000] font-montserrat">
                 Adestaly
               </p>
             </div>
@@ -124,7 +124,7 @@ const NotificationScreen = () => {
             </div>
           </div>
 
-          <p className="font-medium text-[14px] text-[#000] mt-[16px] m-2">
+          <p className="font-medium text-[12px] text-[#000] mt-[16px] m-2">
             We are about to implement some maintenance on the site. this may
             last up to 1hr
           </p>
@@ -133,12 +133,12 @@ const NotificationScreen = () => {
         <motion.div
           variants={itemVariants}
           whileHover={cardHoverVariants.hover}
-          className="mt-[18px] bg-white rounded-2xl px-2 py-7 m-3 gap-[18px] font-montserrat"
+          className="mt-[12px] bg-white rounded-2xl px-2 py-7 m-3 gap-[18px] font-montserrat"
         >
           <div className="flex flex-row justify justify-around">
             <div className="flex ml-[-11px] justify-start flex-row gap-[16px]">
-              <img src={message} className="w-[30px] h-[30px]" />
-              <p className="font-semibold text-[20px] text-[#000] font-montserrat">
+              <img src={message} className="w-[28px] h-[28px]" />
+              <p className="font-semibold text-[18px] text-[#000] font-montserrat">
                 Adestaly
               </p>
             </div>
@@ -154,7 +154,7 @@ const NotificationScreen = () => {
             </div>
           </div>
 
-          <p className="font-medium text-[14px] text-[#000] mt-[16px] m-2">
+          <p className="font-medium text-[12px] text-[#000] mt-[16px] m-2">
             We are about to implement some maintenance on the site. this may
             last up to 1hr
           </p>
@@ -163,12 +163,12 @@ const NotificationScreen = () => {
         <motion.div
           variants={itemVariants}
           whileHover={cardHoverVariants.hover}
-          className="mt-[18px] bg-white rounded-2xl px-2 py-7 m-3 gap-[18px] font-montserrat"
+          className="mt-[12px] bg-white rounded-2xl px-2 py-7 m-3 gap-[18px] font-montserrat"
         >
           <div className="flex flex-row justify justify-around">
             <div className="flex ml-[-11px] justify-start flex-row gap-[16px]">
-              <img src={message} className="w-[30px] h-[30px]" />
-              <p className="font-semibold text-[20px] text-[#000] font-montserrat">
+              <img src={message} className="w-[28px] h-[28px]" />
+              <p className="font-semibold text-[18px] text-[#000] font-montserrat">
                 Adestaly
               </p>
             </div>
@@ -184,7 +184,7 @@ const NotificationScreen = () => {
             </div>
           </div>
 
-          <p className="font-medium text-[14px] text-[#000] mt-[16px] m-2">
+          <p className="font-medium text-[12px] text-[#000] mt-[16px] m-2">
             We are about to implement some maintenance on the site. this may
             last up to 1hr
           </p>

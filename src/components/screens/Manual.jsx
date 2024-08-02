@@ -48,11 +48,12 @@ const Manual = () => {
   const accountNo = "2123587356";
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(accountNo).then(() => {
-      
-    }).catch(err => {
-      console.error('Could not copy text: ', err);
-    });
+    navigator.clipboard
+      .writeText(accountNo)
+      .then(() => {})
+      .catch((err) => {
+        console.error("Could not copy text: ", err);
+      });
   };
 
   const handleButtonClick = () => {
@@ -107,7 +108,7 @@ const Manual = () => {
       >
         <div className="mt-[20px] bg-white rounded-2xl p-6 m-3 gap-[24px] font-montserrat">
           <div className="flex flex-col justify justify-center items-center mt-[16px] gap-[12px] font-montserrat">
-            <p className="font-semibold text-[20px] text-[#000] font-montserrat text-center">
+            <p className="font-semibold text-[18px] text-[#000] font-montserrat text-center">
               Manual (Bank Transfer)
             </p>
             <p className="font-medium text-[14px] text-[#000] text-center font-montserrat">
@@ -125,14 +126,14 @@ const Manual = () => {
                     alt="Bank logo"
                   />
                   <div>
-                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
+                    <p className="text-[12px] font-medium font-montserrat text-black">
                       Bank Name: <span className="font-semibold">UBA Bank</span>
                     </p>
-                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
+                    <p className="text-[12px] font-medium font-montserrat text-black">
                       Account Name:{" "}
                       <span className="font-semibold">John Doe</span>
                     </p>
-                    <p className="text-base text-[12px] font-medium font-montserrat text-black">
+                    <p className="text-[12px] font-medium font-montserrat text-black">
                       Account No:{" "}
                       <span className="font-semibold">{accountNo}</span>
                     </p>

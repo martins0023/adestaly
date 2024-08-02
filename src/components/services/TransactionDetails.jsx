@@ -56,7 +56,7 @@ const TransactionDetails = () => {
     <section className={`${styles.paddingX} p-1 font-montserrat`}>
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto p-3 font-montserrat">
         <Link
-          to="#"
+          to="/"
           className="flex  "
           onClick={() => {
             window.scrollTo(0, 0);
@@ -183,11 +183,11 @@ const TransactionDetails = () => {
           </div>
         </div>
 
-        <div className="flex flex-auto items-center justify-center mt-[50px] m-2 mb-8">
+        <div className="flex flex-auto items-center justify-center mt-[30px] m-2">
           <Link to="/userreceipt">
             <button
               type="submit"
-              className={`bg-original font-montserrat py-3 px-20 text-[14px] outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] `}
+              className={`bg-original font-montserrat py-3 px-20 text-[12px] outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[45px] `}
             >
               {loading ? "transferring..." : "View user receipt"}
             </button>

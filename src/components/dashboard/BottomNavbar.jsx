@@ -28,8 +28,8 @@ const BottomNavbar = () => {
           key={item.name}
           to={item.path}
           onClick={() => handleNavClick(item.path)}
-          className={`flex flex-col items-center gap-1 ${
-            activeNav === item.path ? 'text-[#7E0B0B]' : 'text-[#919191] gap-2'
+          className={`flex flex-col items-center gap-2 ${
+            activeNav === item.path ? 'text-[#7E0B0B]' : 'text-[#919191] gap-3'
           }`}
         >
           <div className="text-xl">{item.icon}</div>

@@ -254,7 +254,7 @@ const Contact = () => {
             <div className="flex flex-auto items-center justify-center mt-[40px]">
               <button
                 type="submit"
-                className={`bg-original py-3 px-20 outline-none uppercase h-[53px] xl w-full sm:w-[406px] text-white font-bold rounded-full ${
+                className={`bg-original py-3 px-20 outline-none uppercase h-[45px] xl text-[12px] w-full sm:w-[406px] text-white font-bold rounded-full ${
                   !isFormValid ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={!isFormValid}

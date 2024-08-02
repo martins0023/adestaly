@@ -6,7 +6,6 @@ import Switch from "react-switch";
 import { arrow_back_ios, dropdown, naira } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
 
-
 const DataPin = () => {
   const navigate = useNavigate();
 
@@ -74,7 +73,12 @@ const DataPin = () => {
         !!formData.type &&
         !!formData.dataplan &&
         !!formData.quantity,
-    businessname: !!formData.network && !!formData.type && !!formData.dataplan && !!formData.quantity && !!formData.pay,
+      businessname:
+        !!formData.network &&
+        !!formData.type &&
+        !!formData.dataplan &&
+        !!formData.quantity &&
+        !!formData.pay,
     });
 
     const allFieldsFilled =
@@ -83,7 +87,7 @@ const DataPin = () => {
       formData.dataplan &&
       formData.quantity &&
       formData.pay;
-      formData.businessname;
+    formData.businessname;
 
     setIsFormValid(allFieldsFilled);
   }, [formData]);
@@ -219,23 +223,27 @@ const DataPin = () => {
 
               <label className="flex flex-col mt-[17px]">
                 <div className="">
-                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">Phone Number</span>
-                <input
-                  type="number"
-                  name="quantity"
-                  placeholder="Quantity"
-                  value={formData.quantity}
-                  onChange={handleInputChange}
-                  disabled={!isFieldEnabled.quantity}
-                  className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
-                    isFieldEnabled.quantity ? "rounded-lg" : "border-0"
-                  } rounded-xl outline-none border-[#000000] font-medium border-1 text-[12px] h-[52px] lg:w-full w-full`}
-                />
+                  <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                    Phone Number
+                  </span>
+                  <input
+                    type="number"
+                    name="quantity"
+                    placeholder="Quantity"
+                    value={formData.quantity}
+                    onChange={handleInputChange}
+                    disabled={!isFieldEnabled.quantity}
+                    className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
+                      isFieldEnabled.quantity ? "rounded-lg" : "border-0"
+                    } rounded-xl outline-none border-[#000000] font-medium border-1 text-[12px] h-[52px] lg:w-full w-full`}
+                  />
                 </div>
               </label>
 
               <label className="flex flex-col mt-[17px]">
-                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">Amount to pay</span>
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  Amount to pay
+                </span>
                 <input
                   type="number"
                   name="pay"
@@ -250,7 +258,9 @@ const DataPin = () => {
               </label>
 
               <label className="flex flex-col mt-[17px]">
-                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/7 transform -translate-y-1/5 ml-5 font-normal mb-4">Business Name</span>
+                <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/7 transform -translate-y-1/5 ml-5 font-normal mb-4">
+                  Business Name
+                </span>
                 <input
                   type="text"
                   name="businessname"
@@ -259,7 +269,9 @@ const DataPin = () => {
                   onChange={handleInputChange}
                   disabled={!isFieldEnabled.businessname}
                   className={`bg-[#ffff] py-4 px-6 placeholder:text-secondary text-black ${
-                    isFieldEnabled.businessname ? "rounded-lg" : "border-0 gap-2"
+                    isFieldEnabled.businessname
+                      ? "rounded-lg"
+                      : "border-0 gap-2"
                   } rounded-xl outline-none border-[#000000] font-medium border-1 text-[12px] h-[52px] lg:w-full w-full`}
                 />
               </label>
@@ -279,11 +291,11 @@ const DataPin = () => {
                 </label>
               </div>
 
-              <div className="flex flex-auto items-center justify-center mt-[40px] mb-5">
+              <div className="flex flex-auto items-center justify-center mt-[40px] ">
                 <button
                   type="submit"
                   disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] ${
+                  className={`bg-original py-3 px-20 outline-none uppercase text-[12px] xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[45px] ${
                     isFormValid ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                 >
@@ -297,7 +309,7 @@ const DataPin = () => {
         </div>
       </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default DataPin
+export default DataPin;

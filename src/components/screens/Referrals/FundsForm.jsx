@@ -103,14 +103,14 @@ const FundsForm = () => {
         <p className="font-normal text-[14px] text-[#8E1011] font-montserrat text-center">
           Transfer Funds
         </p>
-        <p className="font-semibold text-[20px] text-[#000] text-center font-montserrat">
+        <p className="font-semibold text-[18px] text-[#000] text-center font-montserrat">
           Transfer
         </p>
       </div>
 
       <div className="flex flex-col gap-8 justify justify-between p-3">
         <form
-          className="mt-[12px] flex flex-col gap-[11px] relative"
+          className="mt-[8px] flex flex-col gap-[11px] relative"
           onSubmit={handleSubmit}
         >
           <label className="flex flex-col">
@@ -166,7 +166,7 @@ const FundsForm = () => {
 
           <label className="flex flex-col">
             <span className="text-[#666666] py-1 px-1 text-[10px] absolute top-1/6 transform -translate-y-1/5 ml-5 font-normal mb-4">
-              Aount to pay
+              Amount to pay
             </span>
             <input
               type="number"
@@ -191,12 +191,12 @@ const FundsForm = () => {
             </p>
           </div>
 
-          <div className="flex flex-auto items-center justify-center mt-[46px]">
+          <div className="flex flex-auto items-center justify-center mt-[40px]">
             <button
               onClick={NavigateReview}
               type="submit"
               disabled={!isFormValid}
-              className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] ${
+              className={`bg-original py-3 px-20 outline-none uppercase xl text-[12px] sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[45px] ${
                 isFormValid ? "" : "opacity-50 cursor-not-allowed"
               }`}
             >

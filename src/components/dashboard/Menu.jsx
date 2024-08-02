@@ -185,7 +185,7 @@ const Menu = () => {
           <div>
             <button
               onClick={HandleHome}
-              className="mt-5 mb-1 bg-[#ffff] font-montserrat py-3 px-20 text-[#8E1011] border-[1.5px] text-[14px] border-[#8E1011] rounded-full uppercase w-full h-[53px]"
+              className="mt-5 mb-1 bg-[#ffff] font-montserrat py-3 px-20 text-[#8E1011] border-[1.5px] text-[12px] border-[#8E1011] rounded-full uppercase w-full h-[45px]"
             >
               HOME
             </button>
@@ -260,7 +260,7 @@ const Menu = () => {
                 <button
                   onClick={convertcloseModal}
                   disabled={!isFormValid}
-                  className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[50px] ${
+                  className={`bg-original py-3 px-20 outline-none uppercase xl text-[12px] sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[45px] ${
                     isFormValid ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                 >

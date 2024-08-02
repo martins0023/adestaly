@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { arrow_back_ios, bank, bank1, home, success } from "../../assets";
@@ -64,9 +64,7 @@ const Bank_transfer = () => {
   const copyToClipboard = (accountNo) => {
     navigator.clipboard
       .writeText(accountNo)
-      .then(() => {
-        
-      })
+      .then(() => {})
       .catch((err) => {
         console.error("Could not copy text: ", err);
       });
@@ -119,7 +117,7 @@ const Bank_transfer = () => {
 
       <div className="mt-[20px] bg-white rounded-2xl p-6 m-3 gap-[24px] font-montserrat">
         <div className="flex flex-col justify justify-center items-center mt-[16px] gap-[12px] font-montserrat">
-          <p className="font-semibold text-[20px] text-[#000] font-montserrat text-center">
+          <p className="font-semibold text-[18px] text-[#000] font-montserrat text-center">
             Bank Transfer
           </p>
           <p className="font-medium text-[14px] text-[#000] text-center font-montserrat">
@@ -139,7 +137,7 @@ const Bank_transfer = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="flex flex-col bg-white border rounded-2xl justify-between mt-12 m-3 p-3"
+                className="flex flex-col bg-white border rounded-2xl justify-between mt-5 m-3 p-3"
               >
                 <div className="flex flex-col gap-3">
                   <div className="flex flex-row gap-4 items-center">
@@ -149,11 +147,11 @@ const Bank_transfer = () => {
                       alt="Bank logo"
                     />
                     <div>
-                      <p className="text-base text-[12px] font-medium font-montserrat text-black">
+                      <p className="text-[12px] font-medium font-montserrat text-black">
                         Bank Transfer:{" "}
                         <span className="font-semibold">{account.bank}</span>
                       </p>
-                      <p className="text-base text-[12px] font-medium font-montserrat text-black">
+                      <p className="text-[12px] font-medium font-montserrat text-black">
                         Account No:{" "}
                         <span className="font-semibold">
                           {account.accountNo}

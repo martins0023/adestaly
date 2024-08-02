@@ -163,16 +163,16 @@ const UserReceipt = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center mt-[50px] m-2 mb-8 gap-[12px]">
+        <div className="flex flex-col items-center justify-center mt-[30px] m-2 mb-8 gap-[12px]">
           <button
             type="submit"
-            className={`bg-original font-montserrat py-3 px-20 outline-none text-[14px] uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] `}
+            className={`bg-original font-montserrat py-3 px-20 outline-none text-[12px] uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[45px] `}
           >
             {loading ? "transferring..." : "SHARE"}
           </button>
           <button
             onClick={handleNavigation}
-            className=" bg-[#ffff] font-montserrat py-3 px-20 text-[#8E1011] text-[14px] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[53px]"
+            className=" bg-[#ffff] font-montserrat py-3 px-20 text-[#8E1011] text-[12px] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[45px]"
           >
             DONE
           </button>

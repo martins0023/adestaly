@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
-import { arrow_back_ios, cancel, home } from "../../assets";
+import { arrow_back_ios, cancel, home, report } from "../../assets";
 
 const Review = () => {
   const navigate = useNavigate();
@@ -42,6 +42,17 @@ const Review = () => {
 
   const [loading, setLoading] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  //modal warning
+  const [convertmodalIsOpen, setConvertModalIsOpen] = useState(false);
+
+  const convertopenModal = () => {
+    setConvertModalIsOpen(true);
+  };
+
+  const convertcloseModal = () => {
+    setConvertModalIsOpen(false);
+  };
 
   //set state for time
   const [currentTime, setCurrentTime] = useState("");
@@ -93,24 +104,33 @@ const Review = () => {
 
   const [pin, setPin] = useState(["", "", "", ""]);
 
-  const handleNumberClick = (number) => {
+  const handleInputChange = (e, index) => {
+    const { value } = e.target;
+    if (isNaN(value)) return; // Ensure the input is numeric
+
     const newPin = [...pin];
-    const emptyIndex = newPin.findIndex((digit) => digit === "");
-    if (emptyIndex !== -1) {
-      newPin[emptyIndex] = number.toString();
-      setPin(newPin);
+    newPin[index] = value;
+    setPin(newPin);
+
+    // Focus the next input field
+    if (value !== "" && index < pin.length - 1) {
+      document.getElementById(`pin-input-${index + 1}`).focus();
     }
   };
 
   const handleClear = () => {
-    const newPin = [...pin];
-    const lastFilledIndex = newPin
-      .slice()
-      .reverse()
-      .findIndex((digit) => digit !== "");
-    if (lastFilledIndex !== -1) {
-      newPin[3 - lastFilledIndex] = "";
-      setPin(newPin);
+    setPin(["", "", "", ""]);
+    document.getElementById("pin-input-0").focus();
+  };
+
+  const isPinComplete = pin.every((digit) => digit !== "");
+
+  const handlePayButtonClick = () => {
+    if (isPinComplete) {
+      handleNavigation();
+    } else {
+      console.log("Please enter the complete PIN.");
+      convertopenModal();
     }
   };
 
@@ -207,10 +227,10 @@ const Review = () => {
           </div>
         </div>
 
-        <div className="flex flex-auto items-center justify-center mt-[50px] m-2">
+        <div className="flex flex-auto items-center justify-center mt-[40px] m-2">
           <button
             type="submit"
-            className={`bg-original py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[53px] `}
+            className={`bg-original py-3 px-20 outline-none uppercase xl text-[12px] sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[45px] `}
             onClick={openModal}
           >
             {loading ? "transferring..." : "Continue"}
@@ -219,12 +239,19 @@ const Review = () => {
       </motion.div>
 
       <div className="mt-[170px] py-3 px-20 outline-none uppercase xl sm:w-[406px] text-white font-bold  w-full h-[60px]"></div>
+      
+      {/*Enter pin modal*/}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Enter PIN Code"
         className="modal mt-14"
         overlayClassName="overlay"
+        style={{
+          overlay: {
+            zIndex: 1000,
+          },
+        }}
       >
         <div className="flex flex-col justify-center p-4">
           <div className="flex justify-between w-full mb-4">
@@ -245,47 +272,74 @@ const Review = () => {
             {pin.map((digit, index) => (
               <input
                 key={index}
+                id={`pin-input-${index}`}
                 type="password"
                 maxLength="1"
                 value={digit}
-                readOnly
+                onChange={(e) => handleInputChange(e, index)}
+                inputMode="numeric" // Ensures numeric keypad on mobile devices
                 className="w-[56px] h-[56px] text-center border border-gray-400 rounded-lg m-1 font-black text-lg text-[#000000]"
               />
             ))}
           </div>
-          <div className="grid grid-cols-3 gap-[12px] mt-6 ">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
-              <button
-                key={number}
-                className="bg-gray-200 text-black text-lg w-[90.33px] h-[62px] gap-[32px] rounded-sm"
-                onClick={() => handleNumberClick(number)}
-              >
-                {number}
-              </button>
-            ))}
-            <div className="w-[90.33px] h-[62px]"></div>
-            {/*Empty placeholder*/}
-            <button
-              className="bg-gray-200 text-black text-lg w-[90.33px] h-[62px] gap-[32px] rounded-sm"
-              onClick={() => handleNumberClick(0)}
-            >
-              0
-            </button>
-            <button
-              className="bg-[#EEEEEE] text-white text-lg w-[90.33px] h-[62px] rounded-sm flex justify-center items-center"
-              onClick={handleClear}
-            >
-              <img src={cancel} className="w-[32px] h-[24px] object-contain" />
-            </button>
-          </div>
           <button
-            onClick={handleNavigation}
+            onClick={handleClear}
+            className="mt-6 bg-[#EEEEEE] text-black text-lg py-3 px-12 rounded-full"
+          >
+            Clear
+          </button>
+          <button
+            onClick={handlePayButtonClick}
             className="mt-6 bg-[#ffff] text-[#8E1011] border-[1.5px] border-[#8E1011] py-3 px-12 rounded-full"
           >
             Pay
           </button>
         </div>
       </Modal>
+
+      {/*MOdal warning invalid*/}
+      <div className="flex items-center justify-center ">
+        <Modal
+          isOpen={convertmodalIsOpen}
+          onRequestClose={convertcloseModal}
+          contentLabel="WARNING"
+          className="fixed inset-0 flex items-center justify-center  bg-black bg-opacity-10"
+          overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+          style={{
+            overlay: {
+              zIndex: 1100,
+            },
+          }}
+        >
+          <div className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 flex flex-col items-center m-3">
+            <div className="p-3 flex justify-center items-center">
+              <img
+                src={report}
+                alt="warning"
+                className="w-full h-auto items-center"
+              />
+            </div>
+            <div className="mb-4">
+              <p className="font-semibold text-[20px] text-[#000000] text-center">
+                Invalid
+              </p>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <p className="font-normal text-center text-[14px] text-[#000000]">
+                Please enter your pin to proceed
+              </p>
+            </div>
+            <div className="flex flex-col w-full gap-[1px]">
+              <button
+                onClick={convertcloseModal}
+                className="mt-6 bg-[#8E1011] font-montserrat py-3 px-20 text-[#FFFF] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[53px]"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </Modal>
+      </div>
     </section>
   );
 };

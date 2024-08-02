@@ -63,7 +63,7 @@ const transactions = [
 
 const TransactionCard = ({ transaction, currentDate, currentTime }) => (
   <Link to="/transactiondetails">
-    <div className="flex flex-col bg-white p-5 rounded-2xl  my-2 mb-[16px]">
+    <div className="flex flex-col bg-white p-5 rounded-2xl  my-2 mb-[12px]">
       <div className="flex flex-row justify-between">
         <div className="flex flex-row items-center">
           <img

@@ -364,7 +364,7 @@ const Wallets = () => {
                   className=""
                 >
                   <Link
-                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[60px] w-[106px] lg:w-[264px]  rounded-xl flex flex-col items-center justify-center p-3 lg:p-8"
+                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[60px] w-[106px] lg:w-full lg:justify-items-center rounded-xl flex flex-col items-center justify-center p-3 lg:p-8"
                     to={item.to}
                   >
                     <img
@@ -387,7 +387,7 @@ const Wallets = () => {
                   My Services
                 </p>
               </div>
-              <div className="flex flex-wrap justify-around lg:justify-between gap-4 m-1 lg:gap-6">
+              <div className="flex flex-wrap justify-around lg:justify-items-center lg:gap-10 lg:grid-cols-3 lg:grid gap-4 m-1">
                 {[
                   { img: airtime, text: "Airtime", onClick: openModal },
                   {
@@ -416,7 +416,7 @@ const Wallets = () => {
                     whileHover={cardHoverVariants.hover}
                     key={idx}
                     type="button"
-                    className="bg-[#F9F9F9] text-center lg:text-sm text-[10px] border border-[#D8D8D8] font-medium py-2 px-3 lg:py-2 lg:px-4 h-[65px] w-[102px] lg:w-[383.33px] rounded-xl text-black flex flex-col items-center"
+                    className="bg-[#F9F9F9] text-center text-[10px] border border-[#D8D8D8] font-medium py-2 px-3 lg:py-2 lg:px-4 h-[65px] w-[102px] lg:w-100 rounded-xl text-black flex flex-col items-center"
                     onClick={item.onClick}
                   >
                     <img
@@ -430,7 +430,7 @@ const Wallets = () => {
               </div>
             </div>
           </div>
-          <div className="relative bottom-px right-0  justify-end">
+          <div className="flex bottom-px right-0 items-end justify-end">
             {" "}
             {/* Ensure it has a higher z-index */}
             <img src={whatsapp} className="w-16 h-16" alt="WhatsApp Icon" />

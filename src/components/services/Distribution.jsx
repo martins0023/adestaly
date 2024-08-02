@@ -347,7 +347,7 @@ const Distribution = () => {
                       navigate(-1);
                       window.scrollTo(0, 0);
                     }}
-                    className=" bg-[#ffff] font-montserrat xl sm:w-[406px] py-3 px-20 text-[#8E1011] text-[14px] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[53px] flex items-center justify-center"
+                    className=" bg-[#ffff] font-montserrat xl sm:w-[406px] py-3 px-20 text-[#8E1011] text-[12px] border-[1.5px] border-[#8E1011] rounded-full uppercase w-full h-[45px] flex items-center justify-center"
                   >
                     GO BACK
                   </button>
