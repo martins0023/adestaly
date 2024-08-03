@@ -115,7 +115,8 @@ const Wallets = () => {
     setDatascreenModalIsOpen(false);
   };
 
-  const [selectedDataScreenNetwork, setSelectedDataScreenNetwork] = useState(null);
+  const [selectedDataScreenNetwork, setSelectedDataScreenNetwork] =
+    useState(null);
 
   const datascreennetworks = [
     { id: "mtn", img: mtn, name: "MTN" },
@@ -408,7 +409,11 @@ const Wallets = () => {
                     onClick: handleNavigate,
                   },
                   { img: cable, text: "Cable TV", onClick: cableopenModal },
-                  { img: datapin, text: "Data Pin", onClick: datascreenopenModal },
+                  {
+                    img: datapin,
+                    text: "Data Pin",
+                    onClick: datascreenopenModal,
+                  },
                   { img: logout, text: "Logout", onClick: null },
                 ].map((item, idx) => (
                   <motion.button
@@ -438,15 +443,15 @@ const Wallets = () => {
         </div>
       </motion.div>
 
-      <div className="flex items-center justify-center ">
+      <div className="flex items-center justify-center">
         <Modal
           isOpen={datamodalIsOpen}
           onRequestClose={datacloseModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center lg:mt-[300px]  md:h-auto mt-[170px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={datacloseModal}
@@ -458,7 +463,7 @@ const Wallets = () => {
                 Select Network
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
+            <div className="grid grid-cols-2 gap-[46px] justify-items-center p-3 mt-9">
               {datanetworks.map((network) => (
                 <div
                   key={network.id}
@@ -489,16 +494,16 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
-            <div className="flex flex-auto items-center justify-center lg:mt-5">
-            <button
-              onClick={handleData}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 lg:w-[406px] rounded-full w-full ${
-                selectedDataNetwork ? "" : "opacity-50 cursor-not-allowed"
-              }`}
-              disabled={!selectedDataNetwork}
-            >
-              Continue
-            </button>
+            <div className="flex items-center justify-center mt-5">
+              <button
+                onClick={handleData}
+                className={`bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+                  selectedDataNetwork ? "" : "opacity-50 cursor-not-allowed"
+                }`}
+                disabled={!selectedDataNetwork}
+              >
+                Continue
+              </button>
             </div>
           </div>
         </Modal>
@@ -509,10 +514,10 @@ const Wallets = () => {
           isOpen={datascreenmodalIsOpen}
           onRequestClose={datascreencloseModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center lg:mt-[300px] mt-[180px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={datascreencloseModal}
@@ -524,7 +529,7 @@ const Wallets = () => {
                 Select Network
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
+            <div className="grid grid-cols-2 gap-[46px] justify-items-center p-3 mt-9">
               {datascreennetworks.map((network) => (
                 <div
                   key={network.id}
@@ -556,15 +561,17 @@ const Wallets = () => {
               ))}
             </div>
             <div className="flex flex-auto items-center justify-center lg:mt-5">
-            <button
-              onClick={handleDataScreen}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full lg:w-[406px] w-full ${
-                selectedDataScreenNetwork ? "" : "opacity-50 cursor-not-allowed"
-              }`}
-              disabled={!selectedDataScreenNetwork}
-            >
-              Continue
-            </button>
+              <button
+                onClick={handleDataScreen}
+                className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full lg:w-[406px] w-full ${
+                  selectedDataScreenNetwork
+                    ? ""
+                    : "opacity-50 cursor-not-allowed"
+                }`}
+                disabled={!selectedDataScreenNetwork}
+              >
+                Continue
+              </button>
             </div>
           </div>
         </Modal>
@@ -575,10 +582,10 @@ const Wallets = () => {
           isOpen={cablemodalIsOpen}
           onRequestClose={cablecloseModal}
           contentLabel="Select Cable"
-          className="fixed inset-0 flex items-center justify-center lg:mt-[300px] mt-[170px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={cablecloseModal}
@@ -590,7 +597,7 @@ const Wallets = () => {
                 Select Cable
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
+            <div className="grid grid-cols-2 gap-[46px] justify-items-center p-3 mt-9">
               {cables.map((cable) => (
                 <div
                   key={cable.id}
@@ -622,15 +629,15 @@ const Wallets = () => {
               ))}
             </div>
             <div className="flex flex-auto items-center justify-center lg:mt-5">
-            <button
-              onClick={handleCable}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full lg:w-[406px] ${
-                selectedCable ? "" : "opacity-50 cursor-not-allowed"
-              }`}
-              disabled={!selectedCable}
-            >
-              Continue
-            </button>
+              <button
+                onClick={handleCable}
+                className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full lg:w-[406px] ${
+                  selectedCable ? "" : "opacity-50 cursor-not-allowed"
+                }`}
+                disabled={!selectedCable}
+              >
+                Continue
+              </button>
             </div>
           </div>
         </Modal>
@@ -641,10 +648,10 @@ const Wallets = () => {
           isOpen={exammodalIsOpen}
           onRequestClose={examcloseModal}
           contentLabel="Select Exam"
-          className="fixed inset-0 flex items-center justify-center lg:mt-[300px] mt-[300px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={examcloseModal}
@@ -656,7 +663,7 @@ const Wallets = () => {
                 Select Exam
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
+            <div className="grid grid-cols-2 gap-[46px] justify-items-center p-3 mt-9">
               {exams.map((exam) => (
                 <div
                   key={exam.id}
@@ -688,15 +695,15 @@ const Wallets = () => {
               ))}
             </div>
             <div className="flex flex-auto items-center justify-center lg:mt-5">
-            <button
-              onClick={handleExam}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 lg:w-[406px] rounded-full w-full ${
-                selectedExam ? "" : "opacity-50 cursor-not-allowed"
-              }`}
-              disabled={!selectedExam}
-            >
-              Continue
-            </button>
+              <button
+                onClick={handleExam}
+                className={`mt-6 bg-[#8E1011] text-white py-3 px-12 lg:w-[406px] rounded-full w-full ${
+                  selectedExam ? "" : "opacity-50 cursor-not-allowed"
+                }`}
+                disabled={!selectedExam}
+              >
+                Continue
+              </button>
             </div>
           </div>
         </Modal>
@@ -707,10 +714,10 @@ const Wallets = () => {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center mt-[170px] lg:mt-[300px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:max-w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={closeModal}
@@ -722,7 +729,7 @@ const Wallets = () => {
                 Select Network
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
+            <div className="grid grid-cols-2 gap-[46px] justify-items-center p-3 mt-9">
               {networks.map((network) => (
                 <div
                   key={network.id}
@@ -754,16 +761,16 @@ const Wallets = () => {
               ))}
             </div>
             <div className="flex flex-auto items-center justify-center lg:mt-5">
-            <button
-              onClick={handleAirtime}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full lg:w-[406px] w-full ${
-                selectedNetwork ? "" : "opacity-50 cursor-not-allowed"
-              }`}
-              disabled={!selectedNetwork}
-            >
-              Continue
-            </button>
-          </div>
+              <button
+                onClick={handleAirtime}
+                className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full lg:w-[406px] w-full ${
+                  selectedNetwork ? "" : "opacity-50 cursor-not-allowed"
+                }`}
+                disabled={!selectedNetwork}
+              >
+                Continue
+              </button>
+            </div>
           </div>
         </Modal>
       </div>
@@ -815,7 +822,7 @@ const Wallets = () => {
           }`}
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full h-auto lg:h-full mt-[215px] max-w-md p-7 lg:max-w-full relative overflow-hidden">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full h-auto lg:h-full mt-[215px] max-w-md p-7 lg:max-w-full relative overflow-hidden">
             <div
               className="cursor-pointer w-[66px] h-1 bg-[#5B5B5B] rounded-3xl mx-auto mb-4"
               onClick={toggleHeight}
@@ -867,15 +874,15 @@ const Wallets = () => {
               ))}
             </div>
             <div className="flex flex-auto items-center justify-center lg:mt-5">
-            <button
-              onClick={handleElectricity}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full lg:w-[406px] ${
-                selectedElectricity ? "" : "opacity-50 cursor-not-allowed"
-              }`}
-              disabled={!selectedElectricity}
-            >
-              Continue
-            </button>
+              <button
+                onClick={handleElectricity}
+                className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full lg:w-[406px] ${
+                  selectedElectricity ? "" : "opacity-50 cursor-not-allowed"
+                }`}
+                disabled={!selectedElectricity}
+              >
+                Continue
+              </button>
             </div>
           </div>
         </Modal>
