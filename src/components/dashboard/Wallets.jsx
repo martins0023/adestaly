@@ -309,7 +309,7 @@ const Wallets = () => {
         exit="exit"
       >
         <div className="w-full max-w-7xl mx-auto px-">
-          <div className="flex flex-wrap lg:flex-nowrap lg:px-96 ">
+          <div className="flex flex-wrap lg:flex-nowrap lg:px-96 md:px-60 ">
             <motion.div
               variants={itemVariants}
               whileHover={cardHoverVariants.hover}
@@ -351,7 +351,7 @@ const Wallets = () => {
           </div>
 
           <div className="mt-2">
-            <div className="flex flex-wrap justify-between lg:px-96 m-1 lg:ml-5 lg:mr-5">
+            <div className="flex flex-wrap justify-between lg:px-96 md:px-60 m-1 lg:ml-5 lg:mr-5">
               {[
                 { img: currency, text: "Add Money", to: "/more" },
                 { img: withdraw, text: "Withdraw", to: "/withdrawfunds" },
@@ -383,11 +383,11 @@ const Wallets = () => {
           <div className="mt-4">
             <div className="bg-colorbg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl ">
               <div className="flex justify-between mb-1 p-4">
-                <p className="font-semibold text-black text-base lg:px-96 ml-5">
+                <p className="font-semibold text-black text-base lg:px-96 md:px-60 lg:ml-5 ml-1">
                   My Services
                 </p>
               </div>
-              <div className="flex flex-wrap justify-around lg:px-96 lg:justify-items-center lg:gap-10 lg:grid-cols-3 lg:grid gap-4 m-1">
+              <div className="flex flex-wrap justify-around lg:px-96 md:px-60 md:gap-2 md:justify-items-center lg:justify-items-center lg:gap-10 lg:grid-cols-3 md:grid-cols-3 lg:grid md:grid gap-4 m-1">
                 {[
                   { img: airtime, text: "Airtime", onClick: openModal },
                   {
