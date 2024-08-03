@@ -112,7 +112,7 @@ const Wallets = () => {
   };
 
   const datascreencloseModal = () => {
-    setDataModalIsOpen(false);
+    setDatascreenModalIsOpen(false);
   };
 
   const [selectedDataScreenNetwork, setSelectedDataScreenNetwork] = useState(null);
@@ -309,15 +309,15 @@ const Wallets = () => {
         exit="exit"
       >
         <div className="w-full max-w-7xl mx-auto px-">
-          <div className="flex flex-wrap lg:flex-nowrap ">
+          <div className="flex flex-wrap lg:flex-nowrap lg:px-96 ">
             <motion.div
               variants={itemVariants}
               whileHover={cardHoverVariants.hover}
-              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-[150px] rounded-xl w-full lg:w-[full] lg:h-[200px] p-8 pt-5 m-1 bg-hero-pattern bg-no-repeat bg-cover bg-center"
+              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg lg:m-5 h-[150px] rounded-xl w-full lg:w-full lg:h-[200px] p-8 pt-5 m-1 bg-hero-pattern bg-no-repeat bg-cover bg-center"
             >
               <div className="flex justify-between items-center ">
                 <div className="">
-                  <p className="font-semibold text-white text-[14px] lg:text-base w-[143px]">
+                  <p className="font-semibold text-white text-[14px] lg:text-base w-[143px] lg:w-full lg:mt-3">
                     My Wallet Balance
                   </p>
                   <div className="flex items-center mt-1">
@@ -351,7 +351,7 @@ const Wallets = () => {
           </div>
 
           <div className="mt-2">
-            <div className="flex flex-wrap justify-between m-1">
+            <div className="flex flex-wrap justify-between lg:px-96 m-1 lg:ml-5 lg:mr-5">
               {[
                 { img: currency, text: "Add Money", to: "/more" },
                 { img: withdraw, text: "Withdraw", to: "/withdrawfunds" },
@@ -364,7 +364,7 @@ const Wallets = () => {
                   className=""
                 >
                   <Link
-                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[60px] w-[106px] lg:w-full lg:justify-items-center rounded-xl flex flex-col items-center justify-center p-3 lg:p-8"
+                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[60px] w-[106px] lg:w-100 lg:justify-items-center rounded-xl flex flex-col items-center justify-center p-3"
                     to={item.to}
                   >
                     <img
@@ -372,7 +372,7 @@ const Wallets = () => {
                       alt={item.text}
                       className="w-4 h-4 lg:w-4 lg:h-4"
                     />
-                    <p className="text-white font-semibold text-[10px] lg:text-sm mt-1">
+                    <p className="text-white font-normal text-[10px] mt-1">
                       {item.text}
                     </p>
                   </Link>
@@ -383,11 +383,11 @@ const Wallets = () => {
           <div className="mt-4">
             <div className="bg-colorbg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl ">
               <div className="flex justify-between mb-1 p-4">
-                <p className="font-semibold text-black text-base ">
+                <p className="font-semibold text-black text-base lg:px-96 ml-5">
                   My Services
                 </p>
               </div>
-              <div className="flex flex-wrap justify-around lg:justify-items-center lg:gap-10 lg:grid-cols-3 lg:grid gap-4 m-1">
+              <div className="flex flex-wrap justify-around lg:px-96 lg:justify-items-center lg:gap-10 lg:grid-cols-3 lg:grid gap-4 m-1">
                 {[
                   { img: airtime, text: "Airtime", onClick: openModal },
                   {
@@ -416,7 +416,7 @@ const Wallets = () => {
                     whileHover={cardHoverVariants.hover}
                     key={idx}
                     type="button"
-                    className="bg-[#F9F9F9] text-center text-[10px] border border-[#D8D8D8] font-medium py-2 px-3 lg:py-2 lg:px-4 h-[65px] w-[102px] lg:w-100 rounded-xl text-black flex flex-col items-center"
+                    className="bg-[#F9F9F9] text-center text-[10px] border border-[#D8D8D8] font-normal py-2 px-3 lg:py-2 lg:px-4 h-[65px] w-[102px] lg:w-100 rounded-xl text-black flex flex-col items-center"
                     onClick={item.onClick}
                   >
                     <img
@@ -443,10 +443,10 @@ const Wallets = () => {
           isOpen={datamodalIsOpen}
           onRequestClose={datacloseModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center mt-[180px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center lg:mt-[300px] mt-[170px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={datacloseModal}
@@ -458,7 +458,7 @@ const Wallets = () => {
                 Select Network
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
               {datanetworks.map((network) => (
                 <div
                   key={network.id}
@@ -489,15 +489,17 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
+            <div className="flex flex-auto items-center justify-center lg:mt-5">
             <button
               onClick={handleData}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 lg:w-[406px] rounded-full w-full ${
                 selectedDataNetwork ? "" : "opacity-50 cursor-not-allowed"
               }`}
               disabled={!selectedDataNetwork}
             >
               Continue
             </button>
+            </div>
           </div>
         </Modal>
       </div>
@@ -507,13 +509,13 @@ const Wallets = () => {
           isOpen={datascreenmodalIsOpen}
           onRequestClose={datascreencloseModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center mt-[180px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center lg:mt-[300px] mt-[180px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
-                onClick={datacloseModal}
+                onClick={datascreencloseModal}
                 className="text-black text-xl font-bold"
               >
                 ✕
@@ -522,7 +524,7 @@ const Wallets = () => {
                 Select Network
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
               {datascreennetworks.map((network) => (
                 <div
                   key={network.id}
@@ -553,15 +555,17 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
+            <div className="flex flex-auto items-center justify-center lg:mt-5">
             <button
               onClick={handleDataScreen}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full lg:w-[406px] w-full ${
                 selectedDataScreenNetwork ? "" : "opacity-50 cursor-not-allowed"
               }`}
               disabled={!selectedDataScreenNetwork}
             >
               Continue
             </button>
+            </div>
           </div>
         </Modal>
       </div>
@@ -571,10 +575,10 @@ const Wallets = () => {
           isOpen={cablemodalIsOpen}
           onRequestClose={cablecloseModal}
           contentLabel="Select Cable"
-          className="fixed inset-0 flex items-center justify-center mt-[180px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center lg:mt-[300px] mt-[170px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={cablecloseModal}
@@ -586,7 +590,7 @@ const Wallets = () => {
                 Select Cable
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
               {cables.map((cable) => (
                 <div
                   key={cable.id}
@@ -617,15 +621,17 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
+            <div className="flex flex-auto items-center justify-center lg:mt-5">
             <button
               onClick={handleCable}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full lg:w-[406px] ${
                 selectedCable ? "" : "opacity-50 cursor-not-allowed"
               }`}
               disabled={!selectedCable}
             >
               Continue
             </button>
+            </div>
           </div>
         </Modal>
       </div>
@@ -635,10 +641,10 @@ const Wallets = () => {
           isOpen={exammodalIsOpen}
           onRequestClose={examcloseModal}
           contentLabel="Select Exam"
-          className="fixed inset-0 flex items-center justify-center mt-[300px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center lg:mt-[300px] mt-[300px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={examcloseModal}
@@ -650,7 +656,7 @@ const Wallets = () => {
                 Select Exam
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
               {exams.map((exam) => (
                 <div
                   key={exam.id}
@@ -681,15 +687,17 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
+            <div className="flex flex-auto items-center justify-center lg:mt-5">
             <button
               onClick={handleExam}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 lg:w-[406px] rounded-full w-full ${
                 selectedExam ? "" : "opacity-50 cursor-not-allowed"
               }`}
               disabled={!selectedExam}
             >
               Continue
             </button>
+            </div>
           </div>
         </Modal>
       </div>
@@ -699,10 +707,10 @@ const Wallets = () => {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center mt-[170px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center mt-[170px] lg:mt-[300px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:max-w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={closeModal}
@@ -714,7 +722,7 @@ const Wallets = () => {
                 Select Network
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9">
+            <div className="grid grid-cols-2 gap-[46px] ml-4 p-3 mt-9 lg:flex lg:items-center lg:justify lg:justify-center">
               {networks.map((network) => (
                 <div
                   key={network.id}
@@ -745,15 +753,17 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
+            <div className="flex flex-auto items-center justify-center lg:mt-5">
             <button
               onClick={handleAirtime}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full lg:w-[406px] w-full ${
                 selectedNetwork ? "" : "opacity-50 cursor-not-allowed"
               }`}
               disabled={!selectedNetwork}
             >
               Continue
             </button>
+          </div>
           </div>
         </Modal>
       </div>
@@ -800,12 +810,12 @@ const Wallets = () => {
           isOpen={electricitymodalIsOpen}
           onRequestClose={electricitycloseModal}
           contentLabel="Social Network"
-          className={`fixed inset-0 flex items-center justify-center transition-all duration-300 ${
+          className={`fixed inset-0 flex items-center justify-center transition-all duration-300 lg:mt-[200px] ${
             isFullHeight ? "h-full" : "h-[80vh]"
           }`}
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full h-auto mt-[215px] max-w-md p-7 relative overflow-hidden">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full h-auto lg:h-full mt-[215px] max-w-md p-7 lg:max-w-full relative overflow-hidden">
             <div
               className="cursor-pointer w-[66px] h-1 bg-[#5B5B5B] rounded-3xl mx-auto mb-4"
               onClick={toggleHeight}
@@ -824,7 +834,7 @@ const Wallets = () => {
 
             <div
               ref={scrollContainerRef}
-              className="grid grid-cols-2 gap-6 p-3 mt-6 ml-4 overflow-y-auto no-scrollbar max-h-[60vh]"
+              className="grid grid-cols-2 gap-6 p-3 mt-6 ml-4 overflow-y-auto no-scrollbar max-h-[60vh] lg:flex lg:items-center lg:justify lg:justify-center"
             >
               {electricities.map((electricity) => (
                 <div
@@ -856,15 +866,17 @@ const Wallets = () => {
                 </div>
               ))}
             </div>
+            <div className="flex flex-auto items-center justify-center lg:mt-5">
             <button
               onClick={handleElectricity}
-              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full ${
+              className={`mt-6 bg-[#8E1011] text-white py-3 px-12 rounded-full w-full lg:w-[406px] ${
                 selectedElectricity ? "" : "opacity-50 cursor-not-allowed"
               }`}
               disabled={!selectedElectricity}
             >
               Continue
             </button>
+            </div>
           </div>
         </Modal>
       </div>
