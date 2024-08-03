@@ -443,10 +443,10 @@ const Wallets = () => {
           isOpen={datamodalIsOpen}
           onRequestClose={datacloseModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center lg:mt-[300px] mt-[170px] bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center lg:mt-[300px]  md:h-auto mt-[170px] bg-black bg-opacity-10"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full lg:w-full lg:max-w-full max-w-md p-7 h-full">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={datacloseModal}
