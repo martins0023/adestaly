@@ -440,7 +440,7 @@ const Wallets = () => {
                     whileHover={cardHoverVariants.hover}
                     key={idx}
                     type="button"
-                    className="bg-[#F9F9F9] text-center text-[10px] border border-[#D8D8D8] font-normal py-2 px-3 lg:py-2 lg:px-1 h-[65px] w-[90px] lg:w-100 rounded-xl text-black flex flex-col items-center"
+                    className="bg-[#F9F9F9] text-center text-[10px] border border-[#D8D8D8] font-normal py-2 px-2 lg:py-2 lg:px-1 h-[65px] w-[90px] lg:w-100 rounded-xl text-black flex flex-col items-center"
                     onClick={item.onClick}
                   >
                     <img
@@ -836,12 +836,10 @@ const Wallets = () => {
           isOpen={electricitymodalIsOpen}
           onRequestClose={electricitycloseModal}
           contentLabel="Social Network"
-          className={`fixed inset-0 flex items-center justify-center md:mt-auto md:mb-auto transition-all duration-300 lg:mt-[200px] ${
-            isFullHeight ? "h-full" : "h-[80vh]"
-          }`}
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-auto mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full h-auto lg:h-full mt-[215px] md:mt-auto md:mb-auto max-w-md p-7 lg:max-w-full relative overflow-hidden">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-auto mt-auto mb-0">
             <div
               className="cursor-pointer w-[66px] h-1 bg-[#5B5B5B] rounded-3xl mx-auto mb-4"
               onClick={toggleHeight}

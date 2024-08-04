@@ -12,7 +12,7 @@ import { NetworkContext } from "./NetworkContext";
 //import { NetworkContext } from "./NetworkContext";
 
 const Network = () => {
-  
+  const { selectedNetwork } = useContext(NetworkContext);
 
   //navigation handling
   const navigate = useNavigate();
