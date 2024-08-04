@@ -1,12 +1,15 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { arrow_back_ios, dropdown, naira } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
+import { NetworkContext } from "./NetworkContext";
 
 const DataPin = () => {
+  const { selectedDataScreenNetwork } = useContext(NetworkContext);
+
   const navigate = useNavigate();
 
   const containerVariants = {
@@ -37,7 +40,7 @@ const DataPin = () => {
   };
 
   const [formData, setFormData] = useState({
-    network: "",
+    network: selectedDataScreenNetwork || "",
     type: "",
     dataplan: "",
     quantity: "",

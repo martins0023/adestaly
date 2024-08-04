@@ -1,12 +1,15 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { arrow_back_ios, dropdown, naira } from "../../assets";
+import { NetworkContext } from "./NetworkContext";
 import { Link, useNavigate } from "react-router-dom";
 
 const Bundles = () => {
+  const { selectedNetwork } = useContext(NetworkContext);
+
   const navigate = useNavigate();
 
   const containerVariants = {
@@ -37,7 +40,7 @@ const Bundles = () => {
   };
 
   const [formData, setFormData] = useState({
-    network: "",
+    network: selectedNetwork || "",
     type: "",
     dataplan: "",
     phoneNumber: "",
@@ -60,6 +63,15 @@ const Bundles = () => {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    if (selectedNetwork) {
+      setFormData((prevData) => ({
+        ...prevData,
+        network: selectedNetwork,
+      }));
+    }
+  }, [selectedNetwork]);
 
   useEffect(() => {
     setIsFieldEnabled({

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -8,18 +8,18 @@ import { styles } from "../../styles";
 import Switch from "react-switch";
 import { arrow_back_ios, dropdown, naira } from "../../assets";
 import Navbar from "../dashboard/Navbar";
+import { NetworkContext } from "./NetworkContext";
 //import { NetworkContext } from "./NetworkContext";
 
 const Network = () => {
-  //set selected network state management
-  //const { selectedNetwork } = useContext(NetworkContext);
+  
 
   //navigation handling
   const navigate = useNavigate();
 
   //handle form
   const [formData, setFormData] = useState({
-    network: "",
+    network: selectedNetwork || "",
     type: "",
     phoneNumber: "",
     amount: "",
@@ -37,13 +37,14 @@ const Network = () => {
     discount: false,
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  useEffect(() => {
+    if (selectedNetwork) {
+      setFormData((prevData) => ({
+        ...prevData,
+        network: selectedNetwork,
+      }));
+    }
+  }, [selectedNetwork]);
 
   useEffect(() => {
     setIsFieldEnabled({
@@ -73,6 +74,14 @@ const Network = () => {
 
     setIsFormValid(allFieldsFilled);
   }, [formData]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();

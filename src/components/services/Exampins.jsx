@@ -1,16 +1,19 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { arrow_back_ios, dropdown, naira } from "../../assets";
+import { NetworkContext } from "./NetworkContext";
 import { Link, useNavigate } from "react-router-dom";
 
 const Exampins = () => {
+  const { selectedExam } = useContext(NetworkContext);
+
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    exam: "",
+    exam: selectedExam || "",
     quantity: "",
     pay: "",
   });
@@ -29,6 +32,15 @@ const Exampins = () => {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    if (selectedExam) {
+      setFormData((prevData) => ({
+        ...prevData,
+        network: selectedExam,
+      }));
+    }
+  }, [selectedExam]);
 
   useEffect(() => {
     setIsFieldEnabled({
@@ -151,8 +163,8 @@ const Exampins = () => {
                   <option value="" disabled>
                     Exam Type
                   </option>
-                  <option value="mtn">WAEC</option>
-                  <option value="glo">NECO</option>
+                  <option value="waec">WAEC</option>
+                  <option value="neco">NECO</option>
                 </select>
               </label>
 

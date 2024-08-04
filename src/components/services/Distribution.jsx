@@ -1,20 +1,23 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { arrow_back_ios, dropdown, info, naira } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
 import MyButton from "../reusable/MyButton";
+import { NetworkContext } from "./NetworkContext";
 
 const Distribution = () => {
+  const { selectedElectricity } = useContext(NetworkContext);
+
   const navigate = useNavigate();
 
   const [customerName, setCustomerName] = useState("");
   const [clickCount, setClickCount] = useState(0);
 
   const [formData, setFormData] = useState({
-    distribution: "",
+    distribution: selectedElectricity || "",
     type: "",
     phoneNumber: "",
     meterno: "",
@@ -204,14 +207,14 @@ const Distribution = () => {
                   <option value="" disabled>
                     Select Distribution
                   </option>
-                  <option value="eko">EKO ELECTRIC</option>
-                  <option value="kaduna">KADUNA ELECTRIC</option>
-                  <option value="ikeja">IKEJA ELECTRIC</option>
-                  <option value="jos">JOS ELECTRIC</option>
-                  <option value="abuja">ABUJA ELECTRIC</option>
-                  <option value="kano">KANO ELECTRIC</option>
-                  <option value="ph">PORT HARCOURT ELECTRIC</option>
-                  <option value="ibadan">IBADAN ELECTRIC</option>
+                  <option value="ekedc">EKO ELECTRIC</option>
+                  <option value="kadedc">KADUNA ELECTRIC</option>
+                  <option value="ie">IKEJA ELECTRIC</option>
+                  <option value="jedc">JOS ELECTRIC</option>
+                  <option value="aedc">ABUJA ELECTRIC</option>
+                  <option value="kedc">KANO ELECTRIC</option>
+                  <option value="phedc">PORT HARCOURT ELECTRIC</option>
+                  <option value="ibedc">IBADAN ELECTRIC</option>
                 </select>
               </label>
 

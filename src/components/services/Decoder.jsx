@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../../styles";
 import Switch from "react-switch";
 import { arrow_back_ios, dropdown, info, naira } from "../../assets";
 import MyButton from "../reusable/MyButton";
 import { Link, useNavigate } from "react-router-dom";
+import { NetworkContext } from "./NetworkContext";
 
 const Decoder = () => {
+  const { selectedCable } = useContext(NetworkContext);
+
   const navigate = useNavigate();
 
   const [customerName, setCustomerName] = useState("");
 
   const [formData, setFormData] = useState({
-    cable: "",
+    cable: selectedCable || "",
     plan: "",
     amount: "",
     subscription: "",

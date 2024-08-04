@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import Draggable from "react-draggable";
 import Modal from "react-modal";
 import {
@@ -42,6 +42,7 @@ import {
 } from "../../assets";
 import { styles } from "../../styles";
 import ServiceModal from "./ServiceModal";
+import { NetworkContext } from "../services/NetworkContext";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -105,6 +106,8 @@ const Wallets = () => {
   const [selectedConvert, setSelectedConvert] = useState(null);
 
   //datascreen modal
+  const { setSelectedDatapinNetwork } = useContext(NetworkContext);
+
   const [datascreenmodalIsOpen, setDatascreenModalIsOpen] = useState(false);
 
   const datascreenopenModal = () => {
@@ -122,17 +125,21 @@ const Wallets = () => {
     { id: "mtn", img: mtn, name: "MTN" },
     { id: "airtel", img: airtel, name: "Airtel" },
     { id: "glo", img: glo, name: "Glo" },
-    { id: "etisalat", img: etisalat, name: "9mobile" },
+    { id: "9mobile", img: etisalat, name: "9mobile" },
   ];
 
   const handleDataScreen = () => {
     if (selectedDataScreenNetwork) {
       // Handle button submission
+      setSelectedDatapinNetwork(selectedDataScreenNetwork);
       navigate("/datapin");
     }
   };
 
   //datamodal state
+  const { setSelectedNetNetwork } = useContext(NetworkContext);
+  //const navigate = useNavigate();
+
   const [datamodalIsOpen, setDataModalIsOpen] = useState(false);
 
   const dataopenModal = () => {
@@ -149,17 +156,19 @@ const Wallets = () => {
     { id: "mtn", img: mtn, name: "MTN" },
     { id: "airtel", img: airtel, name: "Airtel" },
     { id: "glo", img: glo, name: "Glo" },
-    { id: "etisalat", img: etisalat, name: "9mobile" },
+    { id: "9mobile", img: etisalat, name: "9mobile" },
   ];
 
   const handleData = () => {
     if (selectedDataNetwork) {
-      // Handle button submission
+      setSelectedNetNetwork(selectedDataNetwork);
       navigate("/data");
     }
   };
 
   //airtimes
+  const { setSelectedAirtimeNetwork } = useContext(NetworkContext);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
@@ -176,17 +185,20 @@ const Wallets = () => {
     { id: "mtn", img: mtn, name: "MTN" },
     { id: "airtel", img: airtel, name: "Airtel" },
     { id: "glo", img: glo, name: "Glo" },
-    { id: "etisalat", img: etisalat, name: "9mobile" },
+    { id: "9mobile", img: etisalat, name: "9mobile" },
   ];
 
   const handleAirtime = () => {
     if (selectedNetwork) {
+      setSelectedAirtimeNetwork(selectedNetwork);
       // Handle button submission
       navigate("/airtime");
     }
   };
 
   //Exam pin
+  const { setSelectedExamNetwork } = useContext(NetworkContext);
+
   const [exammodalIsOpen, setExamModalIsOpen] = useState(false);
 
   const examopenModal = () => {
@@ -206,12 +218,15 @@ const Wallets = () => {
 
   const handleExam = () => {
     if (selectedExam) {
+      setSelectedExamNetwork(selectedExam);
       // Handle button submission
       navigate("/exam");
     }
   };
 
   //Electricity
+  const { setSelectedDistribution } = useContext(NetworkContext);
+
   const [electricitymodalIsOpen, setElectricityModalIsOpen] = useState(false);
 
   const electricityopenModal = () => {
@@ -238,6 +253,7 @@ const Wallets = () => {
   const handleElectricity = () => {
     if (selectedElectricity) {
       // Handle button submission
+      setSelectedDistribution(selectedElectricity);
       navigate("/electricity");
     }
   };
@@ -252,6 +268,7 @@ const Wallets = () => {
   const handleCable = () => {
     if (selectedCable) {
       // Handle button submission
+      setSelectedCableNetwork(selectedCable);
       navigate("/cable");
     }
   };
@@ -265,6 +282,8 @@ const Wallets = () => {
   const cablecloseModal = () => {
     setCablemodalIsOpen(false);
   };
+
+  const { setSelectedCableNetwork } = useContext(NetworkContext);
 
   const [selectedCable, setSelectedCable] = useState(null);
 
@@ -352,7 +371,7 @@ const Wallets = () => {
           </div>
 
           <div className="mt-2">
-            <div className="flex flex-wrap justify-between lg:px-96 md:px-60 m-1 lg:ml-5 lg:mr-5">
+            <div className="flex flex-wrap gap-3 items-center justify-center justify-items-center md:justify-around md:gap-auto lg:px-96 md:px-60 m-1 lg:m-0">
               {[
                 { img: currency, text: "Add Money", to: "/more" },
                 { img: withdraw, text: "Withdraw", to: "/withdrawfunds" },
@@ -365,7 +384,7 @@ const Wallets = () => {
                   className=""
                 >
                   <Link
-                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[60px] w-[106px] lg:w-100 lg:justify-items-center rounded-xl flex flex-col items-center justify-center p-3"
+                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[60px] w-[90px] lg:w-100 lg:justify-items-center rounded-xl flex flex-col items-center justify-center p-3"
                     to={item.to}
                   >
                     <img
@@ -384,11 +403,11 @@ const Wallets = () => {
           <div className="mt-4">
             <div className="bg-colorbg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl ">
               <div className="flex justify-between mb-1 p-4">
-                <p className="font-semibold text-black text-base lg:px-96 md:px-60 lg:ml-5 ml-1">
+                <p className="font-semibold text-black text-base lg:px-96 md:px-60 lg:ml-5 ml-1 text-center">
                   My Services
                 </p>
               </div>
-              <div className="flex flex-wrap justify-around lg:px-96 md:px-60 md:gap-2 md:justify-items-center lg:justify-items-center lg:gap-10 lg:grid-cols-3 md:grid-cols-3 lg:grid md:grid gap-4 m-1">
+              <div className="flex flex-wrap items-center justify-center justify-items-center lg:px-96 md:px-60 md:gap-auto md:justify-items-center  lg:justify-items-center lg:gap-10 lg:grid-cols-3 md:grid-cols-3 lg:grid md:grid gap-3 m-1">
                 {[
                   { img: airtime, text: "Airtime", onClick: openModal },
                   {
@@ -421,7 +440,7 @@ const Wallets = () => {
                     whileHover={cardHoverVariants.hover}
                     key={idx}
                     type="button"
-                    className="bg-[#F9F9F9] text-center text-[10px] border border-[#D8D8D8] font-normal py-2 px-3 lg:py-2 lg:px-4 h-[65px] w-[102px] lg:w-100 rounded-xl text-black flex flex-col items-center"
+                    className="bg-[#F9F9F9] text-center text-[10px] border border-[#D8D8D8] font-normal py-2 px-3 lg:py-2 lg:px-1 h-[65px] w-[90px] lg:w-100 rounded-xl text-black flex flex-col items-center"
                     onClick={item.onClick}
                   >
                     <img
@@ -448,10 +467,10 @@ const Wallets = () => {
           isOpen={datamodalIsOpen}
           onRequestClose={datacloseModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-auto md:justify-items-center mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-auto mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={datacloseModal}
@@ -514,10 +533,10 @@ const Wallets = () => {
           isOpen={datascreenmodalIsOpen}
           onRequestClose={datascreencloseModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-auto mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-auto mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={datascreencloseModal}
@@ -582,10 +601,10 @@ const Wallets = () => {
           isOpen={cablemodalIsOpen}
           onRequestClose={cablecloseModal}
           contentLabel="Select Cable"
-          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-auto mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-auto mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={cablecloseModal}
@@ -648,10 +667,10 @@ const Wallets = () => {
           isOpen={exammodalIsOpen}
           onRequestClose={examcloseModal}
           contentLabel="Select Exam"
-          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-auto mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-auto mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={examcloseModal}
@@ -714,10 +733,10 @@ const Wallets = () => {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           contentLabel="Select network"
-          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-0 mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
+          className="fixed inset-0 flex items-center justify-center md:mt-auto md:mb-auto mt-0 mb-0 md:bg-opacity-10 bg-opacity-0"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-0 mt-auto mb-0">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full max-w-md p-7 md:mt-auto md:mb-auto mt-auto mb-0">
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={closeModal}
@@ -817,12 +836,12 @@ const Wallets = () => {
           isOpen={electricitymodalIsOpen}
           onRequestClose={electricitycloseModal}
           contentLabel="Social Network"
-          className={`fixed inset-0 flex items-center justify-center transition-all duration-300 lg:mt-[200px] ${
+          className={`fixed inset-0 flex items-center justify-center md:mt-auto md:mb-auto transition-all duration-300 lg:mt-[200px] ${
             isFullHeight ? "h-full" : "h-[80vh]"
           }`}
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full h-auto lg:h-full mt-[215px] max-w-md p-7 lg:max-w-full relative overflow-hidden">
+          <div className="bg-white rounded-tr-3xl rounded-tl-3xl md:rounded-3xl shadow-lg w-full h-auto lg:h-full mt-[215px] md:mt-auto md:mb-auto max-w-md p-7 lg:max-w-full relative overflow-hidden">
             <div
               className="cursor-pointer w-[66px] h-1 bg-[#5B5B5B] rounded-3xl mx-auto mb-4"
               onClick={toggleHeight}
