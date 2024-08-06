@@ -329,11 +329,11 @@ const Wallets = () => {
         exit="exit"
       >
         <div className="w-full max-w-7xl mx-auto px-">
-          <div className="flex flex-wrap lg:flex-nowrap lg:px-96 md:px-60 ">
+          <div className="flex flex-wrap lg:flex-nowrap lg:px-[406px] md:px-[260px] pl-2 pr-2">
             <motion.div
               variants={itemVariants}
               whileHover={cardHoverVariants.hover}
-              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg lg:m-5 h-[150px] rounded-xl w-full lg:w-full lg:h-[200px] p-8 pt-5 m-1 bg-hero-pattern bg-no-repeat bg-cover bg-center"
+              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg lg:m-5 h-[150px] rounded-xl w-full lg:w-full lg:h-[200px] p-8 pt-5 bg-hero-pattern bg-no-repeat bg-cover bg-center"
             >
               <div className="flex justify-between items-center ">
                 <div className="">
@@ -370,8 +370,8 @@ const Wallets = () => {
             </motion.div>
           </div>
 
-          <div className="mt-2">
-            <div className="flex flex-wrap gap-3 items-center justify-center justify-items-center md:justify-around md:gap-auto lg:px-96 md:px-60 m-1 lg:m-0">
+          <div className="mt-2 lg:mt-[-8px] pl-2 pr-2">
+            <div className="flex flex-wrap bg-white lg:bg-transparent md:bg-transparent p-3 rounded-xl gap-6 items-center justify-center justify-items-center md:justify-around md:gap-auto lg:px-96 md:px-60 lg:m-0">
               {[
                 { img: currency, text: "Add Money", to: "/more" },
                 { img: withdraw, text: "Withdraw", to: "/withdrawfunds" },
@@ -384,7 +384,7 @@ const Wallets = () => {
                   className=""
                 >
                   <Link
-                    className="bg-[#8E1011] dark:text-gray-200 dark:bg-secondary-dark-bg h-[60px] w-[90px] lg:w-100 lg:justify-items-center rounded-xl flex flex-col items-center justify-center p-3"
+                    className="bg-[#8E1011] dark:text-gray-200 px-1  dark:bg-secondary-dark-bg h-[60px] w-[80px] lg:w-100 lg:justify-items-center rounded-xl flex flex-col items-center justify-center p-3"
                     to={item.to}
                   >
                     <img
@@ -400,14 +400,14 @@ const Wallets = () => {
               ))}
             </div>
           </div>
-          <div className="mt-4">
-            <div className="bg-colorbg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl ">
+          <div className="mt-2 pl-2 pr-2">
+            <div className="bg-white lg:bg-transparent md:bg-transparent p-3 rounded-xl dark:text-gray-200 dark:bg-secondary-dark-bg">
               <div className="flex justify-between mb-1 p-4">
-                <p className="font-semibold text-black text-base lg:px-96 md:px-60 lg:ml-5 ml-1 text-center">
+                <p className="font-semibold text-black text-[14px] lg:px-96 md:px-60 lg:ml-5 ml-1 text-center">
                   My Services
                 </p>
               </div>
-              <div className="flex flex-wrap items-center justify-center justify-items-center lg:px-96 md:px-60 md:gap-auto md:justify-items-center  lg:justify-items-center lg:gap-10 lg:grid-cols-3 md:grid-cols-3 lg:grid md:grid gap-3 m-1">
+              <div className="flex flex-wrap items-center justify-center justify-items-center lg:px-96 md:px-60 md:gap-auto md:justify-items-center lg:justify-items-center lg:gap-10 lg:grid-cols-3 md:grid-cols-3 lg:grid md:grid gap-6 m-1">
                 {[
                   { img: airtime, text: "Airtime", onClick: openModal },
                   {
@@ -440,7 +440,7 @@ const Wallets = () => {
                     whileHover={cardHoverVariants.hover}
                     key={idx}
                     type="button"
-                    className="bg-[#F9F9F9] text-center text-[10px] border border-[#D8D8D8] font-normal py-2 px-2 lg:py-2 lg:px-1 h-[65px] w-[90px] lg:w-100 rounded-xl text-black flex flex-col items-center"
+                    className="bg-[#F9F9F9] text-center text-[10px] border border-[#D8D8D8] font-normal py-2 px-1 lg:py-2 lg:px-1 h-[65px] w-[80px] lg:w-100 rounded-xl text-black flex flex-col items-center"
                     onClick={item.onClick}
                   >
                     <img

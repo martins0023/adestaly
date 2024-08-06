@@ -303,7 +303,7 @@ const EditTransactionPin = () => {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="mt-12 flex flex-col gap-8 m-1"
+            className="mt-5 flex flex-col gap-5 m-1"
           >
             {["oldpin", "newpin", "confirmpin"].map((field, idx) => (
               <label key={idx} className="flex flex-col relative">
@@ -469,12 +469,12 @@ const EditTransactionPin = () => {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className={`bg-original py-3 px-20 outline-none uppercase h-[45px] xl text-[12px] w-full sm:w-[406px] text-white font-bold rounded-full mb-[40px] mt-[32px] ${
+                className={`bg-original py-3 outline-none uppercase h-[45px] text-[12px] w-full sm:w-[406px] text-white font-bold rounded-full mb-[40px] mt-[32px] ${
                   !isPinValid() ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={!isPinValid()}
               >
-                {loading ? "disabling pin..." : "Disable Pin"}
+                {loading ? `${formData.action}ing pin...` : `${formData.action} Pin`}
               </button>
             </div>
           </form>

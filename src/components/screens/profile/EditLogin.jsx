@@ -244,7 +244,7 @@ const EditLogin = () => {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="mt-12 flex flex-col gap-8 m-1"
+            className="mt-5 flex flex-col gap-5 m-1"
           >
             {["oldpassword", "newpassword", "confirmpassword"].map(
               (field, idx) => (
