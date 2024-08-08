@@ -13,6 +13,7 @@ import {
   glo,
   airtel,
   etisalat,
+  dollar,
 } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -163,7 +164,7 @@ const ConvertCash = () => {
           </div>
 
           <div className="flex flex-row justify-center gap-[8px] items-center border border-black h-[70px] rounded-xl m-2">
-            <img src={cashflow} className="h-[38px] w-[38px]" />
+            <img src={dollar} className="h-[38px] w-[38px] rounded-full" />
             <p className="uppercase font-bold text-black text-[14px]">
               CONVERT AIRTIME TO CASH
             </p>

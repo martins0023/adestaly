@@ -279,7 +279,7 @@ const HistoryTopup = () => {
             className="h-[32px] w-[32px]"
             src={filter_alt}
             alt="Filter"
-            onClick={filteropenModal}
+            onClick={() => setFilterModalIsOpen(true)}
           />
         </div>
       </div>

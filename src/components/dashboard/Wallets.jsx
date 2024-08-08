@@ -480,7 +480,7 @@ const Wallets = () => {
               </div>
             </div>
           </div>
-          <div className="flex bottom-px right-0 items-end justify-end">
+          <div className="flex bottom-px mt-[-2px] right-0 items-end justify-end">
             {" "}
             {/* Ensure it has a higher z-index */}
             <img src={whatsapp} className="w-16 h-16" alt="WhatsApp Icon" />
@@ -944,7 +944,7 @@ const Wallets = () => {
           isOpen={welcomemodalIsOpen}
           onRequestClose={welcomecloseModal}
           contentLabel="WELCOME NOTIFICATION"
-          className="fixed inset-0 flex items-center m-[2.5px] justify-center bg-black bg-opacity-10"
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 outline-none"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
           
         >
@@ -953,21 +953,21 @@ const Wallets = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 flex flex-col items-center m-2"
+            className="bg-white rounded-3xl m-[12px] shadow-lg w-full max-w-md flex flex-col items-center p-auto"
           >
-            <div className="flex flex-row mt-3 items-center">
-              <img src={fire} className="w-[66px] h-[66px]" alt="fire" />
-              <p className="font-black text-[32px] text-[#8E1011]">
+            <div className="flex flex-row mt-6 items-center">
+              <img src={fire} className="w-[60px] h-[60px]" alt="fire" />
+              <p className="font-black text-[30px] text-[#8E1011]">
                 GOOD NEWS!
               </p>
             </div>
             <div className="flex flex-col justify-between items-center mb-4 gap-3 mt-[16px]">
-              <p className="font-bold text-center text-[16px] w-[336px] text-[#000000]">
+              <p className="font-bold text-center text-[14px] w-[336px] text-[#000000] ml-1 mr-1">
                 This is to inform you that Adestaly will be launching the first
                 ever feature that allows you to earn money on Adestaly straIght
                 to wallet or your bank account.
               </p>
-              <p className="font-normal text-center text-[14px] w-[336px] text-[#000000]">
+              <p className="font-normal text-center text-[12px] w-[336px] text-[#000000]">
                 More info will be sent via the Adestaly whatsApp announcement
                 page. To receive adestaly notification on whatsApp: Chat us on
                 whatsApp via <b>09158017391</b>.
@@ -976,7 +976,7 @@ const Wallets = () => {
             <motion.button
               variants={itemVariants}
               onClick={welcomecloseModal}
-              className="mt-6 bg-[#8E1011] font-montserrat py-3 px-20 text-[#ffffff] border-[1.5px] border-[#8E1011] rounded-full uppercase w-[202px] h-[60px]"
+              className="mt-6 bg-[#8E1011] font-montserrat py-3 px-20 mb-10 text-[#ffffff] border-[1.5px] border-[#8E1011] rounded-full uppercase w-[202px] h-[60px]"
             >
               OKAY
             </motion.button>

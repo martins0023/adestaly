@@ -166,7 +166,7 @@ const UserReceipt = () => {
         <div className="flex flex-col items-center justify-center mt-[30px] m-2 mb-8 gap-[12px]">
           <button
             type="submit"
-            className={`bg-original font-montserrat py-3 px-20 outline-none text-[12px] uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[45px] `}
+            className={`bg-original font-montserrat py-3 px-20 outline-none text-[12px] uppercase text-white font-bold shadow-md rounded-full w-full h-[45px] `}
           >
             {loading ? "transferring..." : "SHARE"}
           </button>

@@ -182,17 +182,16 @@ const TransactionDetails = () => {
             </p>
           </div>
         </div>
-
-        <div className="flex-auto items-center justify-center mt-[30px] m-3 p-1">
-          <Link to="/userreceipt">
+          <Link to="/userreceipt"
+            className="flex flex-col items-center justify-center mt-[30px] m-3 p-1"
+          >
             <button
               type="submit"
-              className={`bg-original font-montserrat py-3 px-20 text-[12px] outline-none uppercase xl sm:w-[406px] text-white font-bold shadow-md rounded-full w-full h-[45px] `}
+              className={`bg-original font-montserrat py-3 px-20 text-[12px] outline-none uppercase text-white font-bold shadow-md rounded-full w-full h-[45px] `}
             >
               {loading ? "transferring..." : "View user receipt"}
             </button>
           </Link>
-        </div>
       </motion.div>
     </section>
   );
