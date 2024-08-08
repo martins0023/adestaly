@@ -34,6 +34,42 @@ html, body {
   scrollbar-width: none;  /* Firefox */
 }
 
+.hidden-checkbox {
+  display: none;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.custom-checkbox {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #a3a2a2;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-checkbox::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s;
+}
+
+.hidden-checkbox:checked + .custom-checkbox::before {
+  background-color: #8E1011;
+}
+
+
 .black-gradient {
   background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(

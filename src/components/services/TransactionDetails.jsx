@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import { styles } from "../../styles";
-import { arrow_back_ios, cancel, home, success } from "../../assets";
+import { arrow_back_ios, cancel, home, success, handshake } from "../../assets";
 
 const TransactionDetails = () => {
   const containerVariants = {
@@ -99,7 +99,7 @@ const TransactionDetails = () => {
       >
         <div className="mt-[20px] bg-white rounded-3xl p-7 m-3 gap-[24px] font-montserrat">
           <div className="flex flex-col justify justify-center items-center mt-[12px] gap-[12px] font-montserrat">
-            <img src={success} className="w-[60px] h-[60px]" />
+            <img src={handshake} className="w-[60px] h-[60px]" />
             <p className="font-semibold text-[18px] text-[#000] font-montserrat text-center">
               Transaction Successful
             </p>
@@ -183,7 +183,7 @@ const TransactionDetails = () => {
           </div>
         </div>
 
-        <div className="flex flex-auto items-center justify-center mt-[30px] m-2">
+        <div className="flex-auto items-center justify-center mt-[30px] m-3 p-1">
           <Link to="/userreceipt">
             <button
               type="submit"

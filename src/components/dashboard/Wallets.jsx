@@ -39,6 +39,8 @@ import {
   jedc,
   kadedc,
   phedc,
+  dollar,
+  fire,
 } from "../../assets";
 import { styles } from "../../styles";
 import ServiceModal from "./ServiceModal";
@@ -104,6 +106,30 @@ const Wallets = () => {
   };
 
   const [selectedConvert, setSelectedConvert] = useState(null);
+
+  //welcome modal
+  const [welcomemodalIsOpen, setWelcomeModalIsOpen] = useState(true);
+
+  const welcomeopenModal = () => {
+    setWelcomeModalIsOpen(true);
+  };
+
+  const welcomecloseModal = () => {
+    setWelcomeModalIsOpen(false);
+  };
+
+  const [selectedWelcome, setSelectedWelcome] = useState(null);
+
+  useEffect(() => {
+    // Check local storage to determine if the modal has been shown
+    const hasShownModal = localStorage.getItem('welcomeModalShown');
+    if (!hasShownModal) {
+      // If not shown before, open the modal
+      welcomeopenModal();
+      // Set the local storage flag to avoid showing it again
+      localStorage.setItem('welcomeModalShown', 'true');
+    }
+  }, []);
 
   //datascreen modal
   const { setSelectedDatapinNetwork } = useContext(NetworkContext);
@@ -462,6 +488,7 @@ const Wallets = () => {
         </div>
       </motion.div>
 
+      {/*data modal */}
       <div className="flex items-center justify-center">
         <Modal
           isOpen={datamodalIsOpen}
@@ -528,6 +555,7 @@ const Wallets = () => {
         </Modal>
       </div>
 
+      {/*datascreen modal */}
       <div className="flex items-center justify-center ">
         <Modal
           isOpen={datascreenmodalIsOpen}
@@ -596,6 +624,7 @@ const Wallets = () => {
         </Modal>
       </div>
 
+      {/*cable modal */}
       <div className="flex items-center justify-center ">
         <Modal
           isOpen={cablemodalIsOpen}
@@ -662,6 +691,7 @@ const Wallets = () => {
         </Modal>
       </div>
 
+      {/*exam modal */}
       <div className="flex items-center justify-center ">
         <Modal
           isOpen={exammodalIsOpen}
@@ -728,6 +758,7 @@ const Wallets = () => {
         </Modal>
       </div>
 
+      {/*airtime modal */}
       <div className="flex items-center justify-center ">
         <Modal
           isOpen={modalIsOpen}
@@ -794,6 +825,7 @@ const Wallets = () => {
         </Modal>
       </div>
 
+      {/*convert to cash modal */}
       <div className="flex items-center justify-center ">
         <Modal
           isOpen={convertmodalIsOpen}
@@ -810,7 +842,7 @@ const Wallets = () => {
             </div>
             <div className="p-3 mt-9 flex justify-center items-center">
               <img
-                src={cashflow}
+                src={dollar}
                 alt="Cashflow"
                 className="w-full h-auto items-center"
               />
@@ -831,6 +863,7 @@ const Wallets = () => {
         </Modal>
       </div>
 
+      {/*electricity modal */}
       <div className="flex items-center justify-center">
         <Modal
           isOpen={electricitymodalIsOpen}
@@ -902,6 +935,52 @@ const Wallets = () => {
               </button>
             </div>
           </div>
+        </Modal>
+      </div>
+
+      {/**welcome modal */}
+      <div className="flex items-center justify-center">
+        <Modal
+          isOpen={welcomemodalIsOpen}
+          onRequestClose={welcomecloseModal}
+          contentLabel="WELCOME NOTIFICATION"
+          className="fixed inset-0 flex items-center m-[2.5px] justify-center bg-black bg-opacity-10"
+          overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+          
+        >
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="bg-white rounded-3xl shadow-lg w-full max-w-md p-7 flex flex-col items-center m-2"
+          >
+            <div className="flex flex-row mt-3 items-center">
+              <img src={fire} className="w-[66px] h-[66px]" alt="fire" />
+              <p className="font-black text-[32px] text-[#8E1011]">
+                GOOD NEWS!
+              </p>
+            </div>
+            <div className="flex flex-col justify-between items-center mb-4 gap-3 mt-[16px]">
+              <p className="font-bold text-center text-[16px] w-[336px] text-[#000000]">
+                This is to inform you that Adestaly will be launching the first
+                ever feature that allows you to earn money on Adestaly straIght
+                to wallet or your bank account.
+              </p>
+              <p className="font-normal text-center text-[14px] w-[336px] text-[#000000]">
+                More info will be sent via the Adestaly whatsApp announcement
+                page. To receive adestaly notification on whatsApp: Chat us on
+                whatsApp via <b>09158017391</b>.
+              </p>
+            </div>
+            <motion.button
+              variants={itemVariants}
+              onClick={welcomecloseModal}
+              className="mt-6 bg-[#8E1011] font-montserrat py-3 px-20 text-[#ffffff] border-[1.5px] border-[#8E1011] rounded-full uppercase w-[202px] h-[60px]"
+            >
+              OKAY
+            </motion.button>
+          </motion.div>
         </Modal>
       </div>
     </section>

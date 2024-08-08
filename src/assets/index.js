@@ -120,7 +120,14 @@ import whatsapp_colored from "./whatsapp_colored.png";
 import service_hour from "./service.png";
 import mail from "./mail.png";
 
+import handshake from "./handshake.gif";
+import dollar from "./dollar.gif";
+import fire from "./fire.gif";
+
 export {
+  handshake,
+  fire,
+  dollar,
   mail,
   service_hour,
   colored_contact,
